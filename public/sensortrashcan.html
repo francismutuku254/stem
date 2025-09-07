@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Bin - Step by Step</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="icon" type="image/x-icon" href="images/image1.png" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    .step-card {
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background: white;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .step-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .step-img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+      cursor: zoom-in;
+    }
+    .step-img:hover {
+      transform: scale(1.1);
+    }
+    .nav-btn {
+      border-radius: 20px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Smart Bin - Step by Step Guide</h2>
+
+    <!-- Step Content -->
+    <div id="step-container" class="step-card">
+      <h4 id="step-title">Step 1: Gather All Components</h4>
+      <img id="step-image" src="steps/bin1.jpg" alt="Step 1 Image" class="step-img my-3">
+      <p id="step-desc">Collect all the electronic and mechanical components needed to assemble your Smart Bin.</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="d-flex justify-content-between mt-4">
+      <button class="btn btn-secondary nav-btn" onclick="prevStep()">⬅ Previous</button>
+      <button class="btn btn-primary nav-btn" onclick="nextStep()">Next ➡</button>
+    </div>
+  </div>
+
+  <script>
+    const steps = [
+      { title: "Step 1: Gather All Components", img: "steps/bin1.jpg", desc: "Collect all the electronic and mechanical components needed to assemble your Smart Bin." },
+      { title: "Step 2: Prepare the Bin", img: "steps/bin2.jpg", desc: "Drill or cut openings for the sensor and motor placement on the bin lid." },
+      { title: "Step 3: Install Motion Sensor", img: "steps/bin3.jpg", desc: "Mount the PIR/Ultrasonic sensor at the top front of the bin lid." },
+      { title: "Step 4: Mount Servo Motor", img: "steps/bin4.jpg", desc: "Fix the servo motor securely to control lid movement." },
+      { title: "Step 5: Connect Servo Arm", img: "steps/bin5.jpg", desc: "Attach the servo horn/arm to the bin lid for lifting action." },
+      { title: "Step 6: Wire the Components", img: "steps/bin6.jpg", desc: "Connect the sensor and servo to the microcontroller (Arduino/ESP)." },
+      { title: "Step 7: Add Power Supply", img: "steps/bin7.jpg", desc: "Provide stable power to the system using batteries or adapter." },
+      { title: "Step 8: Upload Code", img: "steps/bin8.jpg", desc: "Upload the Arduino/ESP code that controls the sensor and servo." },
+      { title: "Step 9: Test Sensor Response", img: "steps/bin9.jpg", desc: "Check if the lid opens automatically when motion is detected." },
+      { title: "Step 10: Adjust Servo Angle", img: "steps/bin10.jpg", desc: "Calibrate the servo angles to open and close smoothly." },
+      { title: "Step 11: Secure Wiring", img: "steps/bin11.jpg", desc: "Arrange wires neatly inside the bin for safety and durability." },
+      { title: "Step 12: Final Assembly Complete", img: "steps/bin12.jpg", desc: "Your Smart Bin is ready to use! Test it multiple times to confirm." }
+    ];
+
+    let currentStep = 0;
+
+    function showStep(index) {
+      const step = steps[index];
+      document.getElementById("step-title").innerText = step.title;
+      document.getElementById("step-image").src = step.img;
+      document.getElementById("step-image").alt = step.title;
+      document.getElementById("step-desc").innerText = step.desc;
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    }
+
+ function prevStep() {
+  if (currentStep > 0) {
+    currentStep--;
+    showStep(currentStep);
+  } else {
+    // If at the first step, go back to intro page
+    window.location.href = "trashcan_intro.html";
+  }
+}
+
+  </script>
+
+</body>
+</html>

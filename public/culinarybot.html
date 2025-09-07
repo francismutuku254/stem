@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Culinary Bot - Step by Step</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="icon" type="image/x-icon" href="images/image1.png" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    .step-card {
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background: white;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .step-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .step-img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+      cursor: zoom-in;
+    }
+    .step-img:hover {
+      transform: scale(1.1);
+    }
+    .nav-btn {
+      border-radius: 20px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Culinary Bot - Step by Step Guide</h2>
+
+    <!-- Step Content -->
+    <div id="step-container" class="step-card">
+      <h4 id="step-title">Step 1: Gather All Components</h4>
+      <img id="step-image" src="steps/cul1.jpg" alt="Step 1 Image" class="step-img my-3">
+      <p id="step-desc">Collect all parts required for the Culinary Bot assembly before starting.</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="d-flex justify-content-between mt-4">
+      <button class="btn btn-secondary nav-btn" onclick="prevStep()">⬅ Previous</button>
+      <button class="btn btn-primary nav-btn" onclick="nextStep()">Next ➡</button>
+    </div>
+  </div>
+
+  <script>
+    const steps = [
+      { title: "Step 1: Gather All Components", img: "steps/cul1.jpg", desc: "Collect all parts required for the Culinary Bot assembly before starting." },
+      { title: "Step 2: Install Base Sensor", img: "steps/cul2.jpg", desc: "Fix the base sensor on the bottom platform securely." },
+      { title: "Step 3: Assemble Base Structure", img: "steps/cul3.jpg", desc: "Attach the supporting frame to the base platform." },
+      { title: "Step 4: Mount Motor Housing", img: "steps/cul4.jpg", desc: "Fix the motor housing onto the structure." },
+      { title: "Step 5: Attach Stirring Arm", img: "steps/cul5.jpg", desc: "Install the stirring arm to the rotating shaft." },
+      { title: "Step 6: Add Gear System", img: "steps/cul6.jpg", desc: "Connect gears to link the motor with the stirring arm." },
+      { title: "Step 7: Install Control Panel", img: "steps/cul7.jpg", desc: "Fix the control buttons and display unit onto the frame." },
+      { title: "Step 8: Connect Wiring", img: "steps/cul8.jpg", desc: "Attach all wires properly between sensors, motors, and the control unit." },
+      { title: "Step 9: Mount Mixing Bowl", img: "steps/cul9.jpg", desc: "Securely place the bowl holder into the structure." },
+      { title: "Step 10: Fix Ingredient Hopper", img: "steps/cul10.jpg", desc: "Attach the hopper that dispenses ingredients into the bowl." },
+      { title: "Step 11: Install Temperature Sensor", img: "steps/cul11.jpg", desc: "Place the temperature sensor near the mixing bowl." },
+      { title: "Step 12: Add Safety Guard", img: "steps/cul12.jpg", desc: "Install a protective cover around moving parts." },
+      { title: "Step 13: Attach Secondary Arm", img: "steps/cul13.jpg", desc: "Fix the secondary robotic arm for assisting operations." },
+      { title: "Step 14: Connect Power Supply", img: "steps/cul14.jpg", desc: "Plug in and route the power supply cables neatly." },
+      { title: "Step 15: Mount Display Screen", img: "steps/cul15.jpg", desc: "Install the display screen for user interaction." },
+      { title: "Step 16: Perform Initial Test", img: "steps/cul16.jpg", desc: "Run the bot without ingredients to test motor movement and sensors." },
+      { title: "Step 17: Calibrate Sensors", img: "steps/cul17.jpg", desc: "Check and adjust the sensors for accurate readings." },
+      { title: "Step 18: Final Assembly Complete", img: "steps/cul18.jpg", desc: "Your Culinary Bot is now ready for use!" }
+    ];
+
+    let currentStep = 0;
+
+    function showStep(index) {
+      const step = steps[index];
+      document.getElementById("step-title").innerText = step.title;
+      document.getElementById("step-image").src = step.img;
+      document.getElementById("step-image").alt = step.title;
+      document.getElementById("step-desc").innerText = step.desc;
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    }
+
+ function prevStep() {
+  if (currentStep > 0) {
+    currentStep--;
+    showStep(currentStep);
+  } else {
+    // If at the first step, go back to intro page
+    window.location.href = "culinary_intro.html";
+  }
+}
+
+  </script>
+
+</body>
+</html>

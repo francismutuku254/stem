@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kinetic Braking System - Step by Step</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="icon" type="image/x-icon" href="images/image1.png" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    .step-card {
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background: white;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .step-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .step-img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+      cursor: zoom-in;
+    }
+    .step-img:hover {
+      transform: scale(1.1);
+    }
+    .nav-btn {
+      border-radius: 20px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Kinetic Braking System - Step by Step Guide</h2>
+
+    <!-- Step Content -->
+    <div id="step-container" class="step-card">
+      <h4 id="step-title">Step 1</h4>
+      <img id="step-image" src="steps/brake1.jpg" alt="Step 1 Image" class="step-img my-3">
+      <p id="step-desc">Follow the visual instructions carefully for each step of assembly.</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="d-flex justify-content-between mt-4">
+      <button class="btn btn-secondary nav-btn" onclick="prevStep()">⬅ Previous</button>
+      <button class="btn btn-primary nav-btn" onclick="nextStep()">Next ➡</button>
+    </div>
+  </div>
+
+  <script>
+    const steps = [
+      { title: "Step 1", img: "steps/brake1.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 2", img: "steps/brake2.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 3", img: "steps/brake3.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 4", img: "steps/brake4.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 5", img: "steps/brake5.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 6", img: "steps/brake6.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 7", img: "steps/brake7.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 8", img: "steps/brake8.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 9", img: "steps/brake9.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 10", img: "steps/brake10.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 11", img: "steps/brake11.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 12", img: "steps/brake12.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 13", img: "steps/brake13.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 14", img: "steps/brake14.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 15", img: "steps/brake15.jpg", desc: "Follow the visual instructions carefully for each step of assembly." },
+      { title: "Step 16", img: "steps/brake16.jpg", desc: "Follow the visual instructions carefully for each step of assembly." }
+    ];
+
+    let currentStep = 0;
+
+    function showStep(index) {
+      const step = steps[index];
+      document.getElementById("step-title").innerText = step.title;
+      document.getElementById("step-image").src = step.img;
+      document.getElementById("step-image").alt = step.title;
+      document.getElementById("step-desc").innerText = step.desc;
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    }
+
+ function prevStep() {
+  if (currentStep > 0) {
+    currentStep--;
+    showStep(currentStep);
+  } else {
+    // If at the first step, go back to intro page
+    window.location.href = "braking_intro.html";
+  }
+}
+
+  </script>
+
+</body>
+</html>
