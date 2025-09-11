@@ -72,14 +72,15 @@
     .step-image-wrapper:hover {
       transform: scale(1.02);
     }
-    .step-img {
-      width: 100%;
-      height: auto;
-      max-height: 500px;
-      object-fit: cover;
-      display: block;
-      margin-bottom: 10px;
-    }
+ .step-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: none;   /* remove fixed height restriction */
+  object-fit: scale-down; /* ensures it scales but fills width */
+}
+
+
     .step-img-caption {
       position: absolute;
       bottom: 0;
@@ -120,17 +121,31 @@
       border-color: #004085;
       transform: translateX(5px);
     }
+
+    /* ===== Progress Bar ===== */
     .progress-bar-container {
-      height: 8px;
+      height: 12px;
       background-color: #e9ecef;
-      border-radius: 4px;
+      border-radius: 6px;
       margin-top: 20px;
+      overflow: hidden;
+      position: relative;
     }
     .progress-bar {
-      background-color: var(--primary-color);
-      border-radius: 4px;
+      background: linear-gradient(90deg, var(--primary-color), #00c6ff);
+      border-radius: 6px;
       transition: width 0.4s ease-in-out;
+      height: 100%;
     }
+    .progress-label {
+      position: absolute;
+      top: -25px;
+      right: 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
+
     pre code {
       display: block;
       padding: 15px;
@@ -175,10 +190,13 @@
       </div>
     </div>
 
+    <!-- Progress Bar -->
     <div class="progress-bar-container mt-4">
-      <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+      <div id="progress-bar" class="progress-bar" role="progressbar"></div>
+      <div id="progress-label" class="progress-label">Step 1 of X</div>
     </div>
 
+    <!-- Navigation -->
     <div class="d-flex justify-content-between mt-4">
       <button id="prev-btn" class="btn btn-secondary nav-btn nav-btn-prev" onclick="prevStep()">⬅ Previous</button>
       <button id="next-btn" class="btn btn-primary nav-btn nav-btn-next" onclick="nextStep()">Next ➡</button>
@@ -279,10 +297,11 @@ void loop() {
       const step = steps[index];
       const stepContainer = document.getElementById("step-container");
       stepContainer.classList.add('animate__fadeOut');
+
       setTimeout(() => {
         document.getElementById("step-title").innerText = step.title;
 
-        // Handle images (single or multiple)
+        // Handle images
         const stepImagesContainer = document.getElementById("step-images");
         stepImagesContainer.innerHTML = "";
         if (step.imgs && step.imgs.length > 0) {
@@ -301,8 +320,8 @@ void loop() {
           stepImagesContainer.appendChild(imgEl);
         }
 
-        document.getElementById("step-desc").innerText = step.desc;
-        document.getElementById("step-caption").innerText = step.caption;
+        document.getElementById("step-desc").innerText = step.desc || "";
+        document.getElementById("step-caption").innerText = step.caption || "";
 
         // Handle code block
         if (step.code) {
@@ -311,10 +330,20 @@ void loop() {
         } else {
           document.getElementById("code-block").style.display = "none";
         }
-        
+
+        // Progress bar update
         const progress = ((currentStep + 1) / steps.length) * 100;
         document.getElementById("progress-bar").style.width = progress + "%";
-        
+        document.getElementById("progress-label").innerText = `Step ${currentStep + 1} of ${steps.length}`;
+
+        // Update button text on last step
+        const nextBtn = document.getElementById("next-btn");
+        if (currentStep === steps.length - 1) {
+          nextBtn.innerText = "Finish ✅";
+        } else {
+          nextBtn.innerText = "Next ➡";
+        }
+
         stepContainer.classList.remove('animate__fadeOut');
         stepContainer.classList.add('animate__fadeIn');
       }, 300);
@@ -331,6 +360,9 @@ void loop() {
       if (currentStep > 0) {
         currentStep--;
         showStep(currentStep);
+      } else {
+        // Redirect back to intro page
+        window.location.href = "arduino.html";
       }
     }
 
@@ -341,11 +373,9 @@ void loop() {
       });
     }
 
-    // Initial load
     window.onload = () => {
       showStep(currentStep);
     };
   </script>
-
 </body>
 </html>

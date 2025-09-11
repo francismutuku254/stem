@@ -2,77 +2,191 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Smart Bin - Step by Step</title>
+  <title>Smart Bin - Step by Step Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-   <link rel="icon" type="image/x-icon" href="images/image1.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="images/image1.png" />
   <style>
+    :root {
+      --primary-color: #007bff;
+      --secondary-color: #6c757d;
+      --card-bg: #fff;
+      --text-color: #343a40;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      --hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
     body {
-      background-color: #f8f9fa;
-      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+    }
+    .header-title {
+      font-weight: 700;
+      color: var(--text-color);
+      font-size: 2.5rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .header-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      height: 4px;
+      width: 80px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
     }
     .step-card {
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      background: white;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 20px;
+      background: var(--card-bg);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
     }
     .step-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+    .step-header {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .step-image-wrapper {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    .step-image-wrapper:hover {
+      transform: scale(1.02);
     }
     .step-img {
       width: 100%;
-      max-height: 400px;
-      object-fit: contain;
-      border-radius: 10px;
-      transition: transform 0.3s ease-in-out;
-      cursor: zoom-in;
+      height: auto;
+      max-height: 500px;
+      object-fit: cover;
+      display: block;
     }
-    .step-img:hover {
-      transform: scale(1.1);
+    .step-img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .step-image-wrapper:hover .step-img-caption {
+      opacity: 1;
     }
     .nav-btn {
-      border-radius: 20px;
-      padding: 10px 20px;
+      border-radius: 50px;
+      padding: 12px 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .nav-btn-prev {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+    .nav-btn-prev:hover {
+      background-color: #5a6268;
+      border-color: #545b62;
+      transform: translateX(-5px);
+    }
+    .nav-btn-next {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    .nav-btn-next:hover {
+      background-color: #0056b3;
+      border-color: #004085;
+      transform: translateX(5px);
+    }
+
+    /* ===== Progress Bar ===== */
+    .progress-bar-container {
+      height: 12px;
+      background-color: #e9ecef;
+      border-radius: 6px;
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-bar {
+      background: linear-gradient(90deg, var(--primary-color), #00c6ff);
+      border-radius: 6px;
+      transition: width 0.4s ease-in-out;
+      height: 100%;
+    }
+    .progress-label {
+      position: absolute;
+      top: -25px;
+      right: 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary-color);
     }
   </style>
 </head>
 <body>
 
   <div class="container my-5">
-    <h2 class="text-center mb-4">Smart Bin - Step by Step Guide</h2>
+    <h1 class="header-title text-center mb-5 animate__animated animate__fadeInDown">Smart Bin - Step by Step Guide</h1>
 
-    <!-- Step Content -->
-    <div id="step-container" class="step-card">
-      <h4 id="step-title">Step 1: Gather All Components</h4>
-      <img id="step-image" src="steps/bin1.jpg" alt="Step 1 Image" class="step-img my-3">
-      <p id="step-desc">Collect all the electronic and mechanical components needed to assemble your Smart Bin.</p>
+    <div id="step-container" class="step-card animate__animated animate__fadeIn">
+      <h4 id="step-title" class="step-header text-center"></h4>
+      <div class="step-image-wrapper">
+        <img id="step-image" src="" alt="Step Image" class="step-img">
+        <div id="step-caption" class="step-img-caption"></div>
+      </div>
+      <p id="step-desc" class="text-center"></p>
     </div>
 
-    <!-- Navigation -->
+    <!-- Progress Bar -->
+    <div class="progress-bar-container mt-4">
+      <div id="progress-bar" class="progress-bar" role="progressbar"></div>
+      <div id="progress-label" class="progress-label">Step 1 of 12</div>
+    </div>
+
+    <!-- Navigation Buttons -->
     <div class="d-flex justify-content-between mt-4">
-      <button class="btn btn-secondary nav-btn" onclick="prevStep()">⬅ Previous</button>
-      <button class="btn btn-primary nav-btn" onclick="nextStep()">Next ➡</button>
+      <button id="prev-btn" class="btn btn-secondary nav-btn nav-btn-prev" onclick="prevStep()">⬅ Previous</button>
+      <button id="next-btn" class="btn btn-primary nav-btn nav-btn-next" onclick="nextStep()">Next ➡</button>
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const steps = [
-      { title: "Step 1: Gather All Components", img: "steps/bin1.jpg", desc: "Collect all the electronic and mechanical components needed to assemble your Smart Bin." },
-      { title: "Step 2: Prepare the Bin", img: "steps/bin2.jpg", desc: "Drill or cut openings for the sensor and motor placement on the bin lid." },
-      { title: "Step 3: Install Motion Sensor", img: "steps/bin3.jpg", desc: "Mount the PIR/Ultrasonic sensor at the top front of the bin lid." },
-      { title: "Step 4: Mount Servo Motor", img: "steps/bin4.jpg", desc: "Fix the servo motor securely to control lid movement." },
-      { title: "Step 5: Connect Servo Arm", img: "steps/bin5.jpg", desc: "Attach the servo horn/arm to the bin lid for lifting action." },
-      { title: "Step 6: Wire the Components", img: "steps/bin6.jpg", desc: "Connect the sensor and servo to the microcontroller (Arduino/ESP)." },
-      { title: "Step 7: Add Power Supply", img: "steps/bin7.jpg", desc: "Provide stable power to the system using batteries or adapter." },
-      { title: "Step 8: Upload Code", img: "steps/bin8.jpg", desc: "Upload the Arduino/ESP code that controls the sensor and servo." },
-      { title: "Step 9: Test Sensor Response", img: "steps/bin9.jpg", desc: "Check if the lid opens automatically when motion is detected." },
-      { title: "Step 10: Adjust Servo Angle", img: "steps/bin10.jpg", desc: "Calibrate the servo angles to open and close smoothly." },
-      { title: "Step 11: Secure Wiring", img: "steps/bin11.jpg", desc: "Arrange wires neatly inside the bin for safety and durability." },
-      { title: "Step 12: Final Assembly Complete", img: "steps/bin12.jpg", desc: "Your Smart Bin is ready to use! Test it multiple times to confirm." }
+      { title: "Step 1: Gather All Components", img: "steps/bin1.jpg", desc: "Collect all the electronic and mechanical components needed to assemble your Smart Bin.", caption: "All required components laid out." },
+      { title: "Step 2: Prepare the Bin", img: "steps/bin2.jpg", desc: "Drill or cut openings for the sensor and motor placement on the bin lid.", caption: "Bin prepared with sensor and motor openings." },
+      { title: "Step 3: Install Motion Sensor", img: "steps/bin3.jpg", desc: "Mount the PIR/Ultrasonic sensor at the top front of the bin lid.", caption: "Sensor securely installed on lid." },
+      { title: "Step 4: Mount Servo Motor", img: "steps/bin4.jpg", desc: "Fix the servo motor securely to control lid movement.", caption: "Servo motor positioned for lid control." },
+      { title: "Step 5: Connect Servo Arm", img: "steps/bin5.jpg", desc: "Attach the servo horn/arm to the bin lid for lifting action.", caption: "Servo arm connected to lid." },
+      { title: "Step 6: Wire the Components", img: "steps/bin6.jpg", desc: "Connect the sensor and servo to the microcontroller (Arduino/ESP).", caption: "Wiring connections established." },
+      { title: "Step 7: Add Power Supply", img: "steps/bin7.jpg", desc: "Provide stable power to the system using batteries or adapter.", caption: "Power connected to system." },
+      { title: "Step 8: Upload Code", img: "steps/bin8.jpg", desc: "Upload the Arduino/ESP code that controls the sensor and servo.", caption: "Code uploaded to microcontroller." },
+      { title: "Step 9: Test Sensor Response", img: "steps/bin9.jpg", desc: "Check if the lid opens automatically when motion is detected.", caption: "Testing sensor response." },
+      { title: "Step 10: Adjust Servo Angle", img: "steps/bin10.jpg", desc: "Calibrate the servo angles to open and close smoothly.", caption: "Servo calibration in progress." },
+      { title: "Step 11: Secure Wiring", img: "steps/bin11.jpg", desc: "Arrange wires neatly inside the bin for safety and durability.", caption: "Wiring neatly arranged." },
+      { title: "Step 12: Final Assembly Complete", img: "steps/bin12.jpg", desc: "Your Smart Bin is ready to use! Test it multiple times to confirm.", caption: "Smart Bin fully assembled." }
     ];
 
     let currentStep = 0;
@@ -83,6 +197,20 @@
       document.getElementById("step-image").src = step.img;
       document.getElementById("step-image").alt = step.title;
       document.getElementById("step-desc").innerText = step.desc;
+      document.getElementById("step-caption").innerText = step.caption;
+
+      // Update progress bar
+      const progress = ((currentStep + 1) / steps.length) * 100;
+      document.getElementById("progress-bar").style.width = progress + "%";
+      document.getElementById("progress-label").innerText = `Step ${currentStep + 1} of ${steps.length}`;
+
+      // Update button text if on last step
+      const nextBtn = document.getElementById("next-btn");
+      if (currentStep === steps.length - 1) {
+        nextBtn.innerText = "Finish ✅";
+      } else {
+        nextBtn.innerText = "Next ➡";
+      }
     }
 
     function nextStep() {
@@ -92,16 +220,20 @@
       }
     }
 
- function prevStep() {
-  if (currentStep > 0) {
-    currentStep--;
-    showStep(currentStep);
-  } else {
-    // If at the first step, go back to intro page
-    window.location.href = "trashcan_intro.html";
-  }
-}
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      } else {
+        // Go back to intro page if on first step
+        window.location.href = "trashcan_intro.html";
+      }
+    }
 
+    // Initial load
+    window.onload = () => {
+      showStep(currentStep);
+    };
   </script>
 
 </body>

@@ -119,16 +119,29 @@
       border-color: #004085;
       transform: translateX(5px);
     }
+
+    /* ===== Progress Bar ===== */
     .progress-bar-container {
-      height: 8px;
+      height: 12px;
       background-color: #e9ecef;
-      border-radius: 4px;
+      border-radius: 6px;
       margin-top: 20px;
+      overflow: hidden;
+      position: relative;
     }
     .progress-bar {
-      background-color: var(--primary-color);
-      border-radius: 4px;
+      background: linear-gradient(90deg, var(--primary-color), #00c6ff);
+      border-radius: 6px;
       transition: width 0.4s ease-in-out;
+      height: 100%;
+    }
+    .progress-label {
+      position: absolute;
+      top: -25px;
+      right: 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary-color);
     }
   </style>
 </head>
@@ -146,10 +159,13 @@
       <p id="step-desc" class="text-center"></p>
     </div>
 
+    <!-- Progress Bar -->
     <div class="progress-bar-container mt-4">
-      <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+      <div id="progress-bar" class="progress-bar" role="progressbar"></div>
+      <div id="progress-label" class="progress-label">Step 1 of 18</div>
     </div>
 
+    <!-- Navigation Buttons -->
     <div class="d-flex justify-content-between mt-4">
       <button id="prev-btn" class="btn btn-secondary nav-btn nav-btn-prev" onclick="prevStep()">⬅ Previous</button>
       <button id="next-btn" class="btn btn-primary nav-btn nav-btn-next" onclick="nextStep()">Next ➡</button>
@@ -159,135 +175,48 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const steps = [
-      {
-        title: "Step 1: Inventory and Preparation",
-        img: "steps/oil_step1.jpg",
-        desc: "Ensure you have all components listed in the manual. Organize them on a clean, stable workbench to streamline the assembly process.",
-        caption: "All required components laid out and ready for assembly."
-      },
-      {
-        title: "Step 2: Base Plate Assembly",
-        img: "steps/oil_step2.jpg",
-        desc: "Secure the heavy-duty base plate using the four M10 bolts and nuts provided. Ensure the plate is perfectly level before tightening.",
-        caption: "The base plate provides a stable foundation for the machine."
-      },
-      {
-        title: "Step 3: Mounting the Vertical Support Frame",
-        img: "steps/oil_step3.jpg",
-        desc: "Attach the main vertical support frame to the base plate. Use a wrench to securely fasten all connection points to prevent any movement during operation.",
-        caption: "The vertical support frame is the primary structural element."
-      },
-      {
-        title: "Step 4: Installing the Motor",
-        img: "steps/oil_step4.jpg",
-        desc: "Carefully mount the electric motor onto its designated bracket on the frame. Ensure the motor's shaft is properly aligned for the next step.",
-        caption: "The motor is the heart of the machine, providing all rotational force."
-      },
-      {
-        title: "Step 5: Attaching the Gearbox",
-        img: "steps/oil_step5.jpg",
-        desc: "Connect the gearbox to the motor shaft. This component is crucial for translating motor speed into the necessary torque for the auger.",
-        caption: "The gearbox optimizes the speed and power for oil extraction."
-      },
-      {
-        title: "Step 6: Placing the Pressing Barrel",
-        img: "steps/oil_step6.jpg",
-        desc: "Slide the pressing barrel onto the end of the gearbox. This is where the seeds will be compressed. Ensure it locks firmly into place.",
-        caption: "The pressing barrel is the chamber where oil is physically extracted."
-      },
-      {
-        title: "Step 7: Inserting the Auger (Screw Press)",
-        img: "steps/oil_step7.jpg",
-        desc: "Gently insert the auger into the pressing barrel. The auger's unique design is key to building pressure and expelling the oil.",
-        caption: "The auger's design determines the efficiency of the press."
-      },
-      {
-        title: "Step 8: Securing the Heating Element",
-        img: "steps/oil_step8.jpg",
-        desc: "Mount the heating element around the pressing barrel. This element preheats the seeds, which significantly increases oil yield.",
-        caption: "The heating element prepares the seeds for optimal extraction."
-      },
-      {
-        title: "Step 9: Attaching the Hopper",
-        img: "steps/oil_step9.jpg",
-        desc: "Secure the seed hopper to the top of the pressing barrel. This is where you will feed the raw materials into the machine.",
-        caption: "The hopper is the entry point for the seeds."
-      },
-      {
-        title: "Step 10: Installing the Oil Catchment Tray",
-        img: "steps/oil_step10.jpg",
-        desc: "Position the oil collection tray beneath the pressing barrel's spout. This tray is designed to catch the extracted oil.",
-        caption: "The catchment tray ensures no oil is wasted."
-      },
-      {
-        title: "Step 11: Attaching the Cake Outlet",
-        img: "steps/oil_step11.jpg",
-        desc: "Fasten the outlet nozzle at the end of the pressing barrel. This is where the compressed seed 'cake' or meal will exit the machine.",
-        caption: "The cake outlet directs the residual meal."
-      },
-      {
-        title: "Step 12: Electrical Wiring and Controls",
-        img: "steps/oil_step12.jpg",
-        desc: "Connect the motor, heating element, and control panel as per the wiring diagram in your manual. This step requires careful attention to safety protocols.",
-        caption: "Proper wiring is essential for safe and reliable operation."
-      },
-      {
-        title: "Step 13: Final Bolt Tightening",
-        img: "steps/oil_step13.jpg",
-        desc: "Re-check and tighten all bolts and screws across the entire machine. A loose connection can cause vibration and reduce efficiency.",
-        caption: "A final check ensures the machine is structurally sound."
-      },
-      {
-        title: "Step 14: Initial Test Run (Empty)",
-        img: "steps/oil_step14.jpg",
-        desc: "Perform a brief, empty run of the machine. Listen for any unusual noises or vibrations. This is a crucial safety and performance check.",
-        caption: "An empty run confirms all components are working correctly."
-      },
-      {
-        title: "Step 15: Calibration and Temperature Setting",
-        img: "steps/oil_step15.jpg",
-        desc: "Using the control panel, set the desired temperature for your specific seed type. Refer to the operational guide for optimal settings.",
-        caption: "Temperature control is key for maximizing oil yield."
-      },
-      {
-        title: "Step 16: First Batch Production",
-        img: "steps/oil_step16.jpg",
-        desc: "Slowly feed a small amount of pre-dried seeds into the hopper. Observe the oil flow and cake consistency to fine-tune your settings.",
-        caption: "The first batch helps to optimize the machine's performance."
-      },
-      {
-        title: "Step 17: Post-Production Cleaning",
-        img: "steps/oil_step17.jpg",
-        desc: "After use, disassemble the pressing barrel and auger for cleaning. Prompt cleaning prevents residue buildup and maintains hygiene.",
-        caption: "Regular cleaning ensures the longevity and hygiene of the machine."
-      },
-      {
-        title: "Step 18: Storage and Maintenance",
-        img: "steps/oil_step18.jpg",
-        desc: "Store the machine in a dry, cool location. Lubricate moving parts periodically as per the maintenance schedule to ensure smooth operation.",
-        caption: "Proper storage and maintenance extend the machine's lifespan."
-      }
+      { title: "Step 1: Inventory and Preparation", img: "steps/oil_step1.jpg", desc: "Ensure you have all components listed in the manual. Organize them on a clean, stable workbench to streamline the assembly process.", caption: "All required components laid out and ready for assembly." },
+      { title: "Step 2: Base Plate Assembly", img: "steps/oil_step2.jpg", desc: "Secure the heavy-duty base plate using the four M10 bolts and nuts provided. Ensure the plate is perfectly level before tightening.", caption: "The base plate provides a stable foundation for the machine." },
+      { title: "Step 3: Mounting the Vertical Support Frame", img: "steps/oil_step3.jpg", desc: "Attach the main vertical support frame to the base plate. Use a wrench to securely fasten all connection points to prevent any movement during operation.", caption: "The vertical support frame is the primary structural element." },
+      { title: "Step 4: Installing the Motor", img: "steps/oil_step4.jpg", desc: "Carefully mount the electric motor onto its designated bracket on the frame. Ensure the motor's shaft is properly aligned for the next step.", caption: "The motor is the heart of the machine, providing all rotational force." },
+      { title: "Step 5: Attaching the Gearbox", img: "steps/oil_step5.jpg", desc: "Connect the gearbox to the motor shaft. This component is crucial for translating motor speed into the necessary torque for the auger.", caption: "The gearbox optimizes the speed and power for oil extraction." },
+      { title: "Step 6: Placing the Pressing Barrel", img: "steps/oil_step6.jpg", desc: "Slide the pressing barrel onto the end of the gearbox. This is where the seeds will be compressed. Ensure it locks firmly into place.", caption: "The pressing barrel is the chamber where oil is physically extracted." },
+      { title: "Step 7: Inserting the Auger (Screw Press)", img: "steps/oil_step7.jpg", desc: "Gently insert the auger into the pressing barrel. The auger's unique design is key to building pressure and expelling the oil.", caption: "The auger's design determines the efficiency of the press." },
+      { title: "Step 8: Securing the Heating Element", img: "steps/oil_step8.jpg", desc: "Mount the heating element around the pressing barrel. This element preheats the seeds, which significantly increases oil yield.", caption: "The heating element prepares the seeds for optimal extraction." },
+      { title: "Step 9: Attaching the Hopper", img: "steps/oil_step9.jpg", desc: "Secure the seed hopper to the top of the pressing barrel. This is where you will feed the raw materials into the machine.", caption: "The hopper is the entry point for the seeds." },
+      { title: "Step 10: Installing the Oil Catchment Tray", img: "steps/oil_step10.jpg", desc: "Position the oil collection tray beneath the pressing barrel's spout. This tray is designed to catch the extracted oil.", caption: "The catchment tray ensures no oil is wasted." },
+      { title: "Step 11: Attaching the Cake Outlet", img: "steps/oil_step11.jpg", desc: "Fasten the outlet nozzle at the end of the pressing barrel. This is where the compressed seed 'cake' or meal will exit the machine.", caption: "The cake outlet directs the residual meal." },
+      { title: "Step 12: Electrical Wiring and Controls", img: "steps/oil_step12.jpg", desc: "Connect the motor, heating element, and control panel as per the wiring diagram in your manual. This step requires careful attention to safety protocols.", caption: "Proper wiring is essential for safe and reliable operation." },
+      { title: "Step 13: Final Bolt Tightening", img: "steps/oil_step13.jpg", desc: "Re-check and tighten all bolts and screws across the entire machine. A loose connection can cause vibration and reduce efficiency.", caption: "A final check ensures the machine is structurally sound." },
+      { title: "Step 14: Initial Test Run (Empty)", img: "steps/oil_step14.jpg", desc: "Perform a brief, empty run of the machine. Listen for any unusual noises or vibrations. This is a crucial safety and performance check.", caption: "An empty run confirms all components are working correctly." },
+      { title: "Step 15: Calibration and Temperature Setting", img: "steps/oil_step15.jpg", desc: "Using the control panel, set the desired temperature for your specific seed type. Refer to the operational guide for optimal settings.", caption: "Temperature control is key for maximizing oil yield." },
+      { title: "Step 16: First Batch Production", img: "steps/oil_step16.jpg", desc: "Slowly feed a small amount of pre-dried seeds into the hopper. Observe the oil flow and cake consistency to fine-tune your settings.", caption: "The first batch helps to optimize the machine's performance." },
+      { title: "Step 17: Post-Production Cleaning", img: "steps/oil_step17.jpg", desc: "After use, disassemble the pressing barrel and auger for cleaning. Prompt cleaning prevents residue buildup and maintains hygiene.", caption: "Regular cleaning ensures the longevity and hygiene of the machine." },
+      { title: "Step 18: Storage and Maintenance", img: "steps/oil_step18.jpg", desc: "Store the machine in a dry, cool location. Lubricate moving parts periodically as per the maintenance schedule to ensure smooth operation.", caption: "Proper storage and maintenance extend the machine's lifespan." }
     ];
 
     let currentStep = 0;
 
     function showStep(index) {
       const step = steps[index];
-      const stepContainer = document.getElementById("step-container");
-      stepContainer.classList.add('animate__fadeOut');
-      setTimeout(() => {
-        document.getElementById("step-title").innerText = step.title;
-        document.getElementById("step-image").src = step.img;
-        document.getElementById("step-image").alt = step.title;
-        document.getElementById("step-desc").innerText = step.desc;
-        document.getElementById("step-caption").innerText = step.caption;
-        
-        const progress = ((currentStep + 1) / steps.length) * 100;
-        document.getElementById("progress-bar").style.width = progress + "%";
-        
-        stepContainer.classList.remove('animate__fadeOut');
-        stepContainer.classList.add('animate__fadeIn');
-      }, 300);
+      document.getElementById("step-title").innerText = step.title;
+      document.getElementById("step-image").src = step.img;
+      document.getElementById("step-image").alt = step.title;
+      document.getElementById("step-desc").innerText = step.desc;
+      document.getElementById("step-caption").innerText = step.caption;
+
+      // Update progress bar
+      const progress = ((currentStep + 1) / steps.length) * 100;
+      document.getElementById("progress-bar").style.width = progress + "%";
+      document.getElementById("progress-label").innerText = `Step ${currentStep + 1} of ${steps.length}`;
+
+      // Update button text if on last step
+      const nextBtn = document.getElementById("next-btn");
+      if (currentStep === steps.length - 1) {
+        nextBtn.innerText = "Finish ✅";
+      } else {
+        nextBtn.innerText = "Next ➡";
+      }
     }
 
     function nextStep() {
@@ -298,15 +227,14 @@
     }
 
     function prevStep() {
-  if (currentStep > 0) {
-    currentStep--;
-    showStep(currentStep);
-  } else {
-    // If at the first step, go back to intro page
-    window.location.href = "oilproduction_intro.html";
-  }
-}
-
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      } else {
+        // Go back to intro page if on first step
+        window.location.href = "oilproduction_intro.html";
+      }
+    }
 
     // Initial load
     window.onload = () => {

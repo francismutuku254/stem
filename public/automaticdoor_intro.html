@@ -74,12 +74,10 @@
     nav a i {
       font-size: 1rem;
     }
-    /* Icon colors */
     nav a:nth-child(1) i { color: #FFD700; }
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
-
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
     nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
 
@@ -90,7 +88,6 @@
       cursor: pointer;
       color: #fff;
     }
-
     @media (max-width: 768px) {
       nav {
         position: absolute;
@@ -113,7 +110,7 @@
 
     /* ====== MAIN CONTENT ====== */
     main {
-      padding: 120px 20px 40px; /* offset for header */
+      padding: 70px 20px 40px; /* offset for header */
     }
     .container {
       max-width: 1000px;
@@ -123,22 +120,26 @@
       font-weight: 700;
       color: #007bff;
     }
-    /* Responsive Video */
+
+    /* Responsive YouTube Video */
     .video-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto 40px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    }
-    .video-wrapper video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 12px;
-    }
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 400px; /* fixed height */
+  margin: 0 auto 40px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+
     .component-card {
       border: none;
       border-radius: 20px;
@@ -172,37 +173,35 @@
 
     /* ====== FOOTER ====== */
     footer {
-    background: #222;
-    color: #aaa;
-    padding: 20px;
-    font-size: 0.9rem;
-    margin-top: 50px;
-  }
-  .footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;          /* reduce gap to prevent wrapping */
-    flex-wrap: nowrap; /* keep everything in one line */
-    text-align: center;
-  }
-  .footer-content a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: 500;
-    white-space: nowrap; /* prevents link breaking into 2 lines */
-  }
-  .footer-content a:hover {
-    text-decoration: underline;
-  }
-
-  /* If screen is too small, shrink text instead of breaking */
-  @media (max-width: 400px) {
-    .footer-content {
-      font-size: 0.8rem;
-      gap: 4px;
+      background: #222;
+      color: #aaa;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: 50px;
     }
-  }
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+      text-align: center;
+    }
+    .footer-content a {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 400px) {
+      .footer-content {
+        font-size: 0.8rem;
+        gap: 4px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -231,12 +230,16 @@
       <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Automatic Door Project Overview</h1>
 
       <!-- Video Section -->
-      <div class="video-wrapper animate__animated animate__fadeIn">
-        <video controls>
-          <source src="videos/automaticdoor.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+<div class="video-wrapper animate__animated animate__fadeIn">
+  <iframe src="https://www.youtube.com/embed/6O6-fVXxJEM"
+          title="Automatic Door Project"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+  </iframe>
+</div>
+
+
 
       <!-- Components Section -->
       <h3 class="text-center mb-4">Key Components of the Automatic Door</h3>

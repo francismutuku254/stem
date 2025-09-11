@@ -97,9 +97,13 @@
     .project-image {
       flex: 1;
       min-width: 280px;
+      max-width: 450px;
     }
     .project-image img {
-      width: 100%; border-radius: 12px;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .project-info {
@@ -166,113 +170,111 @@
     <!-- Search & Filter -->
     <div class="search-filter">
       <input type="text" id="searchInput" placeholder="Search projects...">
-      <select id="categoryFilter">
-        <option value="all">All Categories</option>
+
+      <!-- Kit Type -->
+      <select id="kitFilter">
+        <option value="all">All Kits</option>
         <option value="lego">LEGO</option>
         <option value="arduino">Arduino</option>
       </select>
+
+      <!-- Age -->
+      <select id="ageFilter">
+        <option value="all">All Ages</option>
+        <option value="7-9">7–9</option>
+        <option value="10-12">10–12</option>
+        <option value="13+">13+</option>
+      </select>
+
+      <!-- Difficulty -->
+      <select id="difficultyFilter">
+        <option value="all">All Difficulty</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
     </div>
 
-<!-- Projects -->
-<div class="project-card" data-category="lego">
-  <div class="project-image">
-    <img src="public/steps/oildrill.jpg" alt="Oil Production Rig">
-  </div>
-  <div class="project-info">
-    <h2>Oil Production Rig</h2>
-    <p>Construct a sophisticated drilling robot that simulates the complex process of subterranean oil extraction. Using LEGO components, you will design mechanisms to mimic drilling, pumping, and transporting oil while exploring real-world engineering principles.</p> 
-    <p>This project provides hands-on experience in mechanical design and automation, helping learners understand how robotics is applied in energy industries while enhancing problem-solving and teamwork skills.</p>
-    <a href="public/oilproduction_intro.html">LEARN MORE</a>
-  </div>
-</div>
+    <!-- ====== PROJECTS ====== -->
+    <div class="project-card" data-kit="lego" data-age="10-12" data-difficulty="medium">
+      <div class="project-image"><img src="public/steps/oildrill.jpg" alt="Oil Production Rig"></div>
+      <div class="project-info">
+        <h2>Oil Production Rig</h2>
+        <p>Construct a sophisticated drilling robot that simulates the complex process of subterranean oil extraction. Using LEGO components, you will design mechanisms to mimic drilling, pumping, and transporting oil while exploring real-world engineering principles.</p> 
+         <p>This project provides hands-on experience in mechanical design and automation, helping learners understand how robotics is applied in energy industries while enhancing problem-solving and teamwork skills.</p>
+        <a href="public/oilproduction_intro.html">LEARN MORE</a>
+      </div>
+    </div>
 
-<div class="project-card" data-category="arduino">
-  <div class="project-image">
-    <img src="public/images/complete.png" alt="Acebott SmartCar Robot">
-  </div>
-  <div class="project-info">
-    <h2>Acebott SmartCar Robot</h2>
-    <p>Build and program the Acebott SmartCar Robot to explore autonomous driving and sensor-based navigation. Learn how ultrasonic sensors, line-following modules, and motor control come together to create a self-driving robotic car.</p> 
-    <p>This project introduces learners to real-world applications of robotics such as obstacle avoidance and automated transport, strengthening their coding, electronics, and logical reasoning skills in an engaging way.</p>
-    <a href="public/acebott.html">EXPLORE MORE</a>
-  </div>
-</div>
+    <div class="project-card" data-kit="arduino" data-age="13+" data-difficulty="hard">
+      <div class="project-image"><img src="public/images/complete.png" alt="Acebott SmartCar Robot"></div>
+      <div class="project-info">
+        <h2>Acebott SmartCar Robot</h2>
+        <p>Build and program the Acebott SmartCar Robot to explore autonomous driving and sensor-based navigation. Learn how ultrasonic sensors, line-following modules, and motor control come together to create a self-driving robotic car.</p> 
+        <p>This project introduces learners to real-world applications of robotics such as obstacle avoidance and automated transport, strengthening their coding, electronics, and logical reasoning skills in an engaging way.</p>
+        <a href="public/acebott.html">EXPLORE MORE</a>
+      </div>
+    </div>
 
-<div class="project-card" data-category="lego">
-  <div class="project-image">
-    <img src="public/steps/fork.jpg" alt="Automated Forklift">
-  </div>
-  <div class="project-info">
-    <h2>Automated Forklift</h2>
-    <p>Design a LEGO forklift that can lift and transport objects using motorized arms. This project introduces learners to load balance, lifting mechanisms, and simple automation.</p> 
-    <p>It enhances understanding of real-world logistics and warehouse robotics while improving problem-solving and teamwork.</p>
-    <a href="public/forklift_intro.html">LEARN MORE</a>
-  </div>
-</div>
+    <div class="project-card" data-kit="lego" data-age="10-12" data-difficulty="medium">
+      <div class="project-image"><img src="public/steps/fork.jpg" alt="Automated Forklift"></div>
+      <div class="project-info">
+        <h2>Automated Forklift</h2>
+        <p>Design a LEGO forklift that can lift and transport objects using motorized arms. This project introduces learners to load balance, lifting mechanisms, and simple automation.</p> 
+        <p>It enhances understanding of real-world logistics and warehouse robotics while improving problem-solving and teamwork.</p>
+        <a href="public/forklift_intro.html">LEARN MORE</a>
+      </div>
+    </div>
 
-<div class="project-card" data-category="lego">
-  <div class="project-image">
-    <img src="public/steps/cul20.jpg" alt="Culinary Bot">
-  </div>
-  <div class="project-info">
-    <h2>Culinary Bot</h2>
-    <p>Create a fun LEGO robot that mimics simple kitchen tasks such as mixing or moving utensils. The Culinary Bot introduces learners to creative robotics and motion control.</p> 
-    <p>It encourages imagination and hands-on learning while showing how robots can assist in everyday life activities.</p>
-    <a href="public/culinary_intro.html">EXPLORE MORE</a>
-  </div>
-</div>
+    <div class="project-card" data-kit="lego" data-age="7-9" data-difficulty="easy">
+      <div class="project-image"><img src="public/steps/cul20.jpg" alt="Culinary Bot"></div>
+      <div class="project-info">
+        <h2>Culinary Bot</h2>
+        <p>Create a fun LEGO robot that mimics simple kitchen tasks such as mixing or moving utensils. The Culinary Bot introduces learners to creative robotics and motion control.</p> 
+        <p>It encourages imagination and hands-on learning while showing how robots can assist in everyday life activities.</p>
+        <a href="public/culinary_intro.html">EXPLORE MORE</a>
+      </div>
+    </div>
 
-<div class="project-card" data-category="lego">
-  <div class="project-image">
-    <img src="public/steps/bin14.jpg" alt="Smart Bin">
-  </div>
-  <div class="project-info">
-    <h2>Smart Bin</h2>
-    <p>Build a LEGO-powered smart trash bin that opens automatically using a motor and sensors. This project introduces basic automation and environmental responsibility.</p> 
-    <p>It helps learners understand how robotics can be applied to smart cities and waste management solutions.</p>
-    <a href="public/trashcan_intro.html">LEARN MORE</a>
-  </div>
-</div>
+    <div class="project-card" data-kit="lego" data-age="10-12" data-difficulty="easy">
+      <div class="project-image"><img src="public/steps/bin14.jpg" alt="Smart Bin"></div>
+      <div class="project-info">
+        <h2>Smart Bin</h2>
+        <p>Build a LEGO-powered smart trash bin that opens automatically using a motor and sensors. This project introduces basic automation and environmental responsibility.</p> 
+        <p>It helps learners understand how robotics can be applied to smart cities and waste management solutions.</p>
+        <a href="public/trashcan_intro.html">LEARN MORE</a>
+      </div>
+    </div>
 
-<div class="project-card" data-category="lego">
-  <div class="project-image">
-    <img src="public/steps/aut20.jpg" alt="Automatic Door">
-  </div>
-  <div class="project-info">
-    <h2>Automatic Door</h2>
-    <p>Construct an automatic sliding door system using LEGO beams, gears, and motors. The project demonstrates how automation is applied in homes, offices, and malls.</p> 
-    <p>Learners gain hands-on experience with mechanical design, sensor activation, and everyday robotics applications.</p>
-    <a href="public/automaticdoor_intro.html">EXPLORE MORE</a>
-  </div>
-</div>
+    <div class="project-card" data-kit="lego" data-age="7-9" data-difficulty="easy">
+      <div class="project-image"><img src="public/steps/aut20.jpg" alt="Automatic Door"></div>
+      <div class="project-info">
+        <h2>Automatic Door</h2>
+        <p>Construct an automatic sliding door system using LEGO beams, gears, and motors. The project demonstrates how automation is applied in homes, offices, and malls.</p> 
+        <p>Learners gain hands-on experience with mechanical design, sensor activation, and everyday robotics applications.</p>
+        <a href="public/automaticdoor_intro.html">EXPLORE MORE</a>
+      </div>
+    </div>
 
-<div class="project-card" data-category="lego">
-  <div class="project-image">
-    <img src="public/steps/dolph17.jpg" alt="Biometric Dolphin">
-  </div>
-  <div class="project-info">
-    <h2>Biometric Dolphin</h2>
-    <p>Bring marine life to life with LEGO by building a dolphin robot that moves and responds. This project mixes creativity with robotics to explore animal-inspired design.</p> 
-    <p>It develops learners’ interest in biomimicry, programming, and how technology can mimic nature’s motion.</p>
-    <a href="public/dolphin_intro.html">LEARN MORE</a>
-  </div>
-</div>
+    <div class="project-card" data-kit="lego" data-age="7-9" data-difficulty="medium">
+      <div class="project-image"><img src="public/steps/dolph17.jpg" alt="Biometric Dolphin"></div>
+      <div class="project-info">
+        <h2>Biometric Dolphin</h2>
+        <p>Bring marine life to life with LEGO by building a dolphin robot that moves and responds. This project mixes creativity with robotics to explore animal-inspired design.</p> 
+        <p>It develops learners’ interest in biomimicry, programming, and how technology can mimic nature’s motion.</p>
+        <a href="public/dolphin.html">LEARN MORE</a>
+      </div>
+    </div>
 
-<div class="project-card" data-category="lego">
-  <div class="project-image">
-    <img src="public/steps/brake16.jpg" alt="Kinetic Braking System">
-  </div>
-  <div class="project-info">
-    <h2>Kinetic Braking System</h2>
-    <p>Experiment with a LEGO-based braking system that uses gears and axles to slow motion. This project introduces the concept of kinetic energy conversion and safety engineering.</p> 
-    <p>It allows learners to explore physics principles and how they apply to real-world transportation systems.</p>
-    <a href="public/braking_intro.html">EXPLORE MORE</a>
-  </div>
-</div>
-
-
-
-
+    <div class="project-card" data-kit="lego" data-age="13+" data-difficulty="hard">
+      <div class="project-image"><img src="public/steps/brake16.jpg" alt="Kinetic Braking System"></div>
+      <div class="project-info">
+        <h2>Kinetic Braking System</h2>
+        <p>Experiment with a LEGO-based braking system that uses gears and axles to slow motion. This project introduces the concept of kinetic energy conversion and safety engineering.</p> 
+        <p>It allows learners to explore physics principles and how they apply to real-world transportation systems.</p>
+        <a href="public/braking_intro.html">EXPLORE MORE</a>
+      </div>
+    </div>
   </main>
 
   <!-- ====== FOOTER ====== -->
@@ -297,22 +299,30 @@
 
     // Search & Filter
     const searchInput = document.getElementById("searchInput");
-    const categoryFilter = document.getElementById("categoryFilter");
+    const kitFilter = document.getElementById("kitFilter");
+    const ageFilter = document.getElementById("ageFilter");
+    const difficultyFilter = document.getElementById("difficultyFilter");
     const projects = document.querySelectorAll(".project-card");
 
     function filterProjects() {
       const searchText = searchInput.value.toLowerCase();
-      const category = categoryFilter.value;
+      const kit = kitFilter.value;
+      const age = ageFilter.value;
+      const difficulty = difficultyFilter.value;
 
       projects.forEach(project => {
         const title = project.querySelector("h2").textContent.toLowerCase();
         const desc = project.querySelector("p").textContent.toLowerCase();
-        const projectCategory = project.getAttribute("data-category");
+        const projectKit = project.getAttribute("data-kit");
+        const projectAge = project.getAttribute("data-age");
+        const projectDifficulty = project.getAttribute("data-difficulty");
 
         const matchesSearch = title.includes(searchText) || desc.includes(searchText);
-        const matchesCategory = category === "all" || projectCategory === category;
+        const matchesKit = kit === "all" || projectKit === kit;
+        const matchesAge = age === "all" || projectAge === age;
+        const matchesDifficulty = difficulty === "all" || projectDifficulty === difficulty;
 
-        if (matchesSearch && matchesCategory) {
+        if (matchesSearch && matchesKit && matchesAge && matchesDifficulty) {
           project.style.display = "flex";
         } else {
           project.style.display = "none";
@@ -321,7 +331,9 @@
     }
 
     searchInput.addEventListener("input", filterProjects);
-    categoryFilter.addEventListener("change", filterProjects);
+    kitFilter.addEventListener("change", filterProjects);
+    ageFilter.addEventListener("change", filterProjects);
+    difficultyFilter.addEventListener("change", filterProjects);
   </script>
 </body>
 </html>

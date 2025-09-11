@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Acebott Smart Car Project Overview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="images/image1.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+      color: #343a40;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ====== HEADER ====== */
+    header {
+      background: #03009dff;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+    }
+
+    .logo-container .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    .logo-container .tagline {
+      font-size: 0.8rem;
+      font-weight: 400;
+      margin-top: 2px;
+      color: #e6f9f9;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.3s;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #d9f7f8;
+      transform: translateY(-2px);
+    }
+
+    nav a i {
+      font-size: 1rem;
+    }
+
+    /* Icon colors */
+    nav a:nth-child(1) i {
+      color: #FFD700;
+    }
+
+    nav a:nth-child(2) i {
+      color: #00FFB3;
+    }
+
+    nav a:nth-child(3) i {
+      color: #1E90FF;
+    }
+
+    nav a:nth-child(4) i {
+      color: #FF6347;
+    }
+
+    nav a:hover i {
+      transform: scale(1.2);
+      color: #ffffff;
+    }
+
+    nav a:hover {
+      color: #d9f7f8;
+      transform: translateY(-2px);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #00979D;
+        flex-direction: column;
+        gap: 15px;
+        width: 200px;
+        padding: 20px;
+        display: none;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* ====== MAIN CONTENT ====== */
+    main {
+      padding: 120px 20px 40px;
+      /* offset for header */
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-weight: 700;
+      color: #007bff;
+    }
+
+    /* Responsive Video */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .component-card {
+      border: none;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 25px;
+    }
+
+    .component-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .component-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #007bff;
+    }
+
+    .btn-next {
+      background-color: #007bff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+      color: white;
+    }
+
+    .btn-next:hover {
+      background-color: #0056b3;
+      transform: translateX(5px);
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: #222;
+      color: #aaa;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      /* reduce gap to prevent wrapping */
+      flex-wrap: nowrap;
+      /* keep everything in one line */
+      text-align: center;
+    }
+
+    .footer-content a {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+      /* prevents link breaking into 2 lines */
+    }
+
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* If screen is too small, shrink text instead of breaking */
+    @media (max-width: 400px) {
+      .footer-content {
+        font-size: 0.8rem;
+        gap: 4px;
+      }
+    }
+
+    .copy-btn {
+      margin-top: 10px;
+      display: inline-block;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background 0.3s ease;
+    }
+
+    .copy-btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ====== HEADER ====== -->
+  <header>
+    <div class="logo-container">
+      <img src="images/image1.png" alt="Novatech Logo">
+      <div>
+        <div class="logo-text">Novatech STEM</div>
+        <div class="tagline">Electronic Engineering Solutions</div>
+      </div>
+    </div>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
+    <nav>
+      <a href="index.html"><i class="fas fa-briefcase"></i> Portfolio</a>
+      <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
+      <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
+      <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
+    </nav>
+  </header>
+
+  <!-- ====== MAIN ====== -->
+  <main>
+    <div class="container my-5">
+      <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Acebott Smart Car Project Overview</h1>
+
+      <!-- Video Section -->
+      <div class="video-wrapper animate__animated animate__fadeIn">
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/liwI_SYOxC4?si=_TkfOnFSTi6CW4Hn"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+      </div>
+
+
+      <!-- Components Section -->
+      <h3 class="text-center mb-4">Assembly Steps</h3>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Introduction</div>
+        <p>This is the Acebott QD001 Smart Car. We'll assemble it in this tutorial.</p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Line Sensor</div>
+        <p>Peel the protective paper from lower acrylicc board and install line sensor. Secure with M3 screws and
+          screws.</p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Long Pillars</div>
+        <p>Install long pillars on lower acrylic board. Secure with short M3 screws.</p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Motors</div>
+        <p>Secure motor with bracket and long M2 screws and nuts. Mount the motor assembly to lower acrylic board.
+          Secure with short M3.</p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Controller and Car Shield</div>
+        <p>Peel protective paper from upper acrylic board. Install short pillars and secure with short M3. Mount and
+          secure controller board with short M3 screws.</p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">LED, Buzzer, IR</div>
+        <p>Connect 3-pin cable to the modules; red wire to V pin. Mount and secure the modules with short M3 screws and
+          nuts.</p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Servo</div>
+        <p>Insert the servo in its mounting hole. Secure it with M2 screws and nuts.</p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Battery Holder</div>
+        <p>Align the battery holder holes with the holes on the board. Secure it with flathead M3 screws and M3 nuts.
+        </p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Ultrasonic Sensor</div>
+        <p>Peel off protective paper from bracket. Mount sensor on bracket with pins facing away from servo mount.
+          Secure with M2 screws and nuts.</p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Joining Assemblies</div>
+        <p>Join the upper and lower assemblies. Secure along pillars with short M3 screws.</p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Wheels</div>
+        <p>Insert wheel coupling on motor shaft. Insert the wheel and secure with long self-tapping screws.</p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Wiring</div>
+        <p> Wire up the components as listed here. Make sure red wire always corresponds to V pin.
+        <ol>
+          <li>LED module - 2</li>
+          <li>LED module - 12</li>
+          <li>Buzzer - 33</li>
+          <li>IR receiver - 4</li>
+          <li>Servo - 26</li>
+          <li>Line tracker - LINETRACK</li>
+          <li>Ultrasonic - ULTRASONIC</li>
+          <li>Front Left motor - Top left motor port</li>
+          <li>Front Right motor - Top right motor port</li>
+          <li>Rear Left motor - bottom left motor port</li>
+          <li>Rear Right motor - bottom right motor port</li>
+        </ol>
+        </p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Batteries</div>
+        <p>Slide the switch on the battery holder to the OFF position. Insert 2 18650 cells in the battery holder.
+          Verify the polarity. Install CR2025 coin cell in the IR remote. </p>
+      </div>
+
+      <div class="component-card animate__animated animate__fadeInUp">
+        <div class="component-title">Programming</div>
+        <p>Copy and upload the source code. Feel free to modify it here and there.</p>
+        <button id="copy-button" class="btn copy-btn">Copy</button>
+      </div>
+
+      <!-- Navigation -->
+      <div class="text-center mt-5">
+        <a href="acebott.html" class="btn btn-next">Begin Step-by-Step Guide ➡</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <div class="footer-content">
+      <span>©
+        <script>document.write(new Date().getFullYear());</script>
+      </span>
+      <a href="https://novatech.co.ke/" target="_blank">Novatech</a>
+      <span>STEM Portal. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- ====== JS ====== -->
+  <script type="module">
+    import { SmartCarIR } from './js/code-snippets.js';
+
+    // Hamburger toggle
+    const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector("nav");
+
+    async function copyCode(filepath, buttonID) {
+      const copyButton = document.getElementById(buttonID);
+      const originalText = copyButton.textContent;
+
+      copyButton.textContent = "Copying...";
+
+      try {
+        const codeText = SmartCarIR;
+
+        if (codeText) {
+          await navigator.clipboard.writeText(codeText);
+
+          copyButton.textContent = "Copied!";
+          copyButton.style.backgroundColor = "#28a745";
+
+          setTimeout(() => {
+            copyButton.textContent = originalText;
+            copyButton.style.backgroundColor = "";
+          }, 2000);
+        } else {
+          throw new Error("Failed to get code content.");
+        }
+      } catch (err) {
+        console.error('Copy failed: ', err);
+        copyButton.textContent = originalText;
+        alert('Failed to copy code.');
+      }
+    }
+
+    async function getCode(filepath) {
+      return SmartCarIR;
+    }
+
+    const copyButton = document.getElementById('copy-button');
+    if (copyButton) {
+      copyButton.addEventListener('click', () => {
+        copyCode('code/SmartCarIR.txt', 'copy-button');
+      });
+    }
+
+    hamburger.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+
+    // Close nav when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+        nav.classList.remove("active");
+      }
+    });
+
+
+  </script>
+</body>
+
+</html>

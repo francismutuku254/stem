@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CB05 Robotics: Advanced Kit Modules</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #007bff;
+      --secondary-color: #6c757d;
+      --bg-light: #f4f7f6;
+      --bg-dark: #212529;
+      --text-dark: #333;
+      --card-bg: #fff;
+      --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0056b3, #003366);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: 1px;
+    }
+    .hero p.lead {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.05);
+      transform: rotate(45deg);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.05);
+      transform: rotate(45deg);
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--primary-color);
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      height: 3px;
+      width: 60px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
+    }
+    .model-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-light);
+      background-color: var(--card-bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .model-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .model-card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+    .card-body {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      border-radius: 50px;
+      padding: 10px 25px;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #004085;
+      transform: translateY(-2px);
+    }
+    .footer {
+      background-color: var(--bg-dark);
+      color: #adb5bd;
+    }
+    .footer p {
+      margin-bottom: 5px;
+    }
+    .fade-in {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero animate__animated animate__fadeInDown">
+    <h1>CB05 Robotics Kit: Explore. Build. Innovate.</h1>
+    <p class="lead">Dive into the fundamentals of engineering and programming. Select a project and begin your journey from concept to creation with our detailed, step-by-step guides.</p>
+  </header>
+
+  <div class="container my-5">
+    <h2 class="section-title text-center mb-5 animate__animated animate__fadeIn">CB05 Project Portfolio</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/oildrill.jpg" class="card-img-top" alt="Simulated Oil Drilling Rig">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-industry"></i> Oil Production Rig</h5>
+            <p class="card-text">Construct a sophisticated drilling robot that simulates the complex process of subterranean oil extraction.</p>
+            <a href="oilproduction.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/fork.jpg" class="card-img-top" alt="Automated Forklift Model">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-warehouse"></i> Automated Forklift</h5>
+            <p class="card-text">Engineer a functional lifting machine designed to autonomously move and stack objects with precision.</p>
+            <a href="forklift.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/cul20.jpg" class="card-img-top" alt="Robotic Culinary Assistant">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-hat-wizard"></i> Culinary Bot</h5>
+            <p class="card-text">Design a whimsical robotic assistant that performs basic mixing and stirring actions with a magical flair.</p>
+            <a href="culinarybot.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/bin14.jpg" class="card-img-top" alt="Automatic Sensor Bin">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-recycle"></i> Smart Bin</h5>
+            <p class="card-text">Build an intelligent receptacle that utilizes a motion sensor to automatically open and close for hands-free operation.</p>
+            <a href="sensortrashcan.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/aut20.jpg" class="card-img-top" alt="Automated Sliding Door">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-door-open"></i> Automatic Door</h5>
+            <p class="card-text">Construct a responsive access system that opens automatically upon proximity detection, demonstrating fundamental automation principles.</p>
+            <a href="automaticdoor.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/dolph17.jpg" class="card-img-top" alt="Biometric Dolphin Robot">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-fish"></i> Biometric Dolphin</h5>
+            <p class="card-text">Replicate the graceful movements of a dolphin using advanced biomechanics and servo motors for a fluid, lifelike motion.</p>
+            <a href="dolphin.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/brake16.jpg" class="card-img-top" alt="Kinetic Braking Vehicle">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-car-side"></i> Kinetic Braking System</h5>
+            <p class="card-text">Build a high-speed vehicle model that demonstrates the mechanics and physics of an emergency braking system.</p>
+            <a href="braking.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/gold15.jpg" class="card-img-top" alt="Simple Aquatic Robot">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-swimmer"></i> Aquatic Goldfish</h5>
+            <p class="card-text">An introductory project focused on creating a simple, aquatic-themed robot that mimics swimming and buoyancy.</p>
+            <a href="goldfish.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/mars19.jpg" class="card-img-top" alt="Mars Rover">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-satellite"></i> Martian Rover</h5>
+            <p class="card-text">An advanced, six-wheeled planetary explorer designed to simulate remote-controlled space exploration missions.</p>
+            <a href="marsrover.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/mini18.jpg     " class="card-img-top" alt="Mini Plane">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-plane"></i> Aerodynamic Mini Plane</h5>
+            <p class="card-text">Assemble a small-scale aircraft model that demonstrates the principles of flight and controlled gliding motion.</p>
+            <a href="miniplane.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/bird24.jpg" class="card-img-top" alt="Bird Feeding">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-feather-alt"></i> Automated Bird Feeder</h5>
+            <p class="card-text">A practical robotics project to create a machine that dispenses seeds automatically to feed birds on a schedule.</p>
+            <a href="birdfeeding.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="steps/drag23.jpg" class="card-img-top" alt="Dragonfly">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-bug"></i> Robotic Dragonfly</h5>
+            <p class="card-text">Explore biomimicry by building a lightweight, articulated flying robot inspired by the flight patterns of a dragonfly.</p>
+            <a href="dragonfly.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/glider.jpg" class="card-img-top" alt="Glider">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-wind"></i> Aerodynamic Glider</h5>
+            <p class="card-text">A model that demonstrates passive flight principles and how gliders can harness air currents for sustained motion.</p>
+            <a href="glider.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/snake.jpg" class="card-img-top" alt="Snake">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-splotch"></i> Serpentine Robot</h5>
+            <p class="card-text">Construct a multi-segmented robot that uses complex joint mechanics to replicate the slithering motion of a snake.</p>
+            <a href="snake.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/oldturtle.jpg" class="card-img-top" alt="Old Turtle">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-turtle"></i> Bio-Inspired Turtle</h5>
+            <p class="card-text">A slow-moving but robust robotic turtle model, focusing on stable, methodical locomotion.</p>
+            <a href="oldturtle.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/honeygathering.jpg" class="card-img-top" alt="Honey Gathering">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-honey-pot"></i> Bee-Bot</h5>
+            <p class="card-text">Design and build a bee-inspired robot that mimics the intricate process of collecting and transporting nectar.</p>
+            <a href="honeygathering.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/crocodile.jpg" class="card-img-top" alt="Crocodile">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-crocodile"></i> Robotic Crocodile</h5>
+            <p class="card-text">Assemble a fearsome reptile model with snapping jaws, focusing on the mechanics of its powerful bite.</p>
+            <a href="crocodile.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/helicopter.jpg" class="card-img-top" alt="Helicopter">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-helicopter"></i> Rotor-Powered Helicopter</h5>
+            <p class="card-text">Build a flying machine that demonstrates the principles of lift and thrust using a powerful rotor system.</p>
+            <a href="helicopter.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/dimetrodon.jpg" class="card-img-top" alt="Dimetrodon">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-paw"></i> Prehistoric Dimetrodon</h5>
+            <p class="card-text">A captivating robotics project to recreate the walking motion and unique sail-like back of this ancient reptile.</p>
+            <a href="dimetrodon.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/trex.jpg" class="card-img-top" alt="Tyrannosaurus Rex">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-paw"></i> Tyrannosaurus Rex</h5>
+            <p class="card-text">Build the king of the dinosaurs. This model features powerful leg movements and a jaw that simulates a fearsome roar.</p>
+            <a href="trex.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/snakelure.jpg" class="card-img-top" alt="Lure Snake Out of Hole">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-mountain"></i> Snake Lure Mechanism</h5>
+            <p class="card-text">A clever engineering puzzle to design a mechanism that can lure a serpentine object out of an enclosed space.</p>
+            <a href="snakelure.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/dinobigmouth.jpg" class="card-img-top" alt="Dinosaurs Big Mouth">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-teeth"></i> Dino Big Mouth</h5>
+            <p class="card-text">Focus on the mechanics of a powerful jaw with this dinosaur model that opens wide and snaps shut with force.</p>
+            <a href="dinobigmouth.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer text-white text-center py-4 mt-5">
+    <div class="container">
+      <p>&copy; 2025 CB05 Robotics. All Rights Reserved.</p>
+      <p>This is a fan-made resource for educational purposes and is not affiliated with any official company.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
