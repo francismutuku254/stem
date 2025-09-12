@@ -152,10 +152,18 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
+    a.card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
     .component-title {
       font-size: 1.3rem;
       font-weight: 600;
       color: #007bff;
+    }
+    .card-link small {
+      font-size: 0.8rem;
     }
     .btn-next {
       background-color: #007bff;
@@ -207,7 +215,6 @@
 </head>
 <body>
 
-  <!-- ====== HEADER ====== -->
   <header>
     <div class="logo-container">
       <img src="images/image1.png" alt="Novatech Logo">
@@ -225,12 +232,10 @@
     </nav>
   </header>
 
-  <!-- ====== MAIN ====== -->
   <main>
     <div class="container my-5">
       <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Kinetic Braking System Project Overview</h1>
 
-      <!-- Video Section -->
       <div class="video-wrapper animate__animated animate__fadeIn">
         <video controls>
           <source src="videos/braking.mp4" type="video/mp4">
@@ -238,42 +243,54 @@
         </video>
       </div>
 
-      <!-- Components Section -->
       <h3 class="text-center mb-4">Key Components of the System</h3>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Base Frame</div>
-        <p>The sturdy LEGO foundation that supports the braking structure and ensures stability during operation.</p>
-      </div>
+      <a href="braking.html?step=0" class="card-link">
+          <div class="component-card animate__animated animate__fadeInUp">
+            <div class="component-title">Base Frame</div>
+            <p>The sturdy LEGO foundation that supports the braking structure and ensures stability during operation.</p>
+            <small class="text-primary">Click to view Steps 1 - 2</small>
+          </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Motor & Power Hub</div>
-        <p>The programmable brick and motor that drive the system, simulating forward motion and braking force.</p>
-      </div>
+      <a href="braking.html?step=2" class="card-link">
+          <div class="component-card animate__animated animate__fadeInUp">
+            <div class="component-title">Motor & Power Hub</div>
+            <p>The programmable brick and motor that drive the system, simulating forward motion and braking force.</p>
+            <small class="text-primary">Click to view Steps 3 - 5</small>
+          </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Wheel Assembly</div>
-        <p>The rotating wheel mechanism connected to the motor, allowing the braking simulation to take place realistically.</p>
-      </div>
+      <a href="braking.html?step=5" class="card-link">
+          <div class="component-card animate__animated animate__fadeInUp">
+            <div class="component-title">Wheel Assembly</div>
+            <p>The rotating wheel mechanism connected to the motor, allowing the braking simulation to take place realistically.</p>
+            <small class="text-primary">Click to view Steps 6 - 8</small>
+          </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Brake Arm & Pads</div>
-        <p>The LEGO beams and connectors acting as a braking arm, applying friction against the wheel to slow it down.</p>
-      </div>
+      <a href="braking.html?step=8" class="card-link">
+          <div class="component-card animate__animated animate__fadeInUp">
+            <div class="component-title">Brake Arm & Pads</div>
+            <p>The LEGO beams and connectors acting as a braking arm, applying friction against the wheel to slow it down.</p>
+            <small class="text-primary">Click to view Steps 9 - 11</small>
+          </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Gear & Axle System</div>
-        <p>Transfers power from the motor to the wheels while engaging the braking mechanism for kinetic energy absorption.</p>
-      </div>
+      <a href="braking.html?step=11" class="card-link">
+          <div class="component-card animate__animated animate__fadeInUp">
+            <div class="component-title">Gear & Axle System</div>
+            <p>Transfers power from the motor to the wheels while engaging the braking mechanism for kinetic energy absorption.</p>
+            <small class="text-primary">Click to view Steps 12 - 16</small>
+          </div>
+      </a>
 
-      <!-- Navigation -->
       <div class="text-center mt-5">
         <a href="braking.html" class="btn btn-next">Begin Step-by-Step Guide ➡</a>
       </div>
     </div>
   </main>
 
-  <!-- ====== FOOTER ====== -->
   <footer>
     <div class="footer-content">
       <span>© <script>document.write(new Date().getFullYear());</script></span>
@@ -282,7 +299,6 @@
     </div>
   </footer>
 
-  <!-- ====== JS ====== -->
   <script>
     // Hamburger toggle
     const hamburger = document.querySelector(".hamburger");

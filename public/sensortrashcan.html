@@ -131,7 +131,7 @@
     }
     .progress-bar {
       background: linear-gradient(90deg, var(--primary-color), #00c6ff);
-      border-radius: 6px;
+      border-radius: 6-px;
       transition: width 0.4s ease-in-out;
       height: 100%;
     }
@@ -159,13 +159,11 @@
       <p id="step-desc" class="text-center"></p>
     </div>
 
-    <!-- Progress Bar -->
     <div class="progress-bar-container mt-4">
       <div id="progress-bar" class="progress-bar" role="progressbar"></div>
       <div id="progress-label" class="progress-label">Step 1 of 12</div>
     </div>
 
-    <!-- Navigation Buttons -->
     <div class="d-flex justify-content-between mt-4">
       <button id="prev-btn" class="btn btn-secondary nav-btn nav-btn-prev" onclick="prevStep()">⬅ Previous</button>
       <button id="next-btn" class="btn btn-primary nav-btn nav-btn-next" onclick="nextStep()">Next ➡</button>
@@ -190,6 +188,11 @@
     ];
 
     let currentStep = 0;
+
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
 
     function showStep(index) {
       const step = steps[index];
@@ -232,6 +235,13 @@
 
     // Initial load
     window.onload = () => {
+      const stepParam = getQueryParam("step");
+      if (stepParam) {
+        const startStep = parseInt(stepParam, 10);
+        if (!isNaN(startStep) && startStep >= 0 && startStep < steps.length) {
+          currentStep = startStep;
+        }
+      }
       showStep(currentStep);
     };
   </script>

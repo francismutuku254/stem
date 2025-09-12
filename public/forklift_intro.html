@@ -74,46 +74,10 @@
     nav a i {
       font-size: 1rem;
     }
-    /* Icon colors */
-    nav a:nth-child(1) i { color: #FFD700; }
-    nav a:nth-child(2) i { color: #00FFB3; }
-    nav a:nth-child(3) i { color: #1E90FF; }
-    nav a:nth-child(4) i { color: #FF6347; }
-
-    nav a:hover i { transform: scale(1.2); color: #ffffff; }
-    nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #fff;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: #00979D;
-        flex-direction: column;
-        gap: 15px;
-        width: 200px;
-        padding: 20px;
-        display: none;
-      }
-      nav.active {
-        display: flex;
-      }
-      .hamburger {
-        display: block;
-      }
-    }
 
     /* ====== MAIN CONTENT ====== */
     main {
-      padding: 70px 20px 40px; /* offset for header */
+      padding: 70px 20px 40px;
     }
     .container {
       max-width: 1000px;
@@ -123,7 +87,6 @@
       font-weight: 700;
       color: #007bff;
     }
-    /* Responsive Video */
     .video-wrapper {
       position: relative;
       width: 100%;
@@ -152,57 +115,60 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
+    a.card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
     .component-title {
       font-size: 1.3rem;
       font-weight: 600;
       color: #007bff;
     }
+    .card-link small {
+      font-size: 0.8rem;
+    }
     .btn-next {
       background-color: #007bff;
-      border: none;
+      color: white;
+      font-weight: bold;
       padding: 12px 30px;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: 0.3s;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .btn-next:hover {
       background-color: #0056b3;
-      transform: translateX(5px);
+      transform: translateY(-2px);
     }
 
     /* ====== FOOTER ====== */
     footer {
-    background: #222;
-    color: #aaa;
-    padding: 20px;
-    font-size: 0.9rem;
-    margin-top: 50px;
-  }
-  .footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;          /* reduce gap to prevent wrapping */
-    flex-wrap: nowrap; /* keep everything in one line */
-    text-align: center;
-  }
-  .footer-content a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: 500;
-    white-space: nowrap; /* prevents link breaking into 2 lines */
-  }
-  .footer-content a:hover {
-    text-decoration: underline;
-  }
-
-  /* If screen is too small, shrink text instead of breaking */
-  @media (max-width: 400px) {
-    .footer-content {
-      font-size: 0.8rem;
-      gap: 4px;
+      background: #222;
+      color: #aaa;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: 50px;
     }
-  }
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+      text-align: center;
+    }
+    .footer-content a {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -241,30 +207,37 @@
       <!-- Components Section -->
       <h3 class="text-center mb-4">Key Components of the Forklift</h3>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Base Platform & Wheels</div>
-        <p>The foundation of the forklift built with LEGO plates and wheels, providing stability and mobility for the vehicle.</p>
-      </div>
+      <a href="forklift.html?step=0" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Chassis & Wheels</div>
+          <p>The main body and the two front and rear wheels, providing the base and mobility for the forklift.</p>
+          <small class="text-primary">Click to view Steps 1 - 3</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Motor & Power Hub</div>
-        <p>The LEGO WeDo motor and hub, powering the lifting and driving functions of the forklift.</p>
-      </div>
+      <a href="forklift.html?step=3" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Lifting Mechanism</div>
+          <p>The vertical beam assembly behind the forks, which raises and lowers the load.</p>
+          <small class="text-primary">Click to view Steps 4 - 6</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Vertical Lift Frame</div>
-        <p>The tall LEGO beam assembly at the front, supporting the forklift’s lifting mechanism.</p>
-      </div>
+      <a href="forklift.html?step=6" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Fork Arms</div>
+          <p>The horizontal LEGO beams attached to the lift frame, designed to raise and carry loads.</p>
+          <small class="text-primary">Click to view Steps 7 - 9</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Fork Arms</div>
-        <p>The horizontal LEGO beams attached to the lift frame, designed to raise and carry loads.</p>
-      </div>
-
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Gear & Axle Mechanism</div>
-        <p>The gear and axle system transferring motor power to lift and lower the forks smoothly.</p>
-      </div>
+      <a href="forklift.html?step=9" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Gear & Axle Mechanism</div>
+          <p>The gear and axle system transferring motor power to lift and lower the forks smoothly.</p>
+          <small class="text-primary">Click to view Steps 10 - 12</small>
+        </div>
+      </a>
 
       <!-- Navigation -->
       <div class="text-center mt-5">
@@ -284,7 +257,6 @@
 
   <!-- ====== JS ====== -->
   <script>
-    // Hamburger toggle
     const hamburger = document.querySelector(".hamburger");
     const nav = document.querySelector("nav");
 
@@ -292,7 +264,6 @@
       nav.classList.toggle("active");
     });
 
-    // Close nav when clicking outside
     document.addEventListener("click", (e) => {
       if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
         nav.classList.remove("active");

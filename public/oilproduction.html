@@ -28,7 +28,7 @@
     }
     .header-title {
       font-weight: 700;
-      color: var--text-color;
+      color: var(--text-color);
       font-size: 2.5rem;
       position: relative;
       padding-bottom: 10px;
@@ -197,6 +197,11 @@
 
     let currentStep = 0;
 
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
     function showStep(index) {
       const step = steps[index];
       document.getElementById("step-title").innerText = step.title;
@@ -238,6 +243,13 @@
 
     // Initial load
     window.onload = () => {
+      const stepParam = getQueryParam("step");
+      if (stepParam) {
+        const startStep = parseInt(stepParam, 10);
+        if (!isNaN(startStep) && startStep >= 0 && startStep < steps.length) {
+          currentStep = startStep;
+        }
+      }
       showStep(currentStep);
     };
   </script>

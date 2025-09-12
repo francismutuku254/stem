@@ -162,7 +162,7 @@
     <!-- Progress Bar -->
     <div class="progress-bar-container mt-4">
       <div id="progress-bar" class="progress-bar" role="progressbar"></div>
-      <div id="progress-label" class="progress-label">Step 1 of 18</div>
+      <div id="progress-label" class="progress-label"></div>
     </div>
 
     <!-- Navigation Buttons -->
@@ -196,6 +196,11 @@
     ];
 
     let currentStep = 0;
+
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
 
     function showStep(index) {
       const step = steps[index];
@@ -238,6 +243,13 @@
 
     // Initial load
     window.onload = () => {
+      const stepParam = getQueryParam("step");
+      if (stepParam) {
+        const startStep = parseInt(stepParam, 10);
+        if (!isNaN(startStep) && startStep >= 0 && startStep < steps.length) {
+          currentStep = startStep;
+        }
+      }
       showStep(currentStep);
     };
   </script>

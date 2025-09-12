@@ -152,10 +152,18 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
+    a.card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
     .component-title {
       font-size: 1.3rem;
       font-weight: 600;
       color: #007bff;
+    }
+    .card-link small {
+        font-size: 0.8rem;
     }
     .btn-next {
       background-color: #007bff;
@@ -207,7 +215,6 @@
 </head>
 <body>
 
-  <!-- ====== HEADER ====== -->
   <header>
     <div class="logo-container">
       <img src="images/image1.png" alt="Novatech Logo">
@@ -225,12 +232,10 @@
     </nav>
   </header>
 
-  <!-- ====== MAIN ====== -->
   <main>
     <div class="container my-5">
       <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Smart Trashcan Project Overview</h1>
 
-      <!-- Video Section -->
       <div class="video-wrapper animate__animated animate__fadeIn">
         <video controls>
           <source src="videos/trashcan.mp4" type="video/mp4">
@@ -238,42 +243,54 @@
         </video>
       </div>
 
-      <!-- Components Section -->
       <h3 class="text-center mb-4">Key Components of the Trashcan</h3>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Base Platform</div>
-        <p>The solid Lego plate forming the stable foundation for the trashcan structure.</p>
-      </div>
+      <a href="sensortrashcan.html?step=0" class="card-link">
+          <div class="component-card animate__animated animate__fadeInUp">
+            <div class="component-title">Base Platform</div>
+            <p>The solid Lego plate forming the stable foundation for the trashcan structure.</p>
+            <small class="text-primary">Click to view Steps 1 - 2</small>
+          </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Lid & Hinge Mechanism</div>
-        <p>The movable lid connected by Lego hinges, allowing it to open and close automatically.</p>
-      </div>
+      <a href="sensortrashcan.html?step=2" class="card-link">
+          <div class="component-card animate__animated animate__fadeInUp">
+            <div class="component-title">Lid & Hinge Mechanism</div>
+            <p>The movable lid connected by Lego hinges, allowing it to open and close automatically.</p>
+            <small class="text-primary">Click to view Steps 3 - 4</small>
+          </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Motor & Power Hub</div>
-        <p>The Lego WeDo SmartHub and motor that drive the opening and closing of the trashcan lid.</p>
-      </div>
+      <a href="sensortrashcan.html?step=4" class="card-link">
+          <div class="component-card animate__animated animate__fadeInUp">
+            <div class="component-title">Motor & Power Hub</div>
+            <p>The Lego WeDo SmartHub and motor that drive the opening and closing of the trashcan lid.</p>
+            <small class="text-primary">Click to view Steps 5 - 6</small>
+          </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Sensor Module</div>
-        <p>The motion or tilt sensor that detects interaction, triggering the trashcan’s automated response.</p>
-      </div>
+      <a href="sensortrashcan.html?step=6" class="card-link">
+          <div class="component-card animate__animated animate__fadeInUp">
+            <div class="component-title">Sensor Module</div>
+            <p>The motion or tilt sensor that detects interaction, triggering the trashcan’s automated response.</p>
+            <small class="text-primary">Click to view Steps 7 - 9</small>
+          </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Support Frame</div>
-        <p>Lego beams and connectors providing structure, keeping the trashcan upright and functional.</p>
-      </div>
+      <a href="sensortrashcan.html?step=9" class="card-link">
+          <div class="component-card animate__animated animate__fadeInUp">
+            <div class="component-title">Support Frame</div>
+            <p>Lego beams and connectors providing structure, keeping the trashcan upright and functional.</p>
+            <small class="text-primary">Click to view Steps 10 - 12</small>
+          </div>
+      </a>
 
-      <!-- Navigation -->
       <div class="text-center mt-5">
         <a href="sensortrashcan.html" class="btn btn-next">Begin Step-by-Step Guide ➡</a>
       </div>
     </div>
   </main>
 
-  <!-- ====== FOOTER ====== -->
   <footer>
     <div class="footer-content">
       <span>© <script>document.write(new Date().getFullYear());</script></span>
@@ -282,7 +299,6 @@
     </div>
   </footer>
 
-  <!-- ====== JS ====== -->
   <script>
     // Hamburger toggle
     const hamburger = document.querySelector(".hamburger");
