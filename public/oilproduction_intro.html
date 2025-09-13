@@ -79,7 +79,8 @@
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
-
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
     nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
 
@@ -123,23 +124,25 @@
       font-weight: 700;
       color: #007bff;
     }
-    /* Responsive Video */
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto 40px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    }
-    .video-wrapper video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 12px;
-    }
-    .component-card {
+      /* Responsive Video */
+	    .video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 400px; /* fixed height */
+  margin: 0 auto 40px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+ .component-card {
       border: none;
       border-radius: 20px;
       background: white;
@@ -152,11 +155,20 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
+    a.card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
     .component-title {
       font-size: 1.3rem;
       font-weight: 600;
       color: #007bff;
     }
+    .card-link small {
+      font-size: 0.8rem;
+    }
+
     .btn-next {
       background-color: #007bff;
       border: none;
@@ -222,6 +234,8 @@
       <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -230,47 +244,67 @@
     <div class="container my-5">
       <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Oil Production Rig Project Overview</h1>
 
-      <!-- Video Section -->
-      <div class="video-wrapper animate__animated animate__fadeIn">
-        <video controls>
-          <source src="videos/oilrig.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+       <!-- Video Section -->
+  <div class="video-wrapper animate__animated animate__fadeIn">
+  <iframe src="https://www.youtube.com/embed/dQhPe3v6TIM"
+          title="Automatic Door Project"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+  </iframe>
+</div>
+
 
       <!-- Components Section -->
       <h3 class="text-center mb-4">Key Components of the Rig</h3>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Base Platform</div>
-        <p>The large black and yellow plates forming the foundation where the whole structure is mounted. Provides stability.</p>
-      </div>
+      <a href="oilproduction.html?step=0" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Base Platform</div>
+          <p>The large black and yellow plates forming the foundation where the whole structure is mounted. Provides stability.</p>
+          <small class="text-primary">Click to view Steps 1 - 4</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Motor & Power Hub</div>
-        <p>The white programmable brick (with ports) and the medium motor (cylindrical, grey/white) which drive the drilling motion.</p>
-      </div>
+      <a href="oilproduction.html?step=4" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Motor & Power Hub</div>
+          <p>The white programmable brick (with ports) and the medium motor (cylindrical, grey/white) which drive the drilling motion.</p>
+          <small class="text-primary">Click to view Steps 5 - 8</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Vertical Support Frame</div>
-        <p>The blue and black beams standing upright, connecting the base to the top section. Acts like the “drill tower.”</p>
-      </div>
+      <a href="oilproduction.html?step=8" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Vertical Support Frame</div>
+          <p>The blue and black beams standing upright, connecting the base to the top section. Acts like the “drill tower.”</p>
+          <small class="text-primary">Click to view Steps 9 - 12</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Drilling Arm / Boom</div>
-        <p>The horizontal beam assembly at the top (blue and yellow bricks) which extends outward and holds the moving drill mechanism.</p>
-      </div>
+      <a href="oilproduction.html?step=12" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Drilling Arm / Boom</div>
+          <p>The horizontal beam assembly at the top (blue and yellow bricks) which extends outward and holds the moving drill mechanism.</p>
+          <small class="text-primary">Click to view Steps 13 - 15</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Gear & Axle Mechanism (Drill Bit)</div>
-        <p>The axle and gears extending downward, transferring rotation from the motor to simulate drilling.</p>
-      </div>
+      <a href="oilproduction.html?step=15" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Gear & Axle Mechanism (Drill Bit)</div>
+          <p>The axle and gears extending downward, transferring rotation from the motor to simulate drilling.</p>
+          <small class="text-primary">Click to view Steps 16 - 18</small>
+        </div>
+      </a>
 
       <!-- Navigation -->
       <div class="text-center mt-5">
         <a href="oilproduction.html" class="btn btn-next">Begin Step-by-Step Guide ➡</a>
       </div>
+
     </div>
+
   </main>
 
   <!-- ====== FOOTER ====== -->

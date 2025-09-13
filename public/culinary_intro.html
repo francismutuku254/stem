@@ -79,7 +79,8 @@
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
-
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
     nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
 
@@ -124,21 +125,22 @@
       color: #007bff;
     }
     /* Responsive Video */
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto 40px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    }
-    .video-wrapper video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 12px;
-    }
+	.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 400px; /* fixed height */
+  margin: 0 auto 40px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
     .component-card {
       border: none;
       border-radius: 20px;
@@ -152,11 +154,20 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
+    a.card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
     .component-title {
       font-size: 1.3rem;
       font-weight: 600;
       color: #007bff;
     }
+    .card-link small {
+      font-size: 0.8rem;
+    }
+
     .btn-next {
       background-color: #007bff;
       border: none;
@@ -222,6 +233,8 @@
       <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -232,39 +245,50 @@
 
       <!-- Video Section -->
       <div class="video-wrapper animate__animated animate__fadeIn">
-        <video controls>
-          <source src="videos/culinary.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+  <iframe src="https://www.youtube.com/embed/-iEJDtnG5mk"
+          title="Automatic Door Project"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+  </iframe>
+</div>
+
 
       <!-- Components Section -->
       <h3 class="text-center mb-4">Key Components of the Culinary Bot</h3>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Base Platform</div>
-        <p>The solid LEGO structure that provides stability for the Culinary Bot during operation.</p>
-      </div>
+      <a href="culinarybot.html?step=0" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Chassis & Motors</div>
+          <p>The main body of the bot, which includes the base, a vertical body, and the motors to power the stirring action.</p>
+          <small class="text-primary">Click to view Steps 1 - 3</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Motor & Power Hub</div>
-        <p>The LEGO WeDo programmable brick and motor that power the moving arms and stirring mechanisms of the bot.</p>
-      </div>
+      <a href="culinarybot.html?step=3" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Main Arm</div>
+          <p>The rotating arm that will hold the stirring tool and extend over the container.</p>
+          <small class="text-primary">Click to view Steps 4 - 6</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Rotating Arm</div>
-        <p>A LEGO arm mechanism driven by gears and axles, used to simulate stirring or mixing food items.</p>
-      </div>
+      <a href="culinarybot.html?step=6" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Container Holder</div>
+          <p>The section that holds a small LEGO cup or container, representing the bowl or cooking pot for mixing.</p>
+          <small class="text-primary">Click to view Steps 7 - 9</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Container Holder</div>
-        <p>The section that holds a small LEGO cup or container, representing the bowl or cooking pot for mixing.</p>
-      </div>
+      <a href="culinarybot.html?step=9" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Gear & Axle Assembly</div>
+          <p>A system of gears and axles that transfers rotational power from the motor to the stirring arm for efficient movement.</p>
+          <small class="text-primary">Click to view Steps 10 - 12</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Gear & Axle Assembly</div>
-        <p>A system of gears and axles that transfers rotational power from the motor to the stirring arm for efficient movement.</p>
-      </div>
 
       <!-- Navigation -->
       <div class="text-center mt-5">

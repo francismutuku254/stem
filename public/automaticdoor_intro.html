@@ -123,22 +123,21 @@
 
     /* Responsive YouTube Video */
     .video-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 720px;
-  height: 400px; /* fixed height */
-  margin: 0 auto 40px;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-.video-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 12px;
-}
-
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      height: 400px; /* fixed height */
+      margin: 0 auto 40px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 12px;
+    }
 
     .component-card {
       border: none;
@@ -153,10 +152,18 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
+    a.card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
     .component-title {
       font-size: 1.3rem;
       font-weight: 600;
       color: #007bff;
+    }
+    .card-link small {
+        font-size: 0.8rem;
     }
     .btn-next {
       background-color: #007bff;
@@ -206,7 +213,6 @@
 </head>
 <body>
 
-  <!-- ====== HEADER ====== -->
   <header>
     <div class="logo-container">
       <img src="images/image1.png" alt="Novatech Logo">
@@ -224,59 +230,67 @@
     </nav>
   </header>
 
-  <!-- ====== MAIN ====== -->
   <main>
     <div class="container my-5">
       <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Automatic Door Project Overview</h1>
 
-      <!-- Video Section -->
-<div class="video-wrapper animate__animated animate__fadeIn">
-  <iframe src="https://www.youtube.com/embed/6O6-fVXxJEM"
-          title="Automatic Door Project"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-  </iframe>
-</div>
+      <div class="video-wrapper animate__animated animate__fadeIn">
+        <iframe src="https://www.youtube.com/embed/6O6-fVXxJEM"
+                title="Automatic Door Project"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+      </div>
 
-
-
-      <!-- Components Section -->
       <h3 class="text-center mb-4">Key Components of the Automatic Door</h3>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Base Frame</div>
-        <p>The sturdy LEGO platform that supports the entire door mechanism, ensuring stability during movement.</p>
-      </div>
+      <a href="automaticdoor.html?step=0" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Base Frame</div>
+          <p>The sturdy LEGO platform that supports the entire door mechanism, ensuring stability during movement.</p>
+          <small class="text-primary">Click to view Steps 1 - 2</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Sliding Door Panels</div>
-        <p>The movable LEGO bricks that act as doors, designed to slide open and close when powered by the motor.</p>
-      </div>
+      <a href="automaticdoor.html?step=2" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Sliding Door Panels</div>
+          <p>The movable LEGO bricks that act as doors, designed to slide open and close when powered by the motor.</p>
+          <small class="text-primary">Click to view Steps 3 - 5</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Motor & Power Hub</div>
-        <p>The LEGO WeDo motor connected to the hub, providing the driving force to move the sliding door panels.</p>
-      </div>
+      <a href="automaticdoor.html?step=5" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Motor & Power Hub</div>
+          <p>The LEGO WeDo motor connected to the hub, providing the driving force to move the sliding door panels.</p>
+          <small class="text-primary">Click to view Steps 6 - 7</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Gear & Pulley Mechanism</div>
-        <p>The system of gears or pulleys transferring motor rotation to smooth sliding door movement.</p>
-      </div>
+      <a href="automaticdoor.html?step=7" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Gear & Pulley Mechanism</div>
+          <p>The system of gears or pulleys transferring motor rotation to smooth sliding door movement.</p>
+          <small class="text-primary">Click to view Steps 8 - 11</small>
+        </div>
+      </a>
 
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Support Beams</div>
-        <p>Vertical and horizontal LEGO beams keeping the door panels aligned and guiding their motion.</p>
-      </div>
+      <a href="automaticdoor.html?step=11" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Support Beams</div>
+          <p>Vertical and horizontal LEGO beams keeping the door panels aligned and guiding their motion.</p>
+          <small class="text-primary">Click to view Steps 12 - 17</small>
+        </div>
+      </a>
 
-      <!-- Navigation -->
       <div class="text-center mt-5">
         <a href="automaticdoor.html" class="btn btn-next">Begin Step-by-Step Guide ➡</a>
       </div>
     </div>
   </main>
 
-  <!-- ====== FOOTER ====== -->
   <footer>
     <div class="footer-content">
       <span>© <script>document.write(new Date().getFullYear());</script></span>
@@ -285,7 +299,6 @@
     </div>
   </footer>
 
-  <!-- ====== JS ====== -->
   <script>
     // Hamburger toggle
     const hamburger = document.querySelector(".hamburger");
