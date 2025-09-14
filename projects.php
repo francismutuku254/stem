@@ -211,7 +211,7 @@
     </div>
 
     <div class="project-card" data-kit="arduino" data-age="13+" data-difficulty="hard">
-      <div class="project-image"><img src="public/images/complete.png" alt="Acebott SmartCar Robot"></div>
+      <div class="project-image"><img src="public/images/Acebott/QD001/complete-QD001.png" alt="Acebott SmartCar Robot"></div>
       <div class="project-info">
         <h2>Acebott SmartCar Robot</h2>
         <p>Build and program the Acebott SmartCar Robot to explore autonomous driving and sensor-based navigation. Learn how ultrasonic sensors, line-following modules, and motor control come together to create a self-driving robotic car.</p> 

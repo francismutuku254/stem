@@ -255,11 +255,11 @@
       </div>
 
       <div class="card">
-        <img src="img/acebott3.jpg" alt="Acebott Project">
+        <img src="img/acebott.png" alt="Acebott Project">
         <div class="card-content">
           <h3>Acebott</h3>
           <p>Build and program smart robotic kits with Acebott, designed to make STEM learning fun and hands-on.</p>
-          <a href="public/acebott-overview.html">View Projects</a>
+          <a href="public/acebott_overview.html">View Projects</a>
         </div>
       </div>
 
