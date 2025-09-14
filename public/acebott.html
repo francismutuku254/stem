@@ -328,15 +328,14 @@
 
     <div id="step-container" class="step-card animate__animated animate__fadeIn">
       <h4 id="step-title" class="step-header text-center"></h4>
-      <div id="step-image-wrapper" class="step-image-wrapper">
-        <div id="step-images"></div>
-        <div id="step-caption" class="step-img-caption"></div>
-      </div>
       <p id="step-desc" class="text-center"></p>
       <div id="code-block" style="display:none;">
         <pre><code id="arduino-code" class="language-cpp"></code></pre>
-        <button id=copy-button class="copy-btn">Copy
-          Code</button>
+        <button id=copy-button class="copy-btn">Copy</button>
+      </div>
+      <div id="step-image-wrapper" class="step-image-wrapper">
+        <div id="step-images"></div>
+        <div id="step-caption" class="step-img-caption"></div>
       </div>
     </div>
 
@@ -441,6 +440,7 @@
 
       {
         title: "Step 12: Programming", 
+        imgs: ["images/Acebott/QD001/select-board1.png", "images/Acebott/QD001/select-wroom.png", "images/Acebott/QD001/upload.png", "images/Acebott/QD001/done-uploading-compiling.png"],
         desc: "Copy and upload the source code. Feel free to modify it here and there.",
         caption: "Programming the robot",
         code: codeContent

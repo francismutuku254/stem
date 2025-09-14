@@ -345,12 +345,12 @@
 
     <div id="step-container" class="step-card animate__animated animate__fadeIn">
       <h4 id="step-title" class="step-header text-center"></h4>
+      <p id="step-desc" class="text-center"></p>
+      <div id="code-block" style="display:none;">
       <div id="step-image-wrapper" class="step-image-wrapper">
         <div id="step-images"></div>
         <div id="step-caption" class="step-img-caption"></div>
       </div>
-      <p id="step-desc" class="text-center"></p>
-      <div id="code-block" style="display:none;">
         <!-- <pre><code id="arduino-code" class="language-cpp"></code></pre> -->
         <!-- <button id=copy-button class="copy-btn">Copy</button> -->
         <a href="./code/Acebott/QD002/Camera.zip" class="copy-btn download-btn" download="Camera.zip">Download</a>
@@ -454,7 +454,8 @@
 
       {
         title: "Step 14: Programming",
-        desc: 'Download and extract the source code. Upload "esp32-car.ino" to the controller, and "camera.ino" to the camera. Make sure you select the "WROOM ESP32" board for the car and "AI Thinker" for the camera.',
+        imgs: ["images/Acebott/QD001/select-board1.png", "images/Acebott/QD001/select-wroom.png", "images/Acebott/QD001/upload.png", "images/Acebott/QD001/done-uploading-compiling.png"],
+        desc: 'Download and extract the source code. Upload "esp32-car.ino" to the controller, and "camera.ino" to the camera. Make sure you select the "ESP32-WROOM-DA Module" board for the car and "AI Thinker ESP32-CAM" for the camera.',
         caption: "Programming the robot",
         code: "zip"
       }
