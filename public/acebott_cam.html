@@ -609,9 +609,23 @@
     }
 
     // Initial load
-    window.onload = () => {
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+        
+    window.addEventListener('load', () => {          
+      const stepParam = getQueryParam("step");
+      if (stepParam) {
+        const startStep = parseInt(stepParam, 10);
+        if (!isNaN(startStep) && startStep >= 0 && startStep < steps.length) {
+          currentStep = startStep;
+        }
+      }
       showStep(currentStep);
-    };
+    });
+
+
      // Hamburger toggle
     const hamburger = document.querySelector(".hamburger");
     const nav = document.querySelector("nav");
