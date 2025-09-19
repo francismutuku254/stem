@@ -41,7 +41,10 @@
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
+    nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
 
     /* MAIN */
     main { padding: 120px 10% 50px; }
@@ -110,6 +113,8 @@
       <a href="projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 

@@ -59,6 +59,8 @@
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
 
     /* ====== MAIN ====== */
@@ -160,6 +162,8 @@
       <a href="projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -207,7 +211,7 @@
     </div>
 
     <div class="project-card" data-kit="arduino" data-age="13+" data-difficulty="hard">
-      <div class="project-image"><img src="public/images/complete.png" alt="Acebott SmartCar Robot"></div>
+      <div class="project-image"><img src="public/images/Acebott/QD001/complete-QD001.png" alt="Acebott SmartCar Robot"></div>
       <div class="project-info">
         <h2>Acebott SmartCar Robot</h2>
         <p>Build and program the Acebott SmartCar Robot to explore autonomous driving and sensor-based navigation. Learn how ultrasonic sensors, line-following modules, and motor control come together to create a self-driving robotic car.</p> 

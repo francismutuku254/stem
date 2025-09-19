@@ -51,6 +51,8 @@
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
 
     /* MAIN */
@@ -118,6 +120,8 @@
       <a href="projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -131,9 +135,9 @@
       <div class="resource-card">
         <h2><i class="fas fa-lightbulb"></i> Learning Guides</h2>
         <ul>
-          <li><i class="fas fa-book-open"></i> <a href="arduino-guide.php" target="_blank">Getting Started with Arduino</a></li>
-          <li><i class="fas fa-cogs"></i> <a href="wedo-guide.php" target="_blank">Basics of LEGO WeDo</a></li>
-          <li><i class="fas fa-microchip"></i> <a href="sensors-actuators.php" target="_blank">Using Sensors & Actuators</a></li>
+          <li><i class="fas fa-book-open"></i> <a href="arduino-guide.php" target="_self">Getting Started with Arduino</a></li>
+          <li><i class="fas fa-cogs"></i> <a href="wedo-guide.php" target="_self">Basics of LEGO WeDo</a></li>
+          <li><i class="fas fa-microchip"></i> <a href="sensors-actuators.php" target="_self">Using Sensors & Actuators</a></li>
         </ul>
       </div>
 
@@ -161,9 +165,9 @@
       <div class="resource-card">
         <h2><i class="fas fa-lightbulb"></i> Project Ideas</h2>
         <ul>
-          <li><i class="fas fa-child"></i> <a href="beginner-projects.php" target="_blank">Beginner Projects</a></li>
-          <li><i class="fas fa-user-graduate"></i> <a href="intermediate-projects.php" target="_blank">Intermediate Projects</a></li>
-          <li><i class="fas fa-rocket"></i> <a href="advanced-projects.php" target="_blank">Advanced Projects</a></li>
+          <li><i class="fas fa-child"></i> <a href="beginner-projects.php" target="_self">Beginner Projects</a></li>
+          <li><i class="fas fa-user-graduate"></i> <a href="intermediate-projects.php" target="_self">Intermediate Projects</a></li>
+          <li><i class="fas fa-rocket"></i> <a href="advanced-projects.php" target="_self">Advanced Projects</a></li>
         </ul>
       </div>
 
@@ -180,8 +184,8 @@
       <div class="resource-card">
         <h2><i class="fas fa-question-circle"></i> FAQs</h2>
         <ul>
-          <li><i class="fas fa-bug"></i> <a href="faq-arduino-upload.php" target="_blank">Arduino Not Uploading?</a></li>
-          <li><i class="fas fa-bluetooth"></i> <a href="faq-wedo-connection.php" target="_blank">WeDo Not Connecting?</a></li>
+          <li><i class="fas fa-bug"></i> <a href="faq-arduino-upload.php" target="_self">Arduino Not Uploading?</a></li>
+          <li><i class="fas fa-bluetooth"></i> <a href="faq-wedo-connection.php" target="_self">WeDo Not Connecting?</a></li>
         </ul>
       </div>
 

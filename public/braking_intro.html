@@ -79,7 +79,8 @@
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
-
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
     nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
 
@@ -125,20 +126,22 @@
     }
     /* Responsive Video */
     .video-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto 40px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    }
-    .video-wrapper video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 12px;
-    }
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 400px; /* fixed height */
+  margin: 0 auto 40px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
     .component-card {
       border: none;
       border-radius: 20px;
@@ -161,9 +164,6 @@
       font-size: 1.3rem;
       font-weight: 600;
       color: #007bff;
-    }
-    .card-link small {
-      font-size: 0.8rem;
     }
     .btn-next {
       background-color: #007bff;
@@ -229,6 +229,8 @@
       <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -237,12 +239,15 @@
       <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Kinetic Braking System Project Overview</h1>
 
       <div class="video-wrapper animate__animated animate__fadeIn">
-        <video controls>
-          <source src="videos/braking.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+  <iframe src="https://www.youtube.com/embed/QGdmxFnVB04"
+          title="Automatic Door Project"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+  </iframe>
+</div>
 
+      <!-- Components Section -->
       <h3 class="text-center mb-4">Key Components of the System</h3>
 
       <a href="braking.html?step=0" class="card-link">

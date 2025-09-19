@@ -74,6 +74,44 @@
     nav a i {
       font-size: 1rem;
     }
+    /* Icon colors */
+    nav a:nth-child(1) i { color: #FFD700; }
+    nav a:nth-child(2) i { color: #00FFB3; }
+    nav a:nth-child(3) i { color: #1E90FF; }
+    nav a:nth-child(4) i { color: #FF6347; }
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
+    nav a:hover i { transform: scale(1.2); color: #ffffff; }
+    nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #00979D;
+        flex-direction: column;
+        gap: 15px;
+        width: 200px;
+        padding: 20px;
+        display: none;
+      }
+      nav.active {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+
 
     /* ====== MAIN CONTENT ====== */
     main {
@@ -87,6 +125,7 @@
       font-weight: 700;
       color: #007bff;
     }
+
     .video-wrapper {
       position: relative;
       width: 100%;
@@ -102,6 +141,25 @@
       display: block;
       border-radius: 12px;
     }
+
+    /* Responsive Video */
+	.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 400px; /* fixed height */
+  margin: 0 auto 40px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
     .component-card {
       border: none;
       border-radius: 20px;
@@ -128,6 +186,7 @@
     .card-link small {
       font-size: 0.8rem;
     }
+
     .btn-next {
       background-color: #007bff;
       color: white;
@@ -188,6 +247,8 @@
       <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -203,6 +264,15 @@
           Your browser does not support the video tag.
         </video>
       </div>
+
+  <iframe src="https://www.youtube.com/embed/-iEJDtnG5mk"
+          title="Automatic Door Project"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+  </iframe>
+</div>
+
 
       <!-- Components Section -->
       <h3 class="text-center mb-4">Key Components of the Culinary Bot</h3>
@@ -238,6 +308,7 @@
           <small class="text-primary">Click to view Steps 10 - 12</small>
         </div>
       </a>
+
 
       <!-- Navigation -->
       <div class="text-center mt-5">

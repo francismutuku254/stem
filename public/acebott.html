@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="images/image1.png" />
   <style>
@@ -23,6 +24,98 @@
       color: var(--text-color);
       line-height: 1.6;
     }
+         /* ===== HEADER ===== */
+    header {
+      background: #03009dff;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-container img {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+    }
+    .logo-container .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    .logo-container .tagline {
+      font-size: 0.8rem;
+      font-weight: 400;
+      margin-top: 2px;
+      color: #e6f9f9;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.3s;
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #d9f7f8;
+      transform: translateY(-2px);
+    }
+    nav a i {
+      font-size: 1rem;
+    }
+    nav a:nth-child(1) i { color: #FFD700; }
+    nav a:nth-child(2) i { color: #00FFB3; }
+    nav a:nth-child(3) i { color: #1E90FF; }
+    nav a:nth-child(4) i { color: #FF6347; }
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
+    nav a:hover i { transform: scale(1.2); color: #ffffff; }
+    nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #00979D;
+        flex-direction: column;
+        gap: 15px;
+        width: 200px;
+        padding: 20px;
+        display: none;
+      }
+      nav.active {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
     .container {
       max-width: 900px;
     }
@@ -32,6 +125,7 @@
       font-size: 2.5rem;
       position: relative;
       padding-bottom: 10px;
+      margin-top: 100px;
     }
     .header-title::after {
       content: '';
@@ -72,7 +166,7 @@
     .step-image-wrapper:hover {
       transform: scale(1.02);
     }
- .step-img {
+.step-img {
   width: 100%;
   height: auto;
   display: block;
@@ -170,23 +264,78 @@
     .copy-btn:hover {
       background: #0056b3;
     }
+    .download-btn {
+      text-decoration: none;
+    }
+        /* ====== FOOTER ====== */
+    footer {
+    background: #222;
+    color: #aaa;
+    padding: 20px;
+    font-size: 0.9rem;
+    margin-top: 50px;
+  }
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;          /* reduce gap to prevent wrapping */
+    flex-wrap: nowrap; /* keep everything in one line */
+    text-align: center;
+  }
+  .footer-content a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap; /* prevents link breaking into 2 lines */
+  }
+  .footer-content a:hover {
+    text-decoration: underline;
+  }
+
+  /* If screen is too small, shrink text instead of breaking */
+  @media (max-width: 400px) {
+    .footer-content {
+      font-size: 0.8rem;
+      gap: 4px;
+    }
+  }
   </style>
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo-container">
+      <img src="images/image1.png" alt="Novatech Logo">
+      <div>
+        <div class="logo-text">Novatech STEM</div>
+        <div class="tagline">Electronic Engineering Solutions</div>
+      </div>
+    </div>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
+    <nav>
+      <a href="/stem/index.php"><i class="fas fa-home"></i> Home</a>
+      <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
+      <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
+      <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </header>
 
   <div class="container my-5">
     <h1 class="header-title text-center mb-5 animate__animated animate__fadeInDown">Acebott SmartCar Assembly Guide</h1>
 
     <div id="step-container" class="step-card animate__animated animate__fadeIn">
       <h4 id="step-title" class="step-header text-center"></h4>
-      <div id="step-image-wrapper" class="step-image-wrapper">
-        <div id="step-images"></div>
-        <div id="step-caption" class="step-img-caption"></div>
-      </div>
       <p id="step-desc" class="text-center"></p>
       <div id="code-block" style="display:none;">
         <pre><code id="arduino-code" class="language-cpp"></code></pre>
-        <button class="copy-btn" onclick="copyCode()">📋 Copy Code</button>
+        <button id=copy-button class="copy-btn">Copy</button>
+      </div>
+      <div id="step-image-wrapper" class="step-image-wrapper">
+        <div id="step-images"></div>
+        <div id="step-caption" class="step-img-caption"></div>
       </div>
     </div>
 
@@ -198,98 +347,106 @@
 
     <!-- Navigation -->
     <div class="d-flex justify-content-between mt-4">
-      <button id="prev-btn" class="btn btn-secondary nav-btn nav-btn-prev" onclick="prevStep()">⬅ Previous</button>
-      <button id="next-btn" class="btn btn-primary nav-btn nav-btn-next" onclick="nextStep()">Next ➡</button>
+      <button id="prev-btn" class="btn btn-secondary nav-btn nav-btn-prev">⬅ Previous</button>
+      <button id="next-btn" class="btn btn-primary nav-btn nav-btn-next">Next ➡</button>
     </div>
   </div>
+  
+   <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-content">
+      <span>© <script>document.write(new Date().getFullYear());</script></span>
+      <a href="https://novatech.co.ke/" target="_blank">Novatech</a>
+      <span>STEM Portal. All rights reserved.</span>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
+  <script type="module">
+    import { SmartCarIR } from './code/Acebott/QD001/snippets.js';
+
+    const codeContent = getCode();
+
     const steps = [
-      { title: "Intro", img: "images/complete.png", desc: "Hello and welcome. In this tutorial, we'll assemble this robot.", caption: "Acebott SmartCar Kit" },
-      { title: "What's in the Box",  desc: "The kit includes: ESP32 controller board, ESP32 car shield, 2 LED modules, buzzer module, IR receiver module, ultrasonic sensor with bracket, line/trace sensor, 4 motors, 4 mecanum wheels, IR remote, servo, battery holder, 4 motor brackets, 4 couplings, cables, screwdriver, cross wrench, 2 acrylic boards, short M3 screws, long M3 screws, M3 nuts, short M2 screws, M2 nuts, long self-tapping M2 screws, self-tapping M1.45 screws, short pillars, long pillars, cable ties, black tape, and USB cable.", caption: "Unboxing Acebott SmartCar Kit" },
-      { title: "Step 1: Installing the Line Sensor", img: "images/s1.png", desc: "Install the line sensor with screws, nuts, and connectors. Ensure proper alignment and don’t overtighten.", caption: "Line sensor installation" },
-      { title: "Step 2: Installing Long Pillars", img: "images/s2.png", desc: "Need: 6 pillars, 6 M3 screws. Insert a screw in the hole from the bottom. Hold the screw with your finger and turn in the pillar. Tighten gently with your finger. Repeat for all the pillars.", caption: "Pillars mounted" },
-      { 
-        title: "Step 3: Installing Motors", 
-        imgs: ["images/s3-1.png", "images/s3-2.png"], 
-        desc: "Insert a long screw though the motor from the back of the motor. Take a bracket then insert the other screw. Install the nut to hold the bracket. Be careful not to tighten the wire behind the braket. Tighten by holding the screw driver against the screw head and turning the cross wrench. Make sure it is tight to prevent the wheels from wobbling later. Repeat for the other three motors. Then align the motor as shown with the screw holes on the board. If a zip tie is in the way, nudge it away from that face. Insert the short screw though the hole and turn. Insert the other screw and tighten. Make sure to tighten both screws securely to prevent wobble. Repeat for the other three motors.Mount the motors with brackets, screws, and nuts. Ensure wires are free and tighten securely.", 
-        caption: "Motors fixed to board" 
+      { title: "Introduction", img: "images/Acebott/QD001/complete-QD001.png", desc: "Here is the complete robot.", caption: "Acebott SmartCar Kit" },
+      {
+        title: "What's in the Box",
+        desc: [
+          "ESP32 controller board",
+          "ESP32 car shield",
+          "2 LED modules",
+          "buzzer module",
+          "IR receiver module",
+          "ultrasonic sensor with bracket",
+          "line/trace sensor",
+          "4 motors",
+          "4 mecanum wheels",
+          "IR remote",
+          "servo",
+          "battery holder",
+          "4 motor brackets",
+          "4 couplings",
+          "cables",
+          "screwdriver",
+          "cross wrench",
+          "2 acrylic boards",
+          "short M3 screws",
+          "long M3 screws",
+          "M3 nuts",
+          "short M2 screws",
+          "M2 nuts",
+          "Long self-tapping M2 screws",
+          "Self-tapping M1.45 screws",
+          "Short pillars",
+          "Long pillars",
+          "Cable ties",
+          "Black tape",
+          "USB cable."
+        ],
+        caption: "Unboxing Acebott SmartCar Kit"
       },
-      { title: "Step 4: Installing Controller Board & Car Shield", img: "images/s4.png", desc: "Peel off the protective paper from both sides of the board. Insert a pillar in its hole then screw the nut from the bottom. Repeat for the other three pillars. Next, place the controller board as shown and insert the screw. Please note that this screw should not be installed. Secure the board using the other two screws. Be careful not to overtighten the screws.", caption: "Controller mounted" },
-      { 
-        title: "Step 5: Installing LED Modules, Buzzer, IR Sensor", 
-        imgs: ["images/s5-1.png", "images/s5-2.png"], 
-        desc: "Connect the dupont connector as shown. The red wire always corresponds to the V pin. Insert a screw though the module and upper board holes. Secure using a nut. SImilarly, install the second screw. DO NOT OVERTIGHTEN!! The board might flex. Only tighten until you feel a little resistance. Next install the other modules. The buzzer goes here, and the IR sensor here. Remember not to overtighten.",
-        caption: "Modules installed" 
+      { title: "Step 1: Installing the Line Sensor", img: "images/Acebott/QD001/s1.png", desc: "Peel the protective paper from lower acrylicc board and install line sensor. Secure with M3 screws and screws.", caption: "Line sensor installation" },
+      { title: "Step 2: Installing Long Pillars", img: "images/Acebott/QD001/s2.png", desc: "Install long pillars on lower acrylic board. Secure with short M3 screws.", caption: "Pillars mounted" },
+      {
+        title: "Step 3: Installing Motors",
+        imgs: ["images/Acebott/QD001/s3-1.png", "images/Acebott/QD001/s3-2.png"],
+        desc: "Secure motor with bracket and long M2 screws and nuts. Mount the motor assembly to lower acrylic board. Secure with short M3.",
+        caption: "Motors fixed to board"
       },
-      { title: "Step 6: Installing Servo Motor", img: "images/s6.png", desc: "Insert the servo into its slot and secure with M2 screws and nuts.", caption: "Servo mounted" },
-      { title: "Step 7: Installing Battery Holder", img: "images/s7.png", desc: "Align the holder holes with the board holes as shown. Insert a screw and tighten with a nut. Repeat. Be careful not to overtighten.", caption: "Battery holder installed" },
-      { 
-        title: "Step 8: Installing Ultrasonic Module", 
-        imgs: ["images/s8-1.png", "images/s8-2.png","images/s8-3.png"], 
-        desc: "Peel the protective film from the bracket. Place the module against the bracket as shown. Insert the screw as shown and install the nut. Repeat for the other three screws. Rest the servo arm as shown. From the bottom, install the M1.4 screw. It will be a little difficult. Install the second screw. Alternate between the two screws until the arm is held tightly against the bracket. Next install the wire. GENTLY wiggle the connector. Remember the red wire corresponds with the V pin. Then secure the the bracket to the servo as shown. Please note the teeth on the servo should mesh with the teeth on the arm. Secure the arm by screwing it in. ",
-        caption: "Ultrasonic module installed" 
+      { title: "Step 4: Installing Controller Board & Car Shield", img: "images/Acebott/QD001/s4.png", desc: "Peel protective paper from upper acrylic board. Install short pillars and secure with short M3. Mount and secure controller board with short M3 screws.", caption: "Controller mounted" },
+      {
+        title: "Step 5: Installing LED Modules, Buzzer, IR Sensor",
+        imgs: ["images/Acebott/QD001/s5-1.png", "images/Acebott/QD001/s5-2.png"],
+        desc: "Connect 3-pin cable to the modules; red wire to V pin. Mount and secure the modules with short M3 screws and nuts.",
+        caption: "Modules installed"
       },
-      { title: "Step 9: Joining Upper and Lower Boards", img: "images/s9.png", desc: "Pass the motor and sensor cables through the holes as shown. Align the plates as shown. Lower the upper assembly onto the lower assembly. Secure them using the M3 screws as shown.", caption: "Boards joined" },
-      { 
-        title: "Step 10: Installing Mecanum Wheels", 
-        imgs: ["images/s10-1.png", "images/s10-2.png"], 
-        desc: "NOTE: The wheels must be installed as shown. The small wheels must all point towards the vehicle centre!! Insert a coupling onto the motor shaft and insert the appropriate wheel on the coupling. Next insert the M2 screw and tighten using the screw driver. It is a little difficult, but make sure it is secure. Please check if the wheel is wobbling. If so, tighten the motor bracket. Repeat for the other 3 wheels. Again, please be sure that the wheels are installed as shown.",
+      { title: "Step 6: Installing Servo Motor", img: "images/Acebott/QD001/s6.png", desc: "Insert the servo in its mounting hole. Secure it with M2 screws and nuts.", caption: "Servo mounted" },
+      { title: "Step 7: Installing Battery Holder", img: "images/Acebott/QD001/s7.png", desc: "Align the battery holder holes with the holes on the board. Secure it with flathead M3 screws and M3 nuts.", caption: "Battery holder installed" },
+      {
+        title: "Step 8: Installing Ultrasonic Module",
+        imgs: ["images/Acebott/QD001/s8-1.png", "images/Acebott/QD001/s8-2.png", "images/Acebott/QD001/s8-3.png"],
+        desc: "Peel off protective paper from bracket. Mount sensor on bracket with pins facing away from servo mount. Secure with M2 screws and nuts.",
+        caption: "Ultrasonic module installed"
+      },
+      { title: "Step 9: Joining Upper and Lower Boards", img: "images/Acebott/QD001/s9.png", desc: "Join the upper and lower assemblies. Secure along pillars with short M3 screws.", caption: "Boards joined" },
+      {
+        title: "Step 10: Installing Mecanum Wheels",
+        imgs: ["images/Acebott/QD001/s10-1.png", "images/Acebott/QD001/s10-2.png"],
+        desc: "Insert wheel coupling on motor shaft. Insert the wheel and secure with long self-tapping screws. The rollers on all four wheels must point to the centre of the robot. ",
         caption: "Wheels installed"
       },
-      { title: "Step 11: Wiring", img: "images/s11.png", desc: "Connect servo, LED, buzzer, IR receiver, ultrasonic, and line tracker cables correctly.", caption: "Wiring connections" },
-      
+      { title: "", img: "images/Acebott/QD001/complete-QD001.png", desc: "Here is the complete robot.", caption: "Acebott SmartCar Kit" },
+      { title: "Step 11: Wiring", img: "images/Acebott/QD001/s11.png", desc: "Connect servo, LED, buzzer, IR receiver, ultrasonic, and line tracker cables correctly.", caption: "Wiring connections" },
+
       {
         title: "Step 12: Programming", 
-       
-        desc: "Upload the following Arduino code using Arduino IDE. This program enables remote-controlled movement of the SmartCar via IR remote.", 
+        imgs: ["images/Acebott/QD001/select-board1.png", "images/Acebott/QD001/select-wroom.png", "images/Acebott/QD001/upload.png", "images/Acebott/QD001/done-uploading-compiling.png"],
+        desc: "Copy and upload the source code. Feel free to modify it here and there.",
         caption: "Programming the robot",
-        code: `#include <vehicle.h>
-#include <IRremote.h>
-
-int IRpin = 4;
-unsigned long lastCommandTime;
-const unsigned long commandTimeout = 100;
-uint32_t last_decode = 0;
-uint32_t current_decode = 0;
-
-IRrecv myIRrecv(IRpin);
-vehicle myCar;
-int Speed = 255;
-
-void setup() {
-  Serial.begin(9600);
-  myIRrecv.enableIRIn();
-  myCar.Init();
-}
-
-void loop() {
-  if (myIRrecv.decode()) {
-    lastCommandTime = millis();
-    current_decode = myIRrecv.decodedIRData.decodedRawData;
-    if (myIRrecv.decodedIRData.flags) {
-      current_decode = last_decode;
-    }
-    Serial.print(current_decode, HEX);
-    Serial.println("");
-    switch (current_decode) {
-      case 0xB946FF00: myCar.Move(Forward, Speed); break;
-      case 0xEA15FF00: myCar.Move(Backward, Speed); break;
-      case 0xBB44FF00: myCar.Move(Contrarotate, Speed); break;
-      case 0xBC43FF00: myCar.Move(Clockwise, Speed); break;
-      case 0xE916FF00: myCar.Move(Move_Left, Speed); break;
-      case 0xF20DFF00: myCar.Move(Move_Right, Speed); break;
-    }
-    last_decode = current_decode;
-    myIRrecv.resume();
-  }
-  if (millis() - lastCommandTime > commandTimeout) {
-    myCar.Move(Stop, 0);
-  }
-}`
+        code: codeContent
       }
     ];
+
 
     let currentStep = 0;
 
@@ -320,7 +477,20 @@ void loop() {
           stepImagesContainer.appendChild(imgEl);
         }
 
-        document.getElementById("step-desc").innerText = step.desc || "";
+        if (Array.isArray(step.desc)) {
+          // If it's an array, create a list
+          let listHTML = '<ol>';
+          step.desc.forEach(item => {
+            listHTML += `<li>${item}</li>`;
+          });
+          listHTML += '</ol>';
+          // Now, insert the listHTML into your component's paragraph or a new element
+          document.getElementById('step-desc').innerHTML = listHTML;
+        } else {
+          // If it's a string, display it as plain text
+          document.getElementById('step-desc').innerHTML = `<p>${step.desc}</p>`;
+        }
+
         document.getElementById("step-caption").innerText = step.caption || "";
 
         // Handle code block
@@ -353,6 +523,9 @@ void loop() {
       if (currentStep < steps.length - 1) {
         currentStep++;
         showStep(currentStep);
+      } else {
+        // Redirect back to intro page
+        window.location.href = "acebott_intro.html";
       }
     }
 
@@ -362,20 +535,95 @@ void loop() {
         showStep(currentStep);
       } else {
         // Redirect back to intro page
-        window.location.href = "arduino.html";
+        window.location.href = "acebott_intro.html";
       }
     }
 
-    function copyCode() {
-      const codeText = document.getElementById("arduino-code").innerText;
-      navigator.clipboard.writeText(codeText).then(() => {
-        alert("✅ Code copied to clipboard!");
+    async function copyCode(buttonID) {
+      const copyButton = document.getElementById(buttonID);
+      const originalText = copyButton.textContent;
+
+      copyButton.textContent = "Copying...";
+
+      try {
+        const codeText = getCode();
+
+        if (codeText) {
+          await navigator.clipboard.writeText(codeText);
+
+          copyButton.textContent = "Copied!";
+          copyButton.style.backgroundColor = "#28a745";
+
+          setTimeout(() => {
+            copyButton.textContent = originalText;
+            copyButton.style.backgroundColor = "";
+          }, 2000);
+        } else {
+          throw new Error("Failed to get code content.");
+        }
+      } catch (err) {
+        console.error('Copy failed: ', err);
+        copyButton.textContent = originalText;
+        alert('Failed to copy code.');
+      }
+    }
+
+    function getCode() {
+      return SmartCarIR;
+    }
+
+    const copyButton = document.getElementById('copy-button');
+    if (copyButton) {
+      copyButton.addEventListener('click', () => {
+        copyCode('copy-button');
       });
     }
 
-    window.onload = () => {
+    const nextButton = document.getElementById('next-btn');
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        nextStep();
+      });
+    }
+
+    const prevButton = document.getElementById('prev-btn');
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        prevStep();
+      });
+    }
+
+    // Initial load
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+        
+    window.addEventListener('load', () => {          
+      const stepParam = getQueryParam("step");
+      if (stepParam) {
+        const startStep = parseInt(stepParam, 10);
+        if (!isNaN(startStep) && startStep >= 0 && startStep < steps.length) {
+          currentStep = startStep;
+        }
+      }
       showStep(currentStep);
-    };
+    });
+
+     // Hamburger toggle
+    const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector("nav");
+
+    hamburger.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+
+    // Close nav when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+        nav.classList.remove("active");
+      }
+    });
   </script>
 </body>
 </html>

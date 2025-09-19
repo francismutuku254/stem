@@ -54,6 +54,8 @@
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
 
     /* ====== HAMBURGER ====== */
@@ -151,6 +153,57 @@
     .footer-content a { color: #4CAF50; text-decoration: none; font-weight: 500; }
     .footer-content a:hover { text-decoration: underline; }
     @media (max-width: 480px) { .footer-content { font-size: 0.75rem; gap: 4px; } }
+
+        
+  /* WhatsApp Floating Button - Responsive */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  transition: background 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebc59;
+}
+
+.whatsapp-float img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.whatsapp-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Make responsive on smaller screens */
+@media (max-width: 600px) {
+  .whatsapp-float {
+    padding: 8px 12px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsapp-float img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .whatsapp-text {
+    font-size: 0.85rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -170,6 +223,8 @@
       <a href="projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -200,11 +255,11 @@
       </div>
 
       <div class="card">
-        <img src="img/acebott3.jpg" alt="Acebott Project">
+        <img src="img/acebott.png" alt="Acebott Project">
         <div class="card-content">
           <h3>Acebott</h3>
           <p>Build and program smart robotic kits with Acebott, designed to make STEM learning fun and hands-on.</p>
-          <a href="public/arduino.html">View Projects</a>
+          <a href="public/acebott_overview.html">View Projects</a>
         </div>
       </div>
 
@@ -228,6 +283,12 @@
       <span>STEM Portal. All rights reserved.</span>
     </div>
   </footer>
+  <!-- WhatsApp Floating Button -->
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/254740504734" target="_blank" class="whatsapp-float">
+  <img src="img/whatsapp.png" alt="WhatsApp" />
+  <span class="whatsapp-text">Hi, Chat with us here</span>
+</a>
 
   <!-- ====== JS ====== -->
   <script>

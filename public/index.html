@@ -90,7 +90,10 @@
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
+    nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
 
     /* Hamburger */
     .hamburger {
@@ -245,6 +248,55 @@
       gap: 4px;
     }
   }
+    /* WhatsApp Floating Button - Responsive */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  transition: background 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebc59;
+}
+
+.whatsapp-float img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.whatsapp-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Make responsive on smaller screens */
+@media (max-width: 600px) {
+  .whatsapp-float {
+    padding: 8px 12px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsapp-float img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .whatsapp-text {
+    font-size: 0.85rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -264,6 +316,8 @@
       <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -357,7 +411,7 @@
 
       <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="images/goldfish.jpg" class="card-img-top" alt="Simple Aquatic Robot">
+          <img src="steps/gold15.jpg" class="card-img-top" alt="Simple Aquatic Robot">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-swimmer"></i> Aquatic Goldfish</h5>
             <p class="card-text">An introductory project focused on creating a simple, aquatic-themed robot that mimics swimming and buoyancy.</p>
@@ -368,7 +422,7 @@
 
       <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="images/marsrover.jpg" class="card-img-top" alt="Mars Rover">
+          <img src="steps/mars19.jpg" class="card-img-top" alt="Mars Rover">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-satellite"></i> Martian Rover</h5>
             <p class="card-text">An advanced, six-wheeled planetary explorer designed to simulate remote-controlled space exploration missions.</p>
@@ -379,7 +433,7 @@
 
       <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="images/miniplane.jpg" class="card-img-top" alt="Mini Plane">
+          <img src="steps/mini18.jpg" class="card-img-top" alt="Mini Plane">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-plane"></i> Aerodynamic Mini Plane</h5>
             <p class="card-text">Assemble a small-scale aircraft model that demonstrates the principles of flight and controlled gliding motion.</p>
@@ -390,7 +444,7 @@
 
       <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="images/birdfeeding.jpg" class="card-img-top" alt="Bird Feeding">
+          <img src="steps/bird24.jpg" class="card-img-top" alt="Bird Feeding">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-feather-alt"></i> Automated Bird Feeder</h5>
             <p class="card-text">A practical robotics project to create a machine that dispenses seeds automatically to feed birds on a schedule.</p>
@@ -401,7 +455,7 @@
 
       <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="images/dragonfly.jpg" class="card-img-top" alt="Dragonfly">
+          <img src="steps/drag23.jpg" class="card-img-top" alt="Dragonfly">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-bug"></i> Robotic Dragonfly</h5>
             <p class="card-text">Explore biomimicry by building a lightweight, articulated flying robot inspired by the flight patterns of a dragonfly.</p>
@@ -530,6 +584,11 @@
       <span>STEM Portal. All rights reserved.</span>
     </div>
   </footer>
+  <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/254740504734" target="_blank" class="whatsapp-float">
+  <img src="images/whatsapp.png" alt="WhatsApp" />
+  <span class="whatsapp-text">Hi, Chat with us here</span>
+</a>
 
   <script>
     // Hamburger toggle
