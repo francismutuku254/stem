@@ -12,7 +12,18 @@
     /* ====== RESET ====== */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
 
-    body { background: #f9fafc; color: #333; padding-top: 80px; }
+    html, body {
+      height: 100%;
+      overflow: hidden; /* no scroll */
+    }
+
+    body {
+      background: #f9fafc;
+      color: #333;
+      padding-top: 80px;
+      display: flex;
+      flex-direction: column;
+    }
 
     a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 6px; }
 
@@ -33,12 +44,8 @@
     }
 
     .logo-container { display: flex; align-items: center; gap: 10px; }
-
     .logo-container img { height: 40px; width: 40px; object-fit: contain; }
-
-    .logo-container .logo-text {
-      font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; line-height: 1.2;
-    }
+    .logo-container .logo-text { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; line-height: 1.2; }
     .logo-container .tagline { font-size: 0.8rem; font-weight: 400; margin-top: 2px; color: #e6f9f9; }
 
     nav { display: flex; gap: 20px; }
@@ -54,11 +61,10 @@
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
-    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
-    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
+    nav a:nth-child(5) i { color: #FF8C00; }
+    nav a:nth-child(6) i { color: #DC143C; }
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
 
-    /* ====== HAMBURGER ====== */
     .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
 
     @media (max-width: 768px) {
@@ -73,70 +79,74 @@
 
     /* ====== AUTO TYPE BANNER ====== */
     .banner {
-      width: 100%; background: linear-gradient(to right, #3498db, #2ecc71);
-      color: white; text-align: center;
-      padding: 40px 20px; font-size: 1.5rem; font-weight: bold; line-height: 1.5;
-      display: flex; align-items: center; justify-content: center; min-height: 80px;
+      width: 100%;
+      background: linear-gradient(to right, #3498db, #2ecc71);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
     }
     .banner span {
-      display: inline-block; min-height: 1.5em; white-space: nowrap;
-      border-right: 3px solid white; animation: blink 0.7s infinite; overflow: hidden;
+      display: inline-block;
+      min-height: 1.2em;
+      white-space: nowrap;
+      border-right: 2px solid white;
+      animation: blink 0.7s infinite;
+      overflow: hidden;
     }
     @keyframes blink { 50% { border-color: transparent; } }
-    @media (max-width: 768px) { .banner { font-size: 1.2rem; min-height: 70px; padding: 30px 15px; } }
-    @media (max-width: 480px) { .banner { font-size: 1rem; min-height: 60px; padding: 25px 10px; } }
 
     /* ====== MAIN ====== */
-    main { padding: 40px 10%; }
-    h1 { text-align: center; margin-bottom: 30px; font-size: 2rem; color: #00979D; }
+    main { 
+      flex: 1; 
+      display: flex; 
+      flex-direction: column; 
+      padding: 20px 5%; 
+      justify-content: center;
+    }
+    h1 { text-align: center; margin-bottom: 20px; font-size: 2rem; color: #00979D; }
 
-    /* ====== CARDS GRID ====== */
+    /* ====== CARDS ROW ====== */
     .card-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  align-items: stretch; /* equal card heights */
-}
-
-    @media (max-width: 768px) {
-      .card-grid { grid-template-columns: 1fr; } /* stack on small screens */
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 across */
+      gap: 15px;
+      flex: 1;
     }
 
     .card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
-  display: flex;
-  flex-direction: column;
-}
-    .card:hover { transform: translateY(-5px); }
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
 
-   
-    /* Equal image height on large screens */
-.card img {
-  width: 100%;
-  height: auto;       /* allow responsive height */
-  object-fit: cover;  /* fill width, no white gaps */
-  display: block;
-}
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
 
-
-
-    /* Equalize content */
     .card-content {
-      padding: 15px;
-      flex: 1;
+      padding: 12px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      flex: 1;
     }
-    .card-content h3 { font-size: 1.2rem; margin-bottom: 10px; color: #333; }
-    .card-content p { flex: 1; font-size: 0.95rem; margin-bottom: 15px; color: #555; }
+    .card-content h3 { font-size: 1.1rem; margin-bottom: 8px; color: #333; }
+    .card-content p { flex: 1; font-size: 0.9rem; margin-bottom: 12px; color: #555; }
     .card-content a {
-      background: #00979D; color: white; padding: 10px 15px;
-      border-radius: 8px; text-align: center; transition: background 0.3s;
+      background: #00979D; color: white; padding: 8px 12px;
+      border-radius: 6px; text-align: center; transition: background 0.3s;
       font-weight: 500;
     }
     .card-content a:hover { background: #007c82; }
@@ -144,66 +154,36 @@
     /* ====== FOOTER ====== */
     footer {
       background: #222; color: white; text-align: center;
-      padding: 25px; font-size: 0.9rem; margin-top: 50px;
+      padding: 15px; font-size: 0.9rem;
+      margin-top: auto;
     }
+
     .footer-content {
       display: flex; justify-content: center; align-items: center; gap: 8px;
-      flex-wrap: nowrap; white-space: nowrap; overflow-x: auto; font-size: 0.85rem;
+      flex-wrap: nowrap; white-space: nowrap; font-size: 0.85rem;
     }
     .footer-content a { color: #4CAF50; text-decoration: none; font-weight: 500; }
     .footer-content a:hover { text-decoration: underline; }
-    @media (max-width: 480px) { .footer-content { font-size: 0.75rem; gap: 4px; } }
 
-        
-  /* WhatsApp Floating Button - Responsive */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 30px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 10000;
-  transition: background 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  background-color: #1ebc59;
-}
-
-.whatsapp-float img {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
-
-.whatsapp-text {
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-/* Make responsive on smaller screens */
-@media (max-width: 600px) {
-  .whatsapp-float {
-    padding: 8px 12px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .whatsapp-float img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .whatsapp-text {
-    font-size: 0.85rem;
-  }
-}
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+      transition: background 0.3s ease;
+    }
+    .whatsapp-float:hover { background-color: #1ebc59; }
+    .whatsapp-float img { width: 24px; height: 24px; margin-right: 8px; }
+    .whatsapp-text { font-size: 0.95rem; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -235,7 +215,6 @@
   <main>
     <h1>Explore our learning solutions</h1>
     <div class="card-grid">
-      
       <div class="card">
         <img src="img/image2.jpg" alt="WeDo Project">
         <div class="card-content">
@@ -271,7 +250,6 @@
           <a href="#">View Projects</a>
         </div>
       </div>
-
     </div>
   </main>
 
@@ -283,12 +261,12 @@
       <span>STEM Portal. All rights reserved.</span>
     </div>
   </footer>
+
   <!-- WhatsApp Floating Button -->
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/254740504734" target="_blank" class="whatsapp-float">
-  <img src="img/whatsapp.png" alt="WhatsApp" />
-  <span class="whatsapp-text">Hi, Chat with us here</span>
-</a>
+  <a href="https://wa.me/254740504734" target="_blank" class="whatsapp-float">
+    <img src="img/whatsapp.png" alt="WhatsApp" />
+    <span class="whatsapp-text">Hi, Chat with us here</span>
+  </a>
 
   <!-- ====== JS ====== -->
   <script>
