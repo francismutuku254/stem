@@ -14,7 +14,7 @@
 
     html, body {
       height: 100%;
-      overflow: hidden; /* no scroll */
+      overflow: hidden; /* no vertical scroll */
     }
 
     body {
@@ -111,12 +111,13 @@
     }
     h1 { text-align: center; margin-bottom: 20px; font-size: 2rem; color: #00979D; }
 
-    /* ====== CARDS ROW ====== */
+    /* ====== CARDS SCROLL ROW ====== */
     .card-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 across */
+      display: flex;
       gap: 15px;
-      flex: 1;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
     }
 
     .card {
@@ -126,7 +127,9 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
-      height: 100%;
+      min-width: 250px;
+      max-width: 250px;
+      scroll-snap-align: start;
     }
 
     .card img {
@@ -250,6 +253,16 @@
           <a href="#">View Projects</a>
         </div>
       </div>
+
+      <!-- New Highlights Card -->
+      <div class="card">
+        <img src="img/highlights.jpg" alt="Highlights">
+        <div class="card-content">
+          <h3>Highlights</h3>
+          <p>Check out the latest highlights and featured projects from our STEM portal.</p>
+          <a href="highlights.php">View Highlights</a>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -263,7 +276,7 @@
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/254740504734" target="_blank" class="whatsapp-float">
+  <a href="https://wa.me/254795952128" target="_blank" class="whatsapp-float">
     <img src="img/whatsapp.png" alt="WhatsApp" />
     <span class="whatsapp-text">Hi, Chat with us here</span>
   </a>
