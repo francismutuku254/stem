@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Arduino IDE Installation Guide</title>
+  <title>Acecode Installation Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -324,7 +324,7 @@
   </header>
 
   <div class="container my-5">
-    <h1 class="header-title text-center mb-5 animate__animated animate__fadeInDown">Arduino IDE Installation Guide</h1>
+    <h1 class="header-title text-center mb-5 animate__animated animate__fadeInDown">Acecode Installation Guide</h1>
 
     <div id="step-container" class="step-card animate__animated animate__fadeIn">
       <h4 id="step-title" class="step-header text-center"></h4>
@@ -369,44 +369,27 @@
 
     const steps = [
     {
-        title: "Step 1: Download CH340 Driver for Windows",
-        desc: "Download CH340 driver for Windows\nhttps://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH341SER.EXE",
+        title: "Step 1: Download Acecode",
+        img: "images/Acebott/Acecode/download.png",
+        desc: "Visit acebott.com/software and download Acecode",
         caption: ""
       },
       {
-        title: "Step 2: Install CH340 Driver",
-        imgs: ["images/Acebott/Arduino-IDE/run-driver-installer.png", "images/Acebott/Arduino-IDE/run-driver-installer2.png"],
-        desc: "Run the installer. Follow the prompts to install the driver.",
+        title: "Step 2: Extract Zip File",
+        imgs: ["images/Acebott/Acecode/open-with-explorer.png", "images/Acebott/Acecode/open.png", "images/Acebott/Acecode/extract-all.png"],
+        desc: "Open the zip with Windows Explorer and extract the files.",
         caption: ""
       },
       {
-        title: "Step 3: Download Arduino IDE",
-        img: "images/Acebott/Arduino-IDE/download-ide.png",
-        desc: "Download the IDE for Windows.",
+        title: "Step 3: Run Installer",
+        imgs: [ "images/Acebott/Acecode/info-b4-run-anyway.png",  "images/Acebott/Acecode/run-anyway.png", "images/Acebott/Acecode/run-installer.png"],
+        desc: "Run the Acecode installer executable.",
         caption: ""
       },
       {
-        title: "Step 4: Run IDE Installer",
-        imgs: ["images/Acebott/Arduino-IDE/run-ide-installer.png", "images/Acebott/Arduino-IDE/run-ide-installer2.png", "images/Acebott/Arduino-IDE/run-ide-installe3.png", "images/Acebott/Arduino-IDE/run-ide-installer4.png",],
-        desc: "Run the executable. Follow the prompts to install Arduino IDE.",
-        caption: ""
-      },
-      {
-        title: "Step 5: Run Arduino IDE",
-        imgs: ["images/Acebott/Arduino-IDE/run-ide-1.png", "images/Acebott/Arduino-IDE/run-ide-2.png", "images/Acebott/Arduino-IDE/run-ide-3.png"],
-        desc: "Open Arduino IDE. Wait for initial setup to complete.",
-        caption: ""
-      },
-      {
-        title: "Step 6: Add ESP32 to Board Manager",
-        imgs: ["images/Acebott/Arduino-IDE/URL1.png", "images/Acebott/Arduino-IDE/URL2.png", "images/Acebott/Arduino-IDE/URL3.png", "images/Acebott/Arduino-IDE/URL4.png"],
-        desc: "Copy this link and paste into 3rd party board manager page field.\nhttps://github.com/arduino/Arduino/wiki/Unofficial-list-of-3rd-party-boards-support-urls",
-        caption: ""
-      },
-      {
-        title: "Step 7: Install ESP32 to IDE",
-        imgs: ["images/Acebott/Arduino-IDE/board1.png", "images/Acebott/Arduino-IDE/board2.png"],
-        desc: "Search for ESP32 board in the board manager. Click install ESP32 board by Espressif Systems.",
+        title: "Step 4: Install Drivers",
+        imgs: ["images/Acebott/Acecode/port-selector-driver.png", "images/Acebott/Acecode/driver-install.png", "images/Acebott/Acecode/driver-install-2.png"],
+        desc: "Click the port drop-down menu. Select One-Click Driver Install. Follow the prompts to install the driver.",
         caption: ""
       },
     ];
@@ -489,7 +472,7 @@
         showStep(currentStep);
       } else {
         // Redirect back to intro page
-        window.location.href = "arduino_ide_intro.html";
+        window.location.href = "acecode_ide_intro.html";
       }
     }
 
@@ -499,7 +482,7 @@
         showStep(currentStep);
       } else {
         // Redirect back to intro page
-        window.location.href = "arduino_ide_intro.html";
+        window.location.href = "acecode_ide_intro.html";
       }
     }
 
