@@ -238,7 +238,6 @@
 </head>
 <body>
 
-  <!-- ====== HEADER ====== -->
   <header>
     <div class="logo-container">
       <img src="images/image1.png" alt="Novatech Logo">
@@ -258,13 +257,19 @@
     </nav>
   </header>
 
-  <!-- ====== MAIN ====== -->
   <main>
     <div class="container my-5">
       <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Smart Trashcan Project Overview</h1>
 
-      <!-- Video Section -->
       <div class="video-wrapper animate__animated animate__fadeIn">
+
+        <video controls>
+          <source src="videos/trashcan.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+
   <iframe src="https://www.youtube.com/embed/B-QxUiC4Fns"
           title="Automatic Door Project"
           frameborder="0"
@@ -273,6 +278,7 @@
   </iframe>
 </div>
       <!-- Components Section -->
+
       <h3 class="text-center mb-4">Key Components of the Trashcan</h3>
 
       <a href="sensortrashcan.html?step=0" class="card-link">
@@ -315,14 +321,12 @@
           </div>
       </a>
 
-      <!-- Navigation -->
       <div class="text-center mt-5">
         <a href="sensortrashcan.html" class="btn btn-next">Begin Step-by-Step Guide ➡</a>
       </div>
     </div>
   </main>
 
-  <!-- ====== FOOTER ====== -->
   <footer>
     <div class="footer-content">
       <span>© <script>document.write(new Date().getFullYear());</script></span>
@@ -331,7 +335,6 @@
     </div>
   </footer>
 
-  <!-- ====== JS ====== -->
   <script>
     // Hamburger toggle
     const hamburger = document.querySelector(".hamburger");

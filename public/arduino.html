@@ -2,34 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Novatech | Arduino Projects</title>
+  <title>Arduino IDE Installation Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="images/image1.png" />
   <style>
     :root {
       --primary-color: #007bff;
       --secondary-color: #6c757d;
-      --bg-light: #f4f7f6;
-      --bg-dark: #212529;
-      --text-dark: #333;
       --card-bg: #fff;
-      --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+      --text-color: #343a40;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      --hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     }
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
+      background-color: #f0f2f5;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
       line-height: 1.6;
-      margin: 0;
-      padding: 0;
     }
-
-    /* ===== HEADER ===== */
+         /* ===== HEADER ===== */
     header {
       background: #03009dff;
       color: white;
@@ -90,7 +85,10 @@
     nav a:nth-child(2) i { color: #00FFB3; }
     nav a:nth-child(3) i { color: #1E90FF; }
     nav a:nth-child(4) i { color: #FF6347; }
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
     nav a:hover i { transform: scale(1.2); color: #ffffff; }
+    nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
 
     /* Hamburger */
     .hamburger {
@@ -118,100 +116,157 @@
         display: block;
       }
     }
-
-    /* ===== HERO ===== */
-    .hero {
-      background: linear-gradient(135deg, #0056b3, #003366);
-      color: white;
-      padding: 120px 20px 80px;
-      text-align: center;
-      overflow: hidden;
-      margin-top: 85px; /* offset for fixed header */
+    .container {
+      max-width: 900px;
     }
-    .hero h1 {
-      font-family: 'Montserrat', sans-serif;
+    .header-title {
       font-weight: 700;
-      font-size: 3rem;
-      letter-spacing: 1px;
-    }
-    .hero p.lead {
-      font-size: 1.25rem;
-      opacity: 0.9;
-    }
-
-    /* ===== CARDS ===== */
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      color: var(--primary-color);
+      color: var(--text-color);
+      font-size: 2.5rem;
       position: relative;
       padding-bottom: 10px;
+      margin-top: 100px;
     }
-    .section-title::after {
+    .header-title::after {
       content: '';
       position: absolute;
       left: 50%;
       bottom: 0;
       transform: translateX(-50%);
-      height: 3px;
-      width: 60px;
+      height: 4px;
+      width: 80px;
       background-color: var(--primary-color);
       border-radius: 2px;
     }
-    .model-card {
+    .step-card {
+      border-radius: 20px;
+      background: var(--card-bg);
+      padding: 30px;
+      box-shadow: var(--shadow);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
       overflow: hidden;
-      box-shadow: var(--shadow-light);
-      background-color: var(--card-bg);
-      display: flex;
-      flex-direction: column;
     }
-    .model-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
+    .step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
     }
-    .card-img-top {
-      height: 200px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-    .model-card:hover .card-img-top {
-      transform: scale(1.05);
-    }
-    .card-body {
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .card-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
+    .step-header {
       color: var(--primary-color);
-      font-size: 1.25rem;
+      font-size: 1.5rem;
+      font-weight: 600;
       margin-bottom: 10px;
     }
-    .card-text {
-      color: var(--secondary-color);
-      font-size: 0.95rem;
-      flex-grow: 1;
+    .step-image-wrapper {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
     }
-    .btn-primary {
+    .step-image-wrapper:hover {
+      transform: scale(1.02);
+    }
+.step-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: none;   /* remove fixed height restriction */
+  object-fit: scale-down; /* ensures it scales but fills width */
+}
+
+
+    .step-img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .step-image-wrapper:hover .step-img-caption {
+      opacity: 1;
+    }
+    .nav-btn {
+      border-radius: 50px;
+      padding: 12px 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .nav-btn-prev {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+    .nav-btn-prev:hover {
+      background-color: #5a6268;
+      border-color: #545b62;
+      transform: translateX(-5px);
+    }
+    .nav-btn-next {
       background-color: var(--primary-color);
       border-color: var(--primary-color);
-      font-weight: 500;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      border-radius: 50px;
-      padding: 10px 25px;
     }
-    .btn-primary:hover {
+    .nav-btn-next:hover {
       background-color: #0056b3;
       border-color: #004085;
-      transform: translateY(-2px);
+      transform: translateX(5px);
     }
 
+    /* ===== Progress Bar ===== */
+    .progress-bar-container {
+      height: 12px;
+      background-color: #e9ecef;
+      border-radius: 6px;
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-bar {
+      background: linear-gradient(90deg, var(--primary-color), #00c6ff);
+      border-radius: 6px;
+      transition: width 0.4s ease-in-out;
+      height: 100%;
+    }
+    .progress-label {
+      position: absolute;
+      top: -25px;
+      right: 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
+
+    pre code {
+      display: block;
+      padding: 15px;
+      background: #1e1e1e;
+      color: #f8f8f2;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+    }
+    .copy-btn {
+      margin-top: 10px;
+      display: inline-block;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background 0.3s ease;
+    }
+    .copy-btn:hover {
+      background: #0056b3;
+    }
+    .download-btn {
+      text-decoration: none;
+    }
         /* ====== FOOTER ====== */
     footer {
     background: #222;
@@ -248,7 +303,6 @@
   </style>
 </head>
 <body>
-
   <!-- ===== HEADER ===== -->
   <header>
     <div class="logo-container">
@@ -264,265 +318,41 @@
       <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero animate__animated animate__fadeInDown">
-    <h1>Arduino Projects: Explore. Build. Innovate.</h1>
-    <p class="lead">Dive into the fundamentals of engineering and programming. Select a project and begin your journey from concept to creation with our detailed, step-by-step guides.</p>
-  </section>
-
-  <!-- ===== PROJECTS ===== -->
   <div class="container my-5">
-    <h2 class="section-title text-center mb-5 animate__animated animate__fadeIn">Arduino Projects Portfolio</h2>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-      
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/arduino.png" class="card-img-top" alt="Simulated Oil Drilling Rig">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-laptop-code"></i> Installing Arduino IDE</h5>
-            <p class="card-text">The Arduino IDE is essential software for programming Arduino boards. It provides an easy-to-use interface for writing, compiling, and uploading code.</p>
-            <a href="#" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
+    <h1 class="header-title text-center mb-5 animate__animated animate__fadeInDown">Arduino IDE Installation Guide</h1>
 
-      <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/complete.png" class="card-img-top" alt="Automated Forklift Model">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-robot"></i> Acebott SmartCar Robot</h5>
-            <p class="card-text">Build an intelligent robotic car powered by ESP32, featuring mecanum wheels, sensors, and modules. </p>
-            <a href="acebott_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
+    <div id="step-container" class="step-card animate__animated animate__fadeIn">
+      <h4 id="step-title" class="step-header text-center"></h4>
+      <p id="step-desc" class="text-center"></p>
+      <div id="code-block" style="display:none;">
+        <pre><code id="arduino-code" class="language-cpp"></code></pre>
+        <button id=copy-button class="copy-btn">Copy</button>
       </div>
+      <div id="step-image-wrapper" class="step-image-wrapper">
+        <div id="step-images"></div>
+        <div id="step-caption" class="step-img-caption"></div>
+      </div>
+    </div>
 
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="steps/cul20.jpg" class="card-img-top" alt="Robotic Culinary Assistant">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-hat-wizard"></i> Culinary Bot</h5>
-            <p class="card-text">Design a whimsical robotic assistant that performs basic mixing and stirring actions with a magical flair.</p>
-            <a href="culinary_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
+    <!-- Progress Bar -->
+    <div class="progress-bar-container mt-4">
+      <div id="progress-bar" class="progress-bar" role="progressbar"></div>
+      <div id="progress-label" class="progress-label">Step 1 of X</div>
+    </div>
 
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="steps/bin14.jpg" class="card-img-top" alt="Automatic Sensor Bin">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-recycle"></i> Smart Bin</h5>
-            <p class="card-text">Build an intelligent receptacle that utilizes a motion sensor to automatically open and close for hands-free operation.</p>
-            <a href="trashcan_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="steps/aut20.jpg" class="card-img-top" alt="Automated Sliding Door">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-door-open"></i> Automatic Door</h5>
-            <p class="card-text">Construct a responsive access system that opens automatically upon proximity detection, demonstrating fundamental automation principles.</p>
-            <a href="automaticdoor_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="steps/dolph17.jpg" class="card-img-top" alt="Biometric Dolphin Robot">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-fish"></i> Biometric Dolphin</h5>
-            <p class="card-text">Replicate the graceful movements of a dolphin using advanced biomechanics and servo motors for a fluid, lifelike motion.</p>
-            <a href="dolphin.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="steps/brake16.jpg" class="card-img-top" alt="Kinetic Braking Vehicle">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-car-side"></i> Kinetic Braking System</h5>
-            <p class="card-text">Build a high-speed vehicle model that demonstrates the mechanics and physics of an emergency braking system.</p>
-            <a href="braking_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/goldfish.jpg" class="card-img-top" alt="Simple Aquatic Robot">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-swimmer"></i> Aquatic Goldfish</h5>
-            <p class="card-text">An introductory project focused on creating a simple, aquatic-themed robot that mimics swimming and buoyancy.</p>
-            <a href="goldfish.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/marsrover.jpg" class="card-img-top" alt="Mars Rover">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-satellite"></i> Martian Rover</h5>
-            <p class="card-text">An advanced, six-wheeled planetary explorer designed to simulate remote-controlled space exploration missions.</p>
-            <a href="marsrover.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/miniplane.jpg" class="card-img-top" alt="Mini Plane">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-plane"></i> Aerodynamic Mini Plane</h5>
-            <p class="card-text">Assemble a small-scale aircraft model that demonstrates the principles of flight and controlled gliding motion.</p>
-            <a href="miniplane.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/birdfeeding.jpg" class="card-img-top" alt="Bird Feeding">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-feather-alt"></i> Automated Bird Feeder</h5>
-            <p class="card-text">A practical robotics project to create a machine that dispenses seeds automatically to feed birds on a schedule.</p>
-            <a href="birdfeeding.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/dragonfly.jpg" class="card-img-top" alt="Dragonfly">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-bug"></i> Robotic Dragonfly</h5>
-            <p class="card-text">Explore biomimicry by building a lightweight, articulated flying robot inspired by the flight patterns of a dragonfly.</p>
-            <a href="dragonfly.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/glider.jpg" class="card-img-top" alt="Glider">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-wind"></i> Aerodynamic Glider</h5>
-            <p class="card-text">A model that demonstrates passive flight principles and how gliders can harness air currents for sustained motion.</p>
-            <a href="glider.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/snake.jpg" class="card-img-top" alt="Snake">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-splotch"></i> Serpentine Robot</h5>
-            <p class="card-text">Construct a multi-segmented robot that uses complex joint mechanics to replicate the slithering motion of a snake.</p>
-            <a href="snake.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/oldturtle.jpg" class="card-img-top" alt="Old Turtle">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-turtle"></i> Bio-Inspired Turtle</h5>
-            <p class="card-text">A slow-moving but robust robotic turtle model, focusing on stable, methodical locomotion.</p>
-            <a href="oldturtle.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/honeygathering.jpg" class="card-img-top" alt="Honey Gathering">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-honey-pot"></i> Bee-Bot</h5>
-            <p class="card-text">Design and build a bee-inspired robot that mimics the intricate process of collecting and transporting nectar.</p>
-            <a href="honeygathering.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/crocodile.jpg" class="card-img-top" alt="Crocodile">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-crocodile"></i> Robotic Crocodile</h5>
-            <p class="card-text">Assemble a fearsome reptile model with snapping jaws, focusing on the mechanics of its powerful bite.</p>
-            <a href="crocodile.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/helicopter.jpg" class="card-img-top" alt="Helicopter">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-helicopter"></i> Rotor-Powered Helicopter</h5>
-            <p class="card-text">Build a flying machine that demonstrates the principles of lift and thrust using a powerful rotor system.</p>
-            <a href="helicopter.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/dimetrodon.jpg" class="card-img-top" alt="Dimetrodon">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-paw"></i> Prehistoric Dimetrodon</h5>
-            <p class="card-text">A captivating robotics project to recreate the walking motion and unique sail-like back of this ancient reptile.</p>
-            <a href="dimetrodon.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/trex.jpg" class="card-img-top" alt="Tyrannosaurus Rex">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-paw"></i> Tyrannosaurus Rex</h5>
-            <p class="card-text">Build the king of the dinosaurs. This model features powerful leg movements and a jaw that simulates a fearsome roar.</p>
-            <a href="trex.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/snakelure.jpg" class="card-img-top" alt="Lure Snake Out of Hole">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-mountain"></i> Snake Lure Mechanism</h5>
-            <p class="card-text">A clever engineering puzzle to design a mechanism that can lure a serpentine object out of an enclosed space.</p>
-            <a href="snakelure.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/dinobigmouth.jpg" class="card-img-top" alt="Dinosaurs Big Mouth">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-teeth"></i> Dino Big Mouth</h5>
-            <p class="card-text">Focus on the mechanics of a powerful jaw with this dinosaur model that opens wide and snaps shut with force.</p>
-            <a href="dinobigmouth.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div> -->
+    <!-- Navigation -->
+    <div class="d-flex justify-content-between mt-4">
+      <button id="prev-btn" class="btn btn-secondary nav-btn nav-btn-prev">⬅ Previous</button>
+      <button id="next-btn" class="btn btn-primary nav-btn nav-btn-next">Next ➡</button>
     </div>
   </div>
-
-  <!-- ===== FOOTER ===== -->
+  
+   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-content">
       <span>© <script>document.write(new Date().getFullYear());</script></span>
@@ -531,8 +361,220 @@
     </div>
   </footer>
 
-  <script>
-    // Hamburger toggle
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module">
+    import { SmartCarIR } from './code/Acebott/QD001/snippets.js';
+
+    const codeContent = getCode();
+
+    const steps = [
+    {
+        title: "Step 1: Download CH340 Driver for Windows",
+        desc: "Download CH340 driver for Windows\nhttps://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH341SER.EXE",
+        caption: ""
+      },
+      {
+        title: "Step 2: Install CH340 Driver",
+        imgs: ["images/Acebott/Arduino-IDE/run-driver-installer.png", "images/Acebott/Arduino-IDE/run-driver-installer2.png"],
+        desc: "Run the installer. Follow the prompts to install the driver.",
+        caption: ""
+      },
+      {
+        title: "Step 3: Download Arduino IDE",
+        img: "images/Acebott/Arduino-IDE/download-ide.png",
+        desc: "Download the IDE for Windows.",
+        caption: ""
+      },
+      {
+        title: "Step 4: Run IDE Installer",
+        imgs: ["images/Acebott/Arduino-IDE/run-ide-installer.png", "images/Acebott/Arduino-IDE/run-ide-installer2.png", "images/Acebott/Arduino-IDE/run-ide-installe3.png", "images/Acebott/Arduino-IDE/run-ide-installer4.png",],
+        desc: "Run the executable. Follow the prompts to install Arduino IDE.",
+        caption: ""
+      },
+      {
+        title: "Step 5: Run Arduino IDE",
+        imgs: ["images/Acebott/Arduino-IDE/run-ide-1.png", "images/Acebott/Arduino-IDE/run-ide-2.png", "images/Acebott/Arduino-IDE/run-ide-3.png"],
+        desc: "Open Arduino IDE. Wait for initial setup to complete.",
+        caption: ""
+      },
+      {
+        title: "Step 6: Add ESP32 to Board Manager",
+        imgs: ["images/Acebott/Arduino-IDE/URL1.png", "images/Acebott/Arduino-IDE/URL2.png", "images/Acebott/Arduino-IDE/URL3.png", "images/Acebott/Arduino-IDE/URL4.png"],
+        desc: "Copy this link and paste into 3rd party board manager page field.\nhttps://github.com/arduino/Arduino/wiki/Unofficial-list-of-3rd-party-boards-support-urls",
+        caption: ""
+      },
+      {
+        title: "Step 7: Install ESP32 to IDE",
+        imgs: ["images/Acebott/Arduino-IDE/board1.png", "images/Acebott/Arduino-IDE/board2.png"],
+        desc: "Search for ESP32 board in the board manager. Click install ESP32 board by Espressif Systems.",
+        caption: ""
+      },
+    ];
+
+
+    let currentStep = 0;
+
+    function showStep(index) {
+      const step = steps[index];
+      const stepContainer = document.getElementById("step-container");
+      stepContainer.classList.add('animate__fadeOut');
+
+      setTimeout(() => {
+        document.getElementById("step-title").innerText = step.title;
+
+        // Handle images
+        const stepImagesContainer = document.getElementById("step-images");
+        stepImagesContainer.innerHTML = "";
+        if (step.imgs && step.imgs.length > 0) {
+          step.imgs.forEach(src => {
+            const imgEl = document.createElement("img");
+            imgEl.src = src;
+            imgEl.alt = step.title;
+            imgEl.classList.add("step-img");
+            stepImagesContainer.appendChild(imgEl);
+          });
+        } else if (step.img) {
+          const imgEl = document.createElement("img");
+          imgEl.src = step.img;
+          imgEl.alt = step.title;
+          imgEl.classList.add("step-img");
+          stepImagesContainer.appendChild(imgEl);
+        }
+
+        if (Array.isArray(step.desc)) {
+          // If it's an array, create a list
+          let listHTML = '<ol>';
+          step.desc.forEach(item => {
+            listHTML += `<li>${item}</li>`;
+          });
+          listHTML += '</ol>';
+          // Now, insert the listHTML into your component's paragraph or a new element
+          document.getElementById('step-desc').innerHTML = listHTML;
+        } else {
+          // If it's a string, display it as plain text
+          document.getElementById('step-desc').innerHTML = `<p>${step.desc}</p>`;
+        }
+
+        document.getElementById("step-caption").innerText = step.caption || "";
+
+        // Handle code block
+        if (step.code) {
+          document.getElementById("code-block").style.display = "block";
+          document.getElementById("arduino-code").innerText = step.code;
+        } else {
+          document.getElementById("code-block").style.display = "none";
+        }
+
+        // Progress bar update
+        const progress = ((currentStep + 1) / steps.length) * 100;
+        document.getElementById("progress-bar").style.width = progress + "%";
+        document.getElementById("progress-label").innerText = `Step ${currentStep + 1} of ${steps.length}`;
+
+        // Update button text on last step
+        const nextBtn = document.getElementById("next-btn");
+        if (currentStep === steps.length - 1) {
+          nextBtn.innerText = "Finish ✅";
+        } else {
+          nextBtn.innerText = "Next ➡";
+        }
+
+        stepContainer.classList.remove('animate__fadeOut');
+        stepContainer.classList.add('animate__fadeIn');
+      }, 300);
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      } else {
+        // Redirect back to intro page
+        window.location.href = "arduino_ide_intro.html";
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      } else {
+        // Redirect back to intro page
+        window.location.href = "arduino_ide_intro.html";
+      }
+    }
+
+    async function copyCode(buttonID) {
+      const copyButton = document.getElementById(buttonID);
+      const originalText = copyButton.textContent;
+
+      copyButton.textContent = "Copying...";
+
+      try {
+        const codeText = getCode();
+
+        if (codeText) {
+          await navigator.clipboard.writeText(codeText);
+
+          copyButton.textContent = "Copied!";
+          copyButton.style.backgroundColor = "#28a745";
+
+          setTimeout(() => {
+            copyButton.textContent = originalText;
+            copyButton.style.backgroundColor = "";
+          }, 2000);
+        } else {
+          throw new Error("Failed to get code content.");
+        }
+      } catch (err) {
+        console.error('Copy failed: ', err);
+        copyButton.textContent = originalText;
+        alert('Failed to copy code.');
+      }
+    }
+
+    function getCode() {
+      return SmartCarIR;
+    }
+
+    const copyButton = document.getElementById('copy-button');
+    if (copyButton) {
+      copyButton.addEventListener('click', () => {
+        copyCode('copy-button');
+      });
+    }
+
+    const nextButton = document.getElementById('next-btn');
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        nextStep();
+      });
+    }
+
+    const prevButton = document.getElementById('prev-btn');
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        prevStep();
+      });
+    }
+
+    // Initial load
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+        
+    window.addEventListener('load', () => {          
+      const stepParam = getQueryParam("step");
+      if (stepParam) {
+        const startStep = parseInt(stepParam, 10);
+        if (!isNaN(startStep) && startStep >= 0 && startStep < steps.length) {
+          currentStep = startStep;
+        }
+      }
+      showStep(currentStep);
+    });
+
+     // Hamburger toggle
     const hamburger = document.querySelector(".hamburger");
     const nav = document.querySelector("nav");
 
