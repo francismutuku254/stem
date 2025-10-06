@@ -330,7 +330,8 @@
       <p id="step-desc" class="text-center"></p>
       <div id="code-block" style="display:none;">
         <pre><code id="arduino-code" class="language-cpp"></code></pre>
-        <button id=copy-button class="copy-btn">Copy</button>
+        <!-- <button id=copy-button class="copy-btn">Download</button> -->
+        <a href="./code/Acebott/QD002/Camera.zip" class="copy-btn download-btn" download="Camera.zip">Download</a>
       </div>
       <div id="step-image-wrapper" class="step-image-wrapper">
         <div id="step-images"></div>
@@ -491,12 +492,9 @@ const steps = [
         document.getElementById("step-caption").innerText = step.caption || "";
 
         // Handle code block
-        if (step.code) {
-          document.getElementById("code-block").style.display = "block";
-          document.getElementById("arduino-code").innerText = step.code;
-        } else {
-          document.getElementById("code-block").style.display = "none";
-        }
+        // Always show only the download button (no code block)
+document.getElementById("code-block").style.display = "block";
+
 
         // Progress bar update
         const progress = ((currentStep + 1) / steps.length) * 100;

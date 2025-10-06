@@ -192,15 +192,24 @@ if (!isset($_SESSION['user_id'])) {
 
       <!-- Videos -->
       <div class="resource-card">
-        <h2><i class="fas fa-video"></i> Video Tutorials</h2>
-        <p>Explore our full YouTube playlist of tutorials:</p>
-        <ul>
-          <li><i class="fab fa-youtube"></i> <a href="https://youtube.com/playlist?list=PLYnU7wiZkX1FG7QZAUiNSTl_lu0pfSi45&si=npRfoa2-3oNq3Zzz" target="_blank">Watch Playlist on YouTube</a></li>
-        </ul>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/videoseries?list=PLYnU7wiZkX1FG7QZAUiNSTl_lu0pfSi45" allowfullscreen></iframe>
-        </div>
-      </div>
+  <h2><i class="fas fa-video"></i> Video Tutorials</h2>
+  <p>Watch our tutorials and latest content on our channel:</p>
+  <ul>
+    <li><i class="fab fa-youtube"></i>
+      <a href="https://www.youtube.com/@novaengineering4357" target="_blank">
+        Visit Our YouTube Channel
+      </a>
+    </li>
+  </ul>
+  <!-- <div class="video-wrapper">
+    
+    <iframe
+      src="https://www.youtube.com/embed?listType=user_uploads&list=novaengineering4357"
+      allowfullscreen>
+    </iframe>
+  </div> -->
+</div>
+
 
       <!-- FAQs -->
       <div class="resource-card">

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scratch Programming – Project Overview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="images/image1.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+      color: #343a40;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #03009dff;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-container img {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+    }
+    .logo-container .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .logo-container .tagline {
+      font-size: 0.8rem;
+      color: #e6f9f9;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.3s;
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #d9f7f8;
+      transform: translateY(-2px);
+    }
+    nav a i {
+      font-size: 1rem;
+    }
+    nav a:nth-child(1) i { color: #FFD700; }
+    nav a:nth-child(2) i { color: #00FFB3; }
+    nav a:nth-child(3) i { color: #1E90FF; }
+    nav a:nth-child(4) i { color: #FF6347; }
+    nav a:nth-child(5) i { color: #FF8C00; }   /* Shop */
+    nav a:nth-child(6) i { color: #DC143C; }   /* Logout */
+    nav a:hover i { transform: scale(1.2); color: #ffffff; }
+    nav a:hover { color: #d9f7f8; transform: translateY(-2px); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #00979D;
+        flex-direction: column;
+        gap: 15px;
+        width: 200px;
+        padding: 20px;
+        display: none;
+      }
+      nav.active {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-weight: 700;
+      color: #007bff;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      height: 400px;
+      margin: 0 auto 40px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 12px;
+    }
+    .component-card {
+      border: none;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 25px;
+    }
+    .component-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    a.card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .component-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #007bff;
+    }
+    .btn-next {
+      background-color: #007bff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn-next:hover {
+      background-color: #0056b3;
+      transform: translateX(5px);
+    }
+    footer {
+      background: #222;
+      color: #aaa;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+      text-align: center;
+    }
+    .footer-content a {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 400px) {
+      .footer-content {
+        font-size: 0.8rem;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="images/image1.png" alt="Novatech Logo">
+      <div>
+        <div class="logo-text">Novatech STEM</div>
+        <div class="tagline">Electronic Engineering Solutions</div>
+      </div>
+    </div>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
+    <nav>
+      <a href="/stem/index.php"><i class="fas fa-home"></i> Home</a>
+      <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
+      <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
+      <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
+      <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
+      <a href="/stem/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container my-5">
+      <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Scratch Programming Project Overview</h1>
+
+      <div class="video-wrapper animate__animated animate__fadeIn">
+        <iframe 
+        src="https://www.youtube.com/embed/flYinVV_sOc?si=WTKw7GUn736ieiVn"
+        title="Scratch Programming Project"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <h3 class="text-center mb-4">Steps to Get Started</h3>
+
+      <a href="scratch_steps.html?step=0" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Open the Qwedu App</div>
+          <p>Launch the Qwedu mobile or desktop application to begin your Scratch programming journey.</p>
+          <small class="text-primary">Click to view Steps 1 - 2</small>
+        </div>
+      </a>
+
+      <a href="scratch_steps.html?step=2" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Navigate to BC82</div>
+          <p>From the app dashboard, locate and open the BC82 category to access your robot’s control and programming options.</p>
+          <small class="text-primary">Click to view Steps 3 - 4</small>
+        </div>
+      </a>
+
+      <a href="scratch_steps.html?step=4" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Select Programming Section</div>
+          <p>Tap on the Programming tab to switch into the Scratch-style interface for building your code blocks.</p>
+          <small class="text-primary">Click to view Steps 5 - 6</small>
+        </div>
+      </a>
+
+      <a href="scratch_steps.html?step=6" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Choose the Official Program</div>
+          <p>Select the official Novatech program to load predefined templates and ensure correct configuration.</p>
+          <small class="text-primary">Click to view Steps 7 - 8</small>
+        </div>
+      </a>
+
+      <a href="scratch_steps.html?step=8" class="card-link">
+        <div class="component-card animate__animated animate__fadeInUp">
+          <div class="component-title">Start Programming</div>
+          <p>Begin coding your Scratch project by dragging and connecting the visual code blocks to create robot actions and logic.</p>
+          <small class="text-primary">Click to view Steps 9 - 11</small>
+        </div>
+      </a>
+
+      <div class="text-center mt-5">
+        <a href="scratch_steps.html" class="btn btn-next">Begin Step-by-Step Guide ➡</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <span>© <script>document.write(new Date().getFullYear());</script></span>
+      <a href="https://novatech.co.ke/" target="_blank">Novatech</a>
+      <span>STEM Portal. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector("nav");
+    hamburger.addEventListener("click", () => nav.classList.toggle("active"));
+    document.addEventListener("click", (e) => {
+      if (!nav.contains(e.target) && !hamburger.contains(e.target)) nav.classList.remove("active");
+    });
+  </script>
+</body>
+</html>

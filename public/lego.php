@@ -478,6 +478,17 @@ if (!isset($_SESSION['user_id'])) {
         <div class="card model-card h-100">
           <img src="images/glider.jpg" class="card-img-top" alt="Glider">
           <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-wind"></i> Scratch basics</h5>
+            <p class="card-text">Learn the basics of programming in scratch</p>
+            <a href="scratch.html" class="btn btn-primary mt-auto">Begin learning <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+    <!--  <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/glider.jpg" class="card-img-top" alt="Glider">
+          <div class="card-body">
             <h5 class="card-title"><i class="fas fa-wind"></i> Aerodynamic Glider</h5>
             <p class="card-text">A model that demonstrates passive flight principles and how gliders can harness air currents for sustained motion.</p>
             <a href="glider.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
@@ -582,8 +593,8 @@ if (!isset($_SESSION['user_id'])) {
             <a href="dinobigmouth.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
-    </div>
+      </div> -->
+    </div> 
   </div>
 
   <!-- ===== FOOTER ===== -->
