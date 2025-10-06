@@ -1,8 +1,18 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: /stem/login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Novatech | CB05 Robotics Kit</title>
+  <title>Novatech | Arduino Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -175,11 +185,15 @@
       transform: translateY(-8px);
       box-shadow: var(--shadow-hover);
     }
-    .card-img-top {
-      height: 200px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
+ .card-img-top {
+  height: 200px;
+  width: 100%;
+  object-fit: contain;   /* Show full image without cropping */
+  background-color: #f8f9fa; /* Light background behind smaller images */
+  padding: 10px;         /* Adds breathing space */
+  transition: transform 0.3s ease;
+}
+
     .model-card:hover .card-img-top {
       transform: scale(1.05);
     }
@@ -248,7 +262,7 @@
       gap: 4px;
     }
   }
-    /* WhatsApp Floating Button - Responsive */
+      /* WhatsApp Floating Button - Responsive */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -317,44 +331,46 @@
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
       <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
-      <a href="/stem/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
   <!-- ===== HERO ===== -->
   <section class="hero animate__animated animate__fadeInDown">
-    <h1>CB05 Robotics Kit: Explore. Build. Innovate.</h1>
-    <p class="lead">Dive into the fundamentals of engineering and programming. Select a project and begin your journey from concept to creation with our detailed, step-by-step guides.</p>
+    <h1>Acebott: Play with Code. Build a Robot.</h1>
+    <p class="lead">Discover the thrill of creating your own robot. Our easy-to-follow guides teach you the essentials of coding and electronics, transforming play into a powerful learning experience.</p>
   </section>
 
   <!-- ===== PROJECTS ===== -->
   <div class="container my-5">
-    <h2 class="section-title text-center mb-5 animate__animated animate__fadeIn">CB05 Project Portfolio</h2>
+    <h2 class="section-title text-center mb-5 animate__animated animate__fadeIn">Acebott Projects Portfolio</h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
       
-      <div class="col animate__animated animate__fadeIn fade-in">
+     <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="steps/oildrill.jpg" class="card-img-top" alt="Simulated Oil Drilling Rig">
+          <img src="images/Acebott/QD001/complete-QD001.png" class="card-img-top" alt="Smart Car">
           <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-industry"></i> Oil Production Rig</h5>
-            <p class="card-text">Construct a sophisticated drilling robot that simulates the complex process of subterranean oil extraction.</p>
-            <a href="oilproduction_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+            <h5 class="card-title"><i class="fas fa-robot"></i> Acebott SmartCar Robot</h5>
+            <p class="card-text">Build an intelligent robotic car powered by ESP32, featuring mecanum wheels, sensors, and modules. </p>
+            <a href="acebott_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
       </div>
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+     <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="steps/fork.jpg" class="card-img-top" alt="Automated Forklift Model">
+          <img src="images/Acebott/QD002/complete-QD002.png" class="card-img-top" alt="Smart Car with Camera">
           <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-warehouse"></i> Automated Forklift</h5>
-            <p class="card-text">Engineer a functional lifting machine designed to autonomously move and stack objects with precision.</p>
-            <a href="forklift_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+            <h5 class="card-title"><i class="fas fa-robot"></i> Acebott SmartCar Robot with Camera</h5>
+            <p class="card-text">Equip your robot with the power to see the world. This project integrates an ESP32-CAM module. </p>
+            <a href="acebott_cam_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
       </div>
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+     
+
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="steps/cul20.jpg" class="card-img-top" alt="Robotic Culinary Assistant">
           <div class="card-body">
@@ -363,9 +379,9 @@
             <a href="culinary_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="steps/bin14.jpg" class="card-img-top" alt="Automatic Sensor Bin">
           <div class="card-body">
@@ -374,9 +390,9 @@
             <a href="trashcan_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="steps/aut20.jpg" class="card-img-top" alt="Automated Sliding Door">
           <div class="card-body">
@@ -385,20 +401,20 @@
             <a href="automaticdoor_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="steps/dolph17.jpg" class="card-img-top" alt="Biometric Dolphin Robot">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-fish"></i> Biometric Dolphin</h5>
             <p class="card-text">Replicate the graceful movements of a dolphin using advanced biomechanics and servo motors for a fluid, lifelike motion.</p>
-            <a href="dolphin_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+            <a href="dolphin.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="steps/brake16.jpg" class="card-img-top" alt="Kinetic Braking Vehicle">
           <div class="card-body">
@@ -407,64 +423,64 @@
             <a href="braking_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="steps/gold15.jpg" class="card-img-top" alt="Simple Aquatic Robot">
+          <img src="images/goldfish.jpg" class="card-img-top" alt="Simple Aquatic Robot">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-swimmer"></i> Aquatic Goldfish</h5>
             <p class="card-text">An introductory project focused on creating a simple, aquatic-themed robot that mimics swimming and buoyancy.</p>
-            <a href="goldfish_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+            <a href="goldfish.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="steps/mars19.jpg" class="card-img-top" alt="Mars Rover">
+          <img src="images/marsrover.jpg" class="card-img-top" alt="Mars Rover">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-satellite"></i> Martian Rover</h5>
             <p class="card-text">An advanced, six-wheeled planetary explorer designed to simulate remote-controlled space exploration missions.</p>
-            <a href="marsrover_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+            <a href="marsrover.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="steps/mini18.jpg" class="card-img-top" alt="Mini Plane">
+          <img src="images/miniplane.jpg" class="card-img-top" alt="Mini Plane">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-plane"></i> Aerodynamic Mini Plane</h5>
             <p class="card-text">Assemble a small-scale aircraft model that demonstrates the principles of flight and controlled gliding motion.</p>
             <a href="miniplane.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="steps/bird24.jpg" class="card-img-top" alt="Bird Feeding">
+          <img src="images/birdfeeding.jpg" class="card-img-top" alt="Bird Feeding">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-feather-alt"></i> Automated Bird Feeder</h5>
             <p class="card-text">A practical robotics project to create a machine that dispenses seeds automatically to feed birds on a schedule.</p>
             <a href="birdfeeding.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
-          <img src="steps/drag23.jpg" class="card-img-top" alt="Dragonfly">
+          <img src="images/dragonfly.jpg" class="card-img-top" alt="Dragonfly">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-bug"></i> Robotic Dragonfly</h5>
             <p class="card-text">Explore biomimicry by building a lightweight, articulated flying robot inspired by the flight patterns of a dragonfly.</p>
             <a href="dragonfly.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/glider.jpg" class="card-img-top" alt="Glider">
           <div class="card-body">
@@ -473,9 +489,9 @@
             <a href="glider.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/snake.jpg" class="card-img-top" alt="Snake">
           <div class="card-body">
@@ -484,9 +500,9 @@
             <a href="snake.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/oldturtle.jpg" class="card-img-top" alt="Old Turtle">
           <div class="card-body">
@@ -495,9 +511,9 @@
             <a href="oldturtle.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/honeygathering.jpg" class="card-img-top" alt="Honey Gathering">
           <div class="card-body">
@@ -506,9 +522,9 @@
             <a href="honeygathering.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/crocodile.jpg" class="card-img-top" alt="Crocodile">
           <div class="card-body">
@@ -517,9 +533,9 @@
             <a href="crocodile.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/helicopter.jpg" class="card-img-top" alt="Helicopter">
           <div class="card-body">
@@ -528,9 +544,9 @@
             <a href="helicopter.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/dimetrodon.jpg" class="card-img-top" alt="Dimetrodon">
           <div class="card-body">
@@ -539,9 +555,9 @@
             <a href="dimetrodon.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/trex.jpg" class="card-img-top" alt="Tyrannosaurus Rex">
           <div class="card-body">
@@ -550,9 +566,9 @@
             <a href="trex.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/snakelure.jpg" class="card-img-top" alt="Lure Snake Out of Hole">
           <div class="card-body">
@@ -561,9 +577,9 @@
             <a href="snakelure.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+      <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/dinobigmouth.jpg" class="card-img-top" alt="Dinosaurs Big Mouth">
           <div class="card-body">
@@ -572,7 +588,7 @@
             <a href="dinobigmouth.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -584,7 +600,8 @@
       <span>STEM Portal. All rights reserved.</span>
     </div>
   </footer>
-  <!-- WhatsApp Floating Button -->
+
+    <!-- WhatsApp Floating Button -->
 <a href="https://wa.me/254795952128" target="_blank" class="whatsapp-float">
   <img src="images/whatsapp.png" alt="WhatsApp" />
   <!-- <span class="whatsapp-text">Hi, Chat with us here</span> -->

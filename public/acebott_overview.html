@@ -129,7 +129,7 @@
       padding: 120px 20px 80px;
       text-align: center;
       overflow: hidden;
-      margin-top: 90px; /* offset for fixed header */
+      margin-top: 85px; /* offset for fixed header */
     }
     .hero h1 {
       font-family: 'Montserrat', sans-serif;
@@ -175,11 +175,15 @@
       transform: translateY(-8px);
       box-shadow: var(--shadow-hover);
     }
-    .card-img-top {
-      height: 200px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
+ .card-img-top {
+  height: 200px;
+  width: 100%;
+  object-fit: contain;   /* Show full image without cropping */
+  background-color: #f8f9fa; /* Light background behind smaller images */
+  padding: 10px;         /* Adds breathing space */
+  transition: transform 0.3s ease;
+}
+
     .model-card:hover .card-img-top {
       transform: scale(1.05);
     }
@@ -248,6 +252,55 @@
       gap: 4px;
     }
   }
+      /* WhatsApp Floating Button - Responsive */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  transition: background 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebc59;
+}
+
+.whatsapp-float img {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+/* .whatsapp-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+} */
+
+/* Make responsive on smaller screens */
+@media (max-width: 600px) {
+  .whatsapp-float {
+    padding: 8px 12px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsapp-float img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .whatsapp-text {
+    font-size: 0.85rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -283,18 +336,7 @@
     <h2 class="section-title text-center mb-5 animate__animated animate__fadeIn">Acebott Projects Portfolio</h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
       
-      <div class="col animate__animated animate__fadeIn fade-in">
-        <div class="card model-card h-100">
-          <img src="images/arduino.png" class="card-img-top" alt="Simulated Oil Drilling Rig">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-laptop-code"></i> Installing Arduino IDE</h5>
-            <p class="card-text">The Arduino IDE is essential software for programming Arduino boards. It provides an easy-to-use interface for writing, compiling, and uploading code.</p>
-            <a href="#" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col animate__animated animate__fadeIn fade-in">
+     <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/Acebott/QD001/complete-QD001.png" class="card-img-top" alt="Smart Car">
           <div class="card-body">
@@ -305,7 +347,7 @@
         </div>
       </div>
 
-      <div class="col animate__animated animate__fadeIn fade-in">
+     <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/Acebott/QD002/complete-QD002.png" class="card-img-top" alt="Smart Car with Camera">
           <div class="card-body">
@@ -315,6 +357,8 @@
           </div>
         </div>
       </div>
+
+     
 
       <!-- <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
@@ -546,6 +590,12 @@
       <span>STEM Portal. All rights reserved.</span>
     </div>
   </footer>
+
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/254795952128" target="_blank" class="whatsapp-float">
+  <img src="images/whatsapp.png" alt="WhatsApp" />
+  <!-- <span class="whatsapp-text">Hi, Chat with us here</span> -->
+</a>
 
   <script>
     // Hamburger toggle

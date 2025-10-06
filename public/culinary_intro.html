@@ -124,23 +124,43 @@
       font-weight: 700;
       color: #007bff;
     }
-    /* Responsive Video */
-	.video-wrapper {
+/* Default: responsive 16:9 */
+.video-wrapper {
   position: relative;
   width: 100%;
   max-width: 720px;
-  height: 400px; /* fixed height */
   margin: 0 auto 40px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+
+  padding-top: 56.25%; /* 16:9 */
+  height: 0;
 }
+
 .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: 0;
   border-radius: 12px;
 }
+
+/* On larger screens: use fixed height */
+@media (min-width: 992px) {
+  .video-wrapper {
+    padding-top: 0;     /* disable ratio padding */
+    height: 400px;      /* fixed height you want */
+  }
+  .video-wrapper iframe {
+    position: relative; /* reset absolute positioning */
+    width: 100%;
+    height: 100%;
+  }
+}
+
     .component-card {
       border: none;
       border-radius: 20px;
@@ -234,7 +254,7 @@
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
       <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
-      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <a href="/stem/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -245,7 +265,7 @@
 
       <!-- Video Section -->
       <div class="video-wrapper animate__animated animate__fadeIn">
-  <iframe src="https://www.youtube.com/embed/-iEJDtnG5mk"
+  <iframe src="https://www.youtube.com/embed/a_VlUOs508w"
           title="Automatic Door Project"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

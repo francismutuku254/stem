@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: login.html");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,7 +174,7 @@
       <a href="resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="about.php"><i class="fas fa-info-circle"></i> About</a>
       <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
-      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -180,6 +191,8 @@
         <option value="all">All Kits</option>
         <option value="lego">LEGO</option>
         <option value="arduino">Arduino</option>
+        <option value="acebott">Acebott</option>
+        <option value="esp">ESP</option>
       </select>
 
       <!-- Age -->
@@ -210,7 +223,7 @@
       </div>
     </div>
 
-    <div class="project-card" data-kit="arduino" data-age="13+" data-difficulty="hard">
+    <div class="project-card" data-kit="acebott" data-age="13+" data-difficulty="hard">
       <div class="project-image"><img src="public/images/Acebott/QD001/complete-QD001.png" alt="Acebott SmartCar Robot"></div>
       <div class="project-info">
         <h2>Acebott SmartCar Robot</h2>
@@ -279,6 +292,16 @@
         <a href="public/braking_intro.html">EXPLORE MORE</a>
       </div>
     </div>
+    <div class="project-card" data-kit="acebott" data-age="13+" data-difficulty="hard">
+      <div class="project-image"><img src="public/images/Acebott/QD002/complete-QD002.png" alt="Acebott SmartCar Robot"></div>
+      <div class="project-info">
+        <h2>Acebott SmartCar Robot with Camera</h2>
+        <p>The Acebott SmartCar Robot with Camera lets learners explore robotics through driving, navigation, and live video streaming. It uses sensors for obstacle avoidance and line-following, while the camera adds vision control and remote monitoring.</p>
+        <p>This project helps students practice coding, electronics, and problem-solving in a fun and interactive way.</p>
+        <a href="public/acebott_cam_intro.html">LEARN MORE</a>
+      </div>
+    </div>
+
   </main>
 
   <!-- ====== FOOTER ====== -->

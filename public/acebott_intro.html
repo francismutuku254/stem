@@ -145,7 +145,7 @@
 
     /* ====== MAIN CONTENT ====== */
     main {
-      padding: 120px 20px 40px;
+      padding: 70px 20px 40px;
       /* offset for header */
     }
 
@@ -159,26 +159,43 @@
       color: #007bff;
     }
 
-    /* Responsive Video */
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto 40px;
-      padding-top: 56.25%;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    }
+  /* Default: responsive 16:9 */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+  padding-top: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* On larger screens: use fixed height */
+@media (min-width: 992px) {
+  .video-wrapper {
+    padding-top: 0;     /* disable ratio padding */
+    height: 400px;      /* fixed height you want */
+  }
+  .video-wrapper iframe {
+    position: relative; /* reset absolute positioning */
+    width: 100%;
+    height: 100%;
+  }
+}
+
 
     .component-card {
       border: none;
@@ -297,7 +314,7 @@
     </div>
     <div class="hamburger"><i class="fas fa-bars"></i></div>
     <nav>
-      <a href="index.html"><i class="fas fa-briefcase"></i> Portfolio</a>
+      <a href="acebott_overview.html"><i class="fas fa-briefcase"></i> Portfolio</a>
       <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
@@ -459,12 +476,25 @@
   </footer>
 
   <!-- ====== JS ====== -->
+   <script>
+        // Hamburger toggle
+    const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector("nav");
+
+         hamburger.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+
+    // Close nav when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+        nav.classList.remove("active");
+      }
+    });
+   </script>
   <script type="module">
     import { SmartCarIR } from '.code/Acebott/QD001/snippets.js';
 
-    // Hamburger toggle
-    const hamburger = document.querySelector(".hamburger");
-    const nav = document.querySelector("nav");
 
     async function copyCode(buttonID) {
       const copyButton = document.getElementById(buttonID);
@@ -506,16 +536,7 @@
       });
     }
 
-    hamburger.addEventListener("click", () => {
-      nav.classList.toggle("active");
-    });
 
-    // Close nav when clicking outside
-    document.addEventListener("click", (e) => {
-      if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-        nav.classList.remove("active");
-      }
-    });
 
 
   </script>

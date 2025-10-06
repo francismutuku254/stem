@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: login.html");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,6 +101,25 @@
     .resource-card ul li a:hover { color: #005f62; text-decoration: underline; }
     .resource-card ul li i { color: #00979D; }
 
+    /* Responsive video embed */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-top: 15px;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+      border-radius: 12px;
+    }
+
     /* FOOTER */
     footer {
       background: #222; color: #aaa;
@@ -121,7 +151,7 @@
       <a href="resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="about.php"><i class="fas fa-info-circle"></i> About</a>
       <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
-      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -141,22 +171,11 @@
         </ul>
       </div>
 
-      <!-- Downloads -->
-      <!-- <div class="resource-card">
-        <h2><i class="fas fa-download"></i> Downloads</h2>
-        <ul>
-          <li><i class="fas fa-file-pdf"></i> <a href="files/circuit-diagrams.pdf" target="_blank">Circuit Diagrams (PDF)</a></li>
-          <li><i class="fas fa-file-code"></i> <a href="files/arduino-code.zip" download>Arduino Code Samples (ZIP)</a></li>
-          <li><i class="fas fa-file-archive"></i> <a href="files/wedo-pack.zip" download>LEGO WeDo Projects Pack</a></li>
-        </ul>
-      </div> -->
-
       <!-- Tools -->
       <div class="resource-card">
         <h2><i class="fas fa-wrench"></i> Tools & References</h2>
         <ul>
           <li><i class="fas fa-laptop-code"></i> <a href="https://www.arduino.cc/en/software" target="_blank">Arduino IDE</a></li>
-          <!-- <li><i class="fas fa-drafting-compass"></i> <a href="files/pinout-diagrams.pdf" target="_blank">Pinout Diagrams</a></li> -->
           <li><i class="fas fa-calculator"></i> <a href="https://www.allaboutcircuits.com/tools/" target="_blank">Electronics Calculators</a></li>
         </ul>
       </div>
@@ -174,10 +193,13 @@
       <!-- Videos -->
       <div class="resource-card">
         <h2><i class="fas fa-video"></i> Video Tutorials</h2>
+        <p>Explore our full YouTube playlist of tutorials:</p>
         <ul>
-          <li><i class="fab fa-youtube"></i> <a href="https://youtu.be/JnJIKX5J0Cc?si=z5SRj01Oz00vnuZl" target="_blank">Intro to Arduino</a></li>
-          <li><i class="fab fa-youtube"></i> <a href="https://youtu.be/NwIwc2DF9Uk?si=E75IkIa3B-lRncdr" target="_blank">WeDo Motor Control</a></li>
+          <li><i class="fab fa-youtube"></i> <a href="https://youtube.com/playlist?list=PLYnU7wiZkX1FG7QZAUiNSTl_lu0pfSi45&si=npRfoa2-3oNq3Zzz" target="_blank">Watch Playlist on YouTube</a></li>
         </ul>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLYnU7wiZkX1FG7QZAUiNSTl_lu0pfSi45" allowfullscreen></iframe>
+        </div>
       </div>
 
       <!-- FAQs -->
