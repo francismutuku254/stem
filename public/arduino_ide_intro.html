@@ -159,27 +159,42 @@
       color: #007bff;
     }
 
-    /* Responsive Video */
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto 40px;
-      padding-top: 56.25%;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    }
+        /* Default: responsive 16:9 */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+  padding-top: 56.25%; /* 16:9 */
+  height: 0;
+}
 
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* On larger screens: use fixed height */
+@media (min-width: 992px) {
+  .video-wrapper {
+    padding-top: 0;     /* disable ratio padding */
+    height: 400px;      /* fixed height you want */
+  }
+  .video-wrapper iframe {
+    position: relative; /* reset absolute positioning */
+    width: 100%;
+    height: 100%;
+  }
+}
     .component-card {
       border: none;
       border-radius: 20px;
@@ -297,7 +312,7 @@
     </div>
     <div class="hamburger"><i class="fas fa-bars"></i></div>
     <nav>
-      <a href="index.html"><i class="fas fa-briefcase"></i> Portfolio</a>
+      <a href="/stem/index.php"><i class="fas fa-home"></i> Home</a>
       <a href="/stem/projects.php"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
@@ -360,14 +375,15 @@
       </div>
     </a>
 
-    <a href="arduino.html?step=5" class="card-link">
-      <div class="component-card animate__animated animate__fadeInUp">
-        <div class="component-title">Add ESP32 to Board Manager</div>
-        <p>Copy this link and paste into 3rd party board manager page field.</p>
-        <p>https://github.com/arduino/Arduino/wiki/Unofficial-list-of-3rd-party-boards-support-urls</p>
-        <!-- <button id=copy-button class="copy-btn">Copy</button> -->
-      </div>
-    </a>
+<a href="arduino.html?step=5" class="card-link">
+  <div class="component-card animate__animated animate__fadeInUp">
+    <div class="component-title">Add ESP32 to Board Manager</div>
+    <p>Copy this link and paste into 3rd party board manager page field:</p>
+    <p id="esp32-url">https://github.com/arduino/Arduino/wiki/Unofficial-list-of-3rd-party-boards-support-urls</p>
+    <button class="copy-btn" id="copy-button">Copy URL</button>
+  </div>
+</a>
+
 
     <a href="arduino.html?step=6" class="card-link">
       <div class="component-card animate__animated animate__fadeInUp">
@@ -394,67 +410,62 @@
     </div>
   </footer>
 
-  <!-- ====== JS ====== -->
-  <script type="module">
-    import { SmartCarIR } from '.code/Acebott/QD001/snippets.js';
 
-    // Hamburger toggle
-    const hamburger = document.querySelector(".hamburger");
-    const nav = document.querySelector("nav");
+<!-- ====== JS ====== -->
+<script>
+  // ====== Hamburger Toggle ======
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector("nav");
 
-    async function copyCode(buttonID) {
-      const copyButton = document.getElementById(buttonID);
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+
+  // Close nav when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+      nav.classList.remove("active");
+    }
+  });
+
+  // ====== Copy URL Button ======
+  const copyButton = document.getElementById('copy-button');
+  if (copyButton) {
+    copyButton.addEventListener('click', async (e) => {
+      // Prevent link navigation when clicking the button
+      e.stopPropagation();
+      e.preventDefault();
+
+      const urlElement = document.getElementById('esp32-url');
+      const urlText = urlElement ? urlElement.textContent.trim() : '';
+
+      if (!urlText) {
+        alert("No URL found to copy.");
+        return;
+      }
+
       const originalText = copyButton.textContent;
-
       copyButton.textContent = "Copying...";
 
       try {
-        const codeText = 'https://github.com/arduino/Arduino/wiki/Unofficial-list-of-3rd-party-boards-support-urls';
+        await navigator.clipboard.writeText(urlText);
+        copyButton.textContent = "Copied!";
+        copyButton.style.backgroundColor = "#28a745";
 
-        if (codeText) {
-          await navigator.clipboard.writeText(codeText);
-
-          copyButton.textContent = "Copied!";
-          copyButton.style.backgroundColor = "#28a745";
-
-          setTimeout(() => {
-            copyButton.textContent = originalText;
-            copyButton.style.backgroundColor = "";
-          }, 2000);
-        } else {
-          throw new Error("Failed to get code content.");
-        }
+        setTimeout(() => {
+          copyButton.textContent = originalText;
+          copyButton.style.backgroundColor = "";
+        }, 2000);
       } catch (err) {
-        console.error('Copy failed: ', err);
+        console.error("Copy failed:", err);
         copyButton.textContent = originalText;
-        alert('Failed to copy code.');
-      }
-    }
-
-    async function getCode(filepath) {
-      return SmartCarIR;
-    }
-
-    const copyButton = document.getElementById('copy-button');
-    if (copyButton) {
-      copyButton.addEventListener('click', () => {
-        copyCode('copy-button');
-      });
-    }
-
-    hamburger.addEventListener("click", () => {
-      nav.classList.toggle("active");
-    });
-
-    // Close nav when clicking outside
-    document.addEventListener("click", (e) => {
-      if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-        nav.classList.remove("active");
+        alert("Failed to copy the URL. Please copy manually.");
       }
     });
+  }
+</script>
 
 
-  </script>
 </body>
 
 </html>

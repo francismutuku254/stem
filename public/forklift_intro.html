@@ -74,8 +74,6 @@
     nav a i {
       font-size: 1rem;
     }
-<<<<<<< HEAD
-=======
     /* Icon colors */
     nav a:nth-child(1) i { color: #FFD700; }
     nav a:nth-child(2) i { color: #00FFB3; }
@@ -113,11 +111,10 @@
         display: block;
       }
     }
->>>>>>> 33c0b80f6bedf2f1921d443f49f502721de7015a
 
     /* ====== MAIN CONTENT ====== */
     main {
-      padding: 70px 20px 40px;
+      padding: 70px 20px 40px; /* offset for header */
     }
     .container {
       max-width: 1000px;
@@ -127,27 +124,44 @@
       font-weight: 700;
       color: #007bff;
     }
-<<<<<<< HEAD
-=======
    
-    /* Responsive Video */
->>>>>>> 33c0b80f6bedf2f1921d443f49f502721de7015a
-    .video-wrapper {
+/* Default: responsive 16:9 */
+.video-wrapper {
   position: relative;
   width: 100%;
   max-width: 720px;
-  height: 400px; /* fixed height */
   margin: 0 auto 40px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+
+  padding-top: 56.25%; /* 16:9 */
+  height: 0;
 }
+
 .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: 0;
   border-radius: 12px;
-}     
+}
+
+/* On larger screens: use fixed height */
+@media (min-width: 992px) {
+  .video-wrapper {
+    padding-top: 0;     /* disable ratio padding */
+    height: 400px;      /* fixed height you want */
+  }
+  .video-wrapper iframe {
+    position: relative; /* reset absolute positioning */
+    width: 100%;
+    height: 100%;
+  }
+}
+ 
      .component-card {
       border: none;
       border-radius: 20px;
@@ -176,45 +190,50 @@
     }
     .btn-next {
       background-color: #007bff;
-      color: white;
-      font-weight: bold;
+      border: none;
       padding: 12px 30px;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      display: inline-block;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
     }
     .btn-next:hover {
       background-color: #0056b3;
-      transform: translateY(-2px);
+      transform: translateX(5px);
     }
 
     /* ====== FOOTER ====== */
     footer {
-      background: #222;
-      color: #aaa;
-      padding: 20px;
-      font-size: 0.9rem;
-      margin-top: 50px;
-    }
+    background: #222;
+    color: #aaa;
+    padding: 20px;
+    font-size: 0.9rem;
+    margin-top: 50px;
+  }
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;          /* reduce gap to prevent wrapping */
+    flex-wrap: nowrap; /* keep everything in one line */
+    text-align: center;
+  }
+  .footer-content a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap; /* prevents link breaking into 2 lines */
+  }
+  .footer-content a:hover {
+    text-decoration: underline;
+  }
+
+  /* If screen is too small, shrink text instead of breaking */
+  @media (max-width: 400px) {
     .footer-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: nowrap;
-      text-align: center;
+      font-size: 0.8rem;
+      gap: 4px;
     }
-    .footer-content a {
-      color: #4CAF50;
-      text-decoration: none;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    .footer-content a:hover {
-      text-decoration: underline;
-    }
+  }
   </style>
 </head>
 <body>
@@ -235,7 +254,7 @@
       <a href="/stem/resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="/stem/about.php"><i class="fas fa-info-circle"></i> About</a>
       <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
-      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <a href="/stem/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -288,10 +307,7 @@
           <small class="text-primary">Click to view Steps 10 - 12</small>
         </div>
       </a>
-<<<<<<< HEAD
-=======
 
->>>>>>> 33c0b80f6bedf2f1921d443f49f502721de7015a
 
       <!-- Navigation -->
       <div class="text-center mt-5">
@@ -311,6 +327,7 @@
 
   <!-- ====== JS ====== -->
   <script>
+    // Hamburger toggle
     const hamburger = document.querySelector(".hamburger");
     const nav = document.querySelector("nav");
 
@@ -318,6 +335,7 @@
       nav.classList.toggle("active");
     });
 
+    // Close nav when clicking outside
     document.addEventListener("click", (e) => {
       if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
         nav.classList.remove("active");

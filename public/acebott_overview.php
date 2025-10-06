@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: /stem/login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -338,6 +348,28 @@
       
      <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
+          <img src="images/scratch.png" class="card-img-top" alt="Simulated Oil Drilling Rig">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-laptop-code"></i> Installing AceCode</h5>
+            <p class="card-text">AceCode is an essential, beginner-friendly, easy-to-learn software for programming Acebott boards, providing a straightforward interface for writing programs graphically.</p>
+            <a href="acecode_ide_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
+          <img src="images/arduino.png" class="card-img-top" alt="Simulated Oil Drilling Rig">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-laptop-code"></i> Installing Arduino IDE</h5>
+            <p class="card-text">The Arduino IDE is essential software for programming Arduino boards. It provides an easy-to-use interface for writing, compiling, and uploading code.</p>
+            <a href="arduino_ide_intro.html" class="btn btn-primary mt-auto">Begin Project <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col animate__animated animate__fadeIn fade-in">
+        <div class="card model-card h-100">
           <img src="images/Acebott/QD001/complete-QD001.png" class="card-img-top" alt="Smart Car">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-robot"></i> Acebott SmartCar Robot</h5>
@@ -347,7 +379,7 @@
         </div>
       </div>
 
-     <div class="col animate__animated animate__fadeIn fade-in">
+      <div class="col animate__animated animate__fadeIn fade-in">
         <div class="card model-card h-100">
           <img src="images/Acebott/QD002/complete-QD002.png" class="card-img-top" alt="Smart Car with Camera">
           <div class="card-body">
@@ -357,7 +389,6 @@
           </div>
         </div>
       </div>
-
      
 
       <!-- <div class="col animate__animated animate__fadeIn fade-in">

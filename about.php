@@ -1,3 +1,15 @@
+
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: login.html");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -272,7 +284,7 @@
       <a href="resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="about.php"><i class="fas fa-info-circle"></i> About</a>
       <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
-      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 

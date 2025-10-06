@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,14 +135,19 @@
       color: #666;
     }
 
-    /* Footer */
+/* ====== FOOTER ====== */
     footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9rem;
+      background: #222; color: white; text-align: center;
+      padding: 25px; font-size: 0.9rem; margin-top: 10px;
     }
+    .footer-content {
+      display: flex; justify-content: center; align-items: center; gap: 8px;
+      flex-wrap: nowrap; white-space: nowrap; overflow-x: auto; font-size: 0.85rem;
+    }
+    .footer-content a { color: #4CAF50; text-decoration: none; font-weight: 500; }
+    .footer-content a:hover { text-decoration: underline; }
+    @media (max-width: 480px) { .footer-content { font-size: 0.75rem; gap: 4px; } }
+
   </style>
 </head>
 <body>
@@ -153,7 +168,7 @@
       <a href="resources.php"><i class="fas fa-book"></i> Resources</a>
       <a href="about.php"><i class="fas fa-info-circle"></i> About</a>
       <a href="https://novatech.co.ke/" target="_blank"><i class="fas fa-store"></i> Shop</a>
-      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
   </header>
 
@@ -197,9 +212,13 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- ====== FOOTER ====== -->
   <footer>
-    © <script>document.write(new Date().getFullYear());</script> Novatech STEM Portal. All rights reserved.
+    <div class="footer-content">
+      <span>© <script>document.write(new Date().getFullYear());</script></span>
+      <a href="https://novatech.co.ke/" target="_blank">Novatech</a>
+      <span>STEM Portal. All rights reserved.</span>
+    </div>
   </footer>
 
   <!-- ===== JS for mobile nav ===== -->
