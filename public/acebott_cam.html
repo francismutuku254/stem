@@ -330,8 +330,8 @@
       <p id="step-desc" class="text-center"></p>
       <div id="code-block" style="display:none;">
         <pre><code id="arduino-code" class="language-cpp"></code></pre>
-        <!-- <button id=copy-button class="copy-btn">Download</button> -->
-        <a href="./code/Acebott/QD002/Camera.zip" class="copy-btn download-btn" download="Camera.zip">Download</a>
+        <a id="download-arduino" style="display: none;" href="./code/Acebott/QD002/Camera_arduino.zip" class="copy-btn download-btn" download="Camera_arduino.zip">Download for Arduino</a>
+        <a id="download-acecode" style="display: none;" href="./code/Acebott/QD002/Camera_acecode.zip" class="copy-btn download-btn" download="Camera_acecode.zip">Download for Acecode</a>
       </div>
       <div id="step-image-wrapper" class="step-image-wrapper">
         <div id="step-images"></div>
@@ -437,11 +437,22 @@ const steps = [
       { title: "Step 13: Wiring", img: "images/Acebott/QD002/s13.png", desc: "Connect servo, LED, buzzer, IR receiver, ultrasonic, and line tracker cables correctly.", caption: "Wiring connections" },
 
       {
-        title: "Step 14: Programming",
+        title: "Step 14: Programming using Arduino IDE",
         imgs: ["images/Acebott/QD001/select-board1.png", "images/Acebott/QD001/select-wroom.png", "images/Acebott/QD001/upload.png", "images/Acebott/QD001/done-uploading-compiling.png"],
         desc: 'Download and extract the source code. Upload "esp32-car.ino" to the controller, and "camera.ino" to the camera. Make sure you select the "ESP32-WROOM-DA Module" board for the car and "AI Thinker ESP32-CAM" for the camera.',
         caption: "Programming the robot",
-        code: "zip"
+        code: "zip1"
+      }, 
+
+      {
+        title: "Step 15: Programming using Acecode",
+        imgs: ["images/Acebott/QD002/open-with-explorer.png","images/Acebott/QD002/copy.png","images/Acebott/QD002/paste.png",
+        "images/Acebott/QD002/open-with.png","images/Acebott/QD002/open-with-acecode.png","images/Acebott/QD002/select-esp32.png",
+        "images/Acebott/QD002/upload-mode.png", "images/Acebott/QD002/upload-acecode.png"
+        ],
+        desc: 'Download and extract the source code. Upload "esp32-car.sb3" to the controller, and "camera.sb3" to the camera. Make sure you select the \'Upload\' mode',
+        caption: "Programming the robot",
+        code: "zip2"
       }
     ];
 
@@ -492,9 +503,25 @@ const steps = [
         document.getElementById("step-caption").innerText = step.caption || "";
 
         // Handle code block
-        // Always show only the download button (no code block)
-document.getElementById("code-block").style.display = "block";
+        if (step.code) {
+          document.getElementById("code-block").style.display = "block";
+          if (step.code.lastIndexOf("zip") != -1){
+            document.getElementById("arduino-code").style.display = "none";
 
+            if (step.code == "zip1"){
+              document.getElementById("download-arduino").style.display = "inline-block";
+              document.getElementById("download-acecode").style.display = "none";
+            }
+            else if (step.code == "zip2"){
+              document.getElementById("download-arduino").style.display = "none";
+              document.getElementById("download-acecode").style.display = "inline-block";
+            }
+          }
+          else
+            document.getElementById("arduino-code").innerText = step.code;
+        } else {
+          document.getElementById("code-block").style.display = "none";
+        }
 
         // Progress bar update
         const progress = ((currentStep + 1) / steps.length) * 100;

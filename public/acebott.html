@@ -331,7 +331,8 @@
       <p id="step-desc" class="text-center"></p>
       <div id="code-block" style="display:none;">
         <pre><code id="arduino-code" class="language-cpp"></code></pre>
-        <button id=copy-button class="copy-btn">Copy</button>
+        <button id=copy-button style="display: none;" class="copy-btn">Copy</button>
+        <a id="download-acecode" style="display: none;" href="./code/Acebott/QD001/IRremote.zip" class="copy-btn download-btn" download="IR_acecode.zip">Download for Acecode</a>
       </div>
       <div id="step-image-wrapper" class="step-image-wrapper">
         <div id="step-images"></div>
@@ -439,11 +440,22 @@
       { title: "Step 11: Wiring", img: "images/Acebott/QD001/s11.png", desc: "Connect servo, LED, buzzer, IR receiver, ultrasonic, and line tracker cables correctly.", caption: "Wiring connections" },
 
       {
-        title: "Step 12: Programming", 
+        title: "Step 12: Programming using Arduino IDE", 
         imgs: ["images/Acebott/QD001/select-board1.png", "images/Acebott/QD001/select-wroom.png", "images/Acebott/QD001/upload.png", "images/Acebott/QD001/done-uploading-compiling.png"],
         desc: "Copy and upload the source code. Feel free to modify it here and there.",
         caption: "Programming the robot",
         code: codeContent
+      }, 
+
+      {
+        title: "Step 13: Programming using Acecode", 
+        imgs: ["images/Acebott/QD001/open-with-explorer.png","images/Acebott/QD001/copy.png","images/Acebott/QD001/paste.png",
+        "images/Acebott/QD001/open-with.png","images/Acebott/QD001/open-with-acecode.png","images/Acebott/QD001/select-esp32.png",
+        "images/Acebott/QD001/upload-mode.png", "images/Acebott/QD001/upload-acecode.png"
+        ],
+        desc: "Copy and upload the source code. Feel free to modify it here and there.",
+        caption: "Programming the robot",
+        code: "zip"
       }
     ];
 
@@ -496,7 +508,17 @@
         // Handle code block
         if (step.code) {
           document.getElementById("code-block").style.display = "block";
-          document.getElementById("arduino-code").innerText = step.code;
+          if (step.code == "zip"){
+            document.getElementById("arduino-code").style.display = "none";
+            document.getElementById("copy-button").style.display = "none";
+            document.getElementById("download-acecode").style.display = "inline-block";
+          }
+          else{
+            document.getElementById("arduino-code").innerText = step.code;
+            document.getElementById("copy-button").style.display = "inline-block";
+            document.getElementById("download-acecode").style.display = "none";
+            document.getElementById("arduino-code").style.display = "block";
+          }
         } else {
           document.getElementById("code-block").style.display = "none";
         }
