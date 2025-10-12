@@ -302,6 +302,88 @@ if (!isset($_SESSION['user_id'])) {
       </div>
     </div>
 
+    <div class="project-card" data-kit="lego" data-age="7-9" data-difficulty="easy">
+      <div class="project-image"><img src="public/steps/gold15.jpg" alt="Aquatic Goldfish"></div>
+      <div class="project-info">
+        <h2>Aquatic Goldfish</h2>
+        <p>Bring life underwater with the Aquatic Goldfish project! Build a colorful fish robot that moves its fins and tail using LEGO WeDo motors. Perfect for young learners to explore basic movement and balance.</p>
+        <p>This project encourages creativity while introducing fundamental mechanical motion concepts.</p>
+        <a href="public/goldfish_intro.html">EXPLORE MORE</a>
+      </div>
+    </div>
+
+    <div class="project-card" data-kit="lego" data-age="10-12" data-difficulty="medium">
+      <div class="project-image"><img src="public/steps/mars19.jpg" alt="Martian Rover"></div>
+      <div class="project-info">
+        <h2>Martian Rover</h2>
+        <p>Build a Mars-exploring robot capable of navigating rough terrain. The Martian Rover teaches learners about gears, motion, and planetary exploration, similar to NASA rovers!</p>
+        <p>It’s a great way to apply science and robotics to space exploration challenges.</p>
+        <a href="public/marsrover_intro.html">LEARN MORE</a>
+      </div>
+    </div>
+
+    <div class="project-card" data-kit="lego" data-age="10-12" data-difficulty="medium">
+      <div class="project-image"><img src="public/steps/mini18.jpg" alt="Aerodynamic Mini Plane"></div>
+      <div class="project-info">
+        <h2>Aerodynamic Mini Plane</h2>
+        <p>Explore the world of flight by designing a LEGO WeDo Mini Plane. Learn about aerodynamics, lift, and propeller systems while testing design variations for speed and stability.</p>
+        <p>Perfect for learners curious about aviation and physics.</p>
+        <a href="public/miniplane.html">EXPLORE MORE</a>
+      </div>
+    </div>
+
+    <div class="project-card" data-kit="lego" data-age="7-9" data-difficulty="easy">
+      <div class="project-image"><img src="public/steps/bird24.jpg" alt="Automated Bird Feeder"></div>
+      <div class="project-info">
+        <h2>Automated Bird Feeder</h2>
+        <p>Help nature thrive by building an Automated Bird Feeder that dispenses food when birds approach. Learn about sensors, timing, and animal-friendly design.</p>
+        <p>This project combines robotics with environmental awareness in a fun way.</p>
+        <a href="public/birdfeeding.html">LEARN MORE</a>
+      </div>
+    </div>
+
+    <div class="project-card" data-kit="lego" data-age="10-12" data-difficulty="medium">
+      <div class="project-image"><img src="public/steps/drag23.jpg" alt="Robotic Dragonfly"></div>
+      <div class="project-info">
+        <h2>Robotic Dragonfly</h2>
+        <p>Design a lightweight LEGO dragonfly that flaps its wings gracefully. This project introduces balance, timing, and natural motion using creative robotics techniques.</p>
+        <p>Learners gain insight into biomimicry and natural mechanics through fun experimentation.</p>
+        <a href="public/dragonfly.html">EXPLORE MORE</a>
+      </div>
+    </div>
+
+    <div class="project-card" data-kit="lego" data-age="7-9" data-difficulty="easy">
+      <div class="project-image"><img src="public/images/glider.jpg" alt="Scratch Basics"></div>
+      <div class="project-info">
+        <h2>Scratch Basics</h2>
+        <p>Learn to program using Scratch — the perfect starting point for young coders! This beginner project helps learners understand loops, motion, and interactive animations.</p>
+        <p>It forms a foundation for coding LEGO WeDo models using drag-and-drop programming.</p>
+        <a href="public/scratch.html">LEARN MORE</a>
+      </div>
+    </div>
+    
+    <div class="project-card" data-kit="acebott" data-age="13+" data-difficulty="easy">
+      <div class="project-image"><img src="public/images/scratch.png" alt="Installing AceCode"></div>
+      <div class="project-info">
+        <h2>Installing AceCode</h2>
+        <p>Learn how to install the AceCode programming software used to control Acebott robots. This guide walks you through the installation steps, setup process, and initial configuration so you can start coding your robots immediately.</p>
+        <p>This project helps beginners set up their robotics development environment and understand how to connect their Acebott robot to the computer for programming.</p>
+        <a href="public/acecode_ide_intro.html">EXPLORE MORE</a>
+      </div>
+    </div>
+
+    <div class="project-card" data-kit="acebott" data-age="13+" data-difficulty="easy">
+      <div class="project-image"><img src="public/images/arduino.png" alt="Installing Arduino IDE"></div>
+      <div class="project-info">
+        <h2>Installing Arduino IDE</h2>
+        <p>This project guides you through installing the Arduino IDE — the main software environment used for programming Acebott robots and other microcontrollers. It includes steps for downloading, installing, and setting up required drivers.</p>
+        <p>By completing this project, learners gain essential knowledge for coding and uploading programs to their robots using Arduino.</p>
+        <a href="public/arduino_ide_intro.html">LEARN MORE</a>
+      </div>
+    </div>
+
+
+
   </main>
 
   <!-- ====== FOOTER ====== -->
